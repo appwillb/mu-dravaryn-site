@@ -1,0 +1,307 @@
+	html,body {background:#191c23 url('../img/bg2016.jpg') center top no-repeat !important;}		
+
+
+        body,tr			{ font-family: 'Cuprum', sans-serif; color: #363636; font-size: 13px; }
+
+
+.inputstl { 
+    padding: 9px; 
+    border: solid 1px #4B718B; 
+    outline: 0; 
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #CDDBE4), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #CDDBE4 1px, #FFFFFF 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    width:100px !important;
+    } 
+    
+.menucls {
+  background-color:rgba(25,28,35,0.7);
+  border-color: #fff;
+}
+.menucls .navbar-brand {
+  color: #fff;
+}
+.menucls .navbar-brand:hover, .menucls .navbar-brand:focus {
+  color: #fff;
+}
+.menucls .navbar-text {
+  color: #fff;
+}
+.menucls .navbar-nav > li > a {
+  color: #fff;
+}
+.menucls .navbar-nav > li > a:hover, .menucls .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: #425766;
+}
+.menucls .navbar-nav > li > .dropdown-menu {
+  background-color:rgba(25,28,35,0.9);
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > a {
+  color: #d7e2e9;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > a:hover,
+.menucls .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #fff;
+  font-weight: 500;
+  background-color: #425766;
+  height: 40px;
+  line-height: 40px;
+  padding-top:0px !important;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #425766;
+}
+.menucls .navbar-nav > .active > a, .menucls .navbar-nav > .active > a:hover, .menucls .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #425766;
+    height: 40px;
+}
+.menucls .navbar-nav > .open > a, .menucls .navbar-nav > .open > a:hover, .menucls .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #425766;
+    height: 40px;
+}
+.menucls .navbar-toggle {
+  border-color: #425766;
+}
+.menucls .navbar-toggle:hover, .menucls .navbar-toggle:focus {
+  background-color: #425766;
+}
+.menucls .navbar-toggle .icon-bar {
+  background-color:rgba(25,28,35,0.7);
+}
+.menucls .navbar-collapse,
+.menucls .navbar-form {
+  border-color: #d7e2e9;
+}
+
+.menucls .navbar-link {
+  color: #d7e2e9;
+}
+.menucls .navbar-link:hover {
+  color: #425766;
+}
+
+.branco{
+  color: white !important;
+}
+
+.icon-bar {
+   background-color:white !important;
+}
+
+.btn-info {
+ color: #fff;
+ background-color: #425766 !important;
+ border-color: #425766 !important;
+}
+
+.navbar-nav > li > a {
+    padding-top:15px !important; 
+    padding-bottom:40px !important;
+    height: 55px;
+    line-height: 55px;
+}
+
+.navbar-brand {
+    padding-top:4px !important; 
+    padding-bottom:0 !important;
+    height: 55px !important;
+}
+
+.navbar {
+    min-height:55px !important;
+
+}
+
+@media (max-width: 767px) {
+
+.navbar .navbar-collapse {
+  text-align: center;
+    background-color:rgba(25,28,35,0.7);
+}
+  .menucls .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
+  .menucls .navbar-nav .open .dropdown-menu > li > a:hover, .menucls .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fff;
+  }
+  .menucls .navbar-nav .open .dropdown-menu > .active > a, .menucls .navbar-nav .open .dropdown-menu > .active > a:hover, .menucls .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color:rgba(25,28,35,0.7);
+  }
+}
+
+/* footer section */
+.footer {
+  background-color: #425766;
+overflow:hidden;
+padding:27px 0 17px;
+}
+
+.footer_wrap .wcont {
+display:inline;
+float:left;
+margin-left:5px;
+margin-right:5px;
+padding-right:40px;
+position:relative;
+width:200px;
+}
+
+.footer_wrap .recent {
+width:260px;
+}
+
+.footer_wrap .wcont h3 {
+color:#E4E3E3;
+font-size:18px;
+font-weight:400;
+margin-bottom:35px;
+}
+
+.footer_wrap .wcont ul {
+margin:0;
+padding:0;
+}
+
+.footer_wrap .wcont ul li {
+background:none;
+list-style-type:none;
+margin:0;
+padding:0;
+}
+
+.footer_wrap .wcont ul.social li {
+margin-bottom:11px !important;
+}
+
+.footer_wrap .wcont ul li a {
+color:#b7b7b7;
+display:inline-block;
+height:28px;
+line-height:28px;
+text-decoration:none;
+}
+
+.footer_wrap .wcont ul li:first-child {
+margin-top:0;
+}
+
+.footer_wrap .wcont ul li a:hover {
+color:#e4e3e3;
+}
+
+.footer_wrap .wcont ul li img {
+float:left;
+margin-right:12px;
+}
+
+footer .copyright {
+background:none repeat scroll 0 0 #000;
+font-style:italic;
+padding:30px 0;
+}
+
+footer .copyright,footer .copyright a {
+color:#BCBCBC;
+}
+
+.menu_top
+{
+padding-top:10px;
+padding-bottom:10px;
+}
+
+
+
+/* ============================================================
+   MU DRAVARYN SEASON 6 - MODERN EPIC THEME
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Montserrat:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    background: #0a0c10 url('../img/bg2016.jpg') center top no-repeat !important;
+    background-size: 1600px auto !important;
+    color: #e0e6ed !important;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Cinzel', serif !important;
+    letter-spacing: 1px;
+}
+
+/* Glassmorphism Server Info Box */
+table[style*="background-color:rgba(25,28,35,0.7)"],
+table[style*="background-color:rgba(25,28,35,0.9)"] {
+    background: rgba(10, 14, 22, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(0, 180, 255, 0.25) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 150, 255, 0.1) !important;
+    border-radius: 12px !important;
+}
+
+/* Glowing Dravaryn CTA Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #0088cc 0%, #005588 100%) !important;
+    border: 1px solid #33bbff !important;
+    color: #ffffff !important;
+    font-family: 'Cinzel', serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 6px !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #00aaff 0%, #0077bb 100%) !important;
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.7) !important;
+    transform: translateY(-2px);
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #d4af37 0%, #aa8822 100%) !important;
+    border: 1px solid #ffd700 !important;
+    color: #1a1a1a !important;
+    font-family: 'Cinzel', serif !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+    border-radius: 6px !important;
+}
+
+.btn-info:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #cc9900 100%) !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7) !important;
+    color: #000 !important;
+    transform: translateY(-2px);
+}
+
+/* Navbar Modernization */
+.menucls {
+    background: rgba(8, 11, 16, 0.92) !important;
+    backdrop-filter: blur(8px) !important;
+    border-bottom: 1px solid rgba(0, 180, 255, 0.2) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7) !important;
+}
+
+.menucls .navbar-nav > li > a {
+    color: #cfd8dc !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    transition: color 0.2s ease !important;
+}
+
+.menucls .navbar-nav > li > a:hover {
+    color: #00b4ff !important;
+    text-shadow: 0 0 10px rgba(0, 180, 255, 0.6) !important;
+}

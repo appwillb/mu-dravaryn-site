@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  musite:
+    build: .
+    container_name: dravaryn-musite
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - DB_HOST=187.127.26.213
+      - DB_PORT=5432
+      - DB_NAME=openmu
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres

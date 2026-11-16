@@ -1,0 +1,211 @@
+	body {background:#4e3942 url('../img/bg_site.jpg') center top no-repeat;}		
+        body,tr			{ font-family: 'Cuprum', sans-serif; color: #363636; font-size: 13px; }
+
+	A:link			{ text-decoration: none; color: #8B0000; }
+	A:visited		{ text-decoration: none; color: #8B0000; }
+	A:hover			{ text-decoration: underline; color: green;}
+
+	A:link    IMG 	{border:0px; border-thickness: 0px; border-color: #000000; border-style: solid;}
+	A:active  IMG 	{border:0px; border-thickness: 0px; border-color: #000000; border-style: solid;}
+	A:visited IMG 	{border:0px; border-thickness: 0px; border-color: #000000; border-style: solid;}
+	A:hover   IMG 	{border:0px; border-thickness: 2px; border-color: green; border-style: solid;}
+
+.mostrachar {
+	background-color: #ccc;
+	border-bottom: 1px solid #33373d;
+	width: 100%;
+	display: block;
+	position: relative;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+        text-decoration: none;
+}
+
+.esquerda {
+	background-color: #616975;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(114, 122, 134)),to(rgb(80, 88, 100)));
+	background-image: -webkit-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+	background-image: -moz-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+	background-image: -o-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+	background-image: -ms-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+	background-image: linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#727a86', EndColorStr='#505864');
+}
+
+.info_online {
+	border-top: 1px solid rgb(114, 122, 134);	
+	height:36px;
+	background-color: solid rgb(114, 122, 134);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(114, 122, 134)),to(rgb(114, 122, 134)));
+	background-image: -webkit-linear-gradient(top, rgb(114, 122, 134), rgb(114, 122, 134));
+	background-image: -moz-linear-gradient(top, rgb(114, 122, 134), rgb(114, 122, 134));
+	background-image: -o-linear-gradient(top, rgb(114, 122, 134), rgb(114, 122, 134));
+	background-image: -ms-linear-gradient(top, rgb(114, 122, 134), rgb(114, 122, 134));
+	background-image: linear-gradient(top, rgb(114, 122, 134), rgb(114, 122, 134));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#727a86', EndColorStr='#727a86');
+
+}
+
+
+
+.info_online table span {	
+	font-size: 1em; 
+	display: inline-block;
+	position: absolute;
+	left: 895px;
+	top: 50%; 
+	background: #48515c;
+	line-height: 1em;
+	height: 1em;
+	padding: .4em .6em;
+	margin: -.8em 0 0 0; 
+	color: #00FF00;
+	text-indent: 0;
+	text-align: center;
+	-webkit-border-radius: .769em;
+	-moz-border-radius: .769em;
+	border-radius: .769em;
+	-webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
+	-moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
+	box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, .26), 0px 1px 0px 0px rgba(255, 255, 255, .15);
+	text-shadow: 0px 1px 0px rgba(0,0,0,.5);
+}
+
+.redondo {
+   width: 65px;
+   height: 75px;
+   background-color: #363636;
+   color: #FFF;
+ 
+   /* Agora a mágica */
+   border-radius: 50%;
+}
+
+.redondo2 {
+   height: 140px;
+   background-color: #363636;
+   color: #FFF;
+ 
+	border-radius: 5px;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+}
+
+.redondo_avatar {
+   background-color: #363636;
+   color: #FFF;
+ 
+   /* Agora a mágica */
+   border-radius: 50%;
+}
+
+	#transbox {
+	width: 182px;
+	background-color: white;
+	border: 2px solid black;
+	filter:alpha(opacity=60);
+	opacity: 0.8;
+	z-index: 1;
+	}
+
+	#transbox table {
+	filter:alpha(opacity=100);
+	opacity: 1;
+	position: relative;
+	z-index: 2;
+	}
+
+	#transbox2 div {
+	width: 850px;
+        align: center;
+	background-color: white;
+	border: 2px solid black;
+	filter:alpha(opacity=80);
+	opacity: 0.8;
+	z-index: 1;
+	}
+
+	#transbox2 table {
+	filter:alpha(opacity=100);
+	opacity: 1;
+	position: relative;
+	z-index: 1;
+	}
+
+        .CellContent2 { position: relative; left:0; } 
+
+        .Tooltip2 { 
+          z-index: 10; 
+          visibility: hidden; 
+          display: block;
+          position: absolute; 
+          width: 80px;
+          padding: 2px 0; 
+          color: #000; 
+          font-size: 12px; 
+          border:0px dotted black; 
+          text-align:center;
+          z-index:5;  } 
+
+        .CellContent3 { position: relative; left:0; } 
+
+        .Tooltip3 { 
+          z-index: 10; 
+          visibility: hidden; 
+          display: block;
+          position: absolute; 
+          width: 350px;
+          padding: 2px 0; 
+          color: #000; 
+          font-size: 12px; 
+          border:0px dotted black; 
+          text-align:center;
+           } 
+
+	 .blink { text-decoration: blink; }
+
+	.bordaBox {background: transparent;}
+	.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b4, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b, .bordaBox .b4b {display:block; overflow:hidden; font-size:1px;}
+	.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b {height:1px;}
+	.bordaBox .b2, .bordaBox .b3, .bordaBox .b4 {background:url(img/trans.png); border-left:1px solid #f0bd85; border-right:1px solid #f0bd85;}
+	.bordaBox .b1 {margin:0 5px; background:#f0bd85;}
+	.bordaBox .b2 {margin:0 3px; border-width:0 2px;}
+	.bordaBox .b3 {margin:0 2px;}
+	.bordaBox .b4 {height:2px; margin:0 1px;}
+	.bordaBox .conteudo {padding:0px;display:block; background:url(img/trans.png); border-left:1px solid #f0bd85; border-right:1px solid #f0bd85;}
+
+
+	#container {
+ 	  height:100%;
+	}
+
+	div.nf_title { height:35px; overflow:hidden; background:url('../img/line-hr.png') center bottom no-repeat; margin-bottom:5px;}
+	div.nf_title h3.lastmitems { float:center; width:400px; height:31px; text-align:center; font: 15px LithosProBold; color: #696969; padding:0px; }
+
+	a.starter {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/inicio2.png') no-repeat; background-size:55px 40px;}
+	a.starter:hover {display:block;width:55px;height:40px;background:url('../img/menu/inicio.png') no-repeat; background-size:55px 40px;}
+
+	a.news {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/news2.png') no-repeat; background-size:55px 40px;}
+	a.news:hover {display:block;width:55px;height:40px;background:url('../img/menu/news.png') no-repeat; background-size:55px 40px;}
+
+	a.opt {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/opt2.png') no-repeat; background-size:55px 40px;}
+	a.opt:hover {display:block;width:55px;height:40px;background:url('../img/menu/opt.png') no-repeat; background-size:55px 40px;}
+
+	a.eventos {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/eventos2.png') no-repeat; background-size:55px 40px;}
+	a.eventos:hover {display:block;width:55px;height:40px;background:url('../img/menu/eventos.png') no-repeat; background-size:55px 40px;}
+
+	a.murkut {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/murkut2.png') no-repeat; background-size:55px 40px;}
+	a.murkut:hover {display:block;width:55px;height:40px;background:url('../img/menu/murkut.png') no-repeat; background-size:55px 40px;}
+
+	a.amigos {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/amigos2.png') no-repeat; background-size:55px 40px;}
+	a.amigos:hover {display:block;width:55px;height:40px;background:url('../img/menu/amigos.png') no-repeat; background-size:55px 40px;}
+
+	a.mensagens {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/mensagens2.png') no-repeat; background-size:55px 40px;}
+	a.mensagens:hover {display:block;width:55px;height:40px;background:url('../img/menu/mensagens.png') no-repeat; background-size:55px 40px;}
+
+	a.suporte {display:block;width:55px;height:40px;padding-bottom:0;background:url('../img/menu/suporte2.png') no-repeat; background-size:55px 40px;}
+	a.suporte:hover {display:block;width:50px;height:40px;background:url('../img/menu/suporte.png') no-repeat; background-size:55px 40px;}
+
+	.logop {
+
+		border-radius:3px;
+	}

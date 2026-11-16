@@ -1,0 +1,195 @@
+#menu_chars ul, ul ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu_chars {
+	position: relative;
+	left:25;
+	top:5;	
+    	width: 800px;
+	height: 180px;
+	margin: 1px auto;
+}
+
+.menu_c > li {
+	float: left;
+	position: absolute;
+	font-size: 1em;
+	font-weight: bold;
+	width: 130px;
+	height: 170px;
+	padding: 0;
+	margin: 0;
+	color: black;
+	background-color: #ddd;
+	border-radius: 5px;
+}
+
+.menu_c > li > a {
+	left:-20;
+	padding: 0;
+	margin-top: 5;
+	display: block;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: inherit;
+	outline: 0 none;
+}
+
+.menu_c > li > a > img {
+	margin-bottom: 5;
+}
+
+.menu_c ul {
+	top: 175;
+	width: 830;
+    	position: absolute;
+	background-color: #ddd;
+	border-radius: 5px;
+	height:150px;
+}
+
+.menu_c ul li a{
+	width: 100%;
+	height: 2.75em;
+	line-height: 2.75em;
+	text-indent: 2.75em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+        text-decoration: none;
+}
+
+.menu_c ul li:last-child a {
+
+}
+.menu_c > li:hover, .menu_c > li.active {
+	background-color: #35afe3;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(69, 199, 235)),to(rgb(38, 152, 219)));
+	background-image: -webkit-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+	background-image: -moz-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+	background-image: -o-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+	background-image: -ms-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+	background-image: linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#45c7eb', EndColorStr='#2698db');
+	-webkit-box-shadow: inset 0px 1px 0px 0px #6ad2ef;
+	-moz-box-shadow: inset 0px 1px 0px 0px #6ad2ef;
+	box-shadow: inset 0px 1px 0px 0px #6ad2ef;
+}
+.menu_c > li > a.active {
+
+}
+
+
+.item11 > div > a:before {
+	content: '';
+	background-image: url(../img/home.png);
+	background-repeat: no-repeat;
+	font-size: 36px;
+	height: 20px;
+  	width: 20px;
+	position: absolute;
+  	left: 10;
+	top: 7;
+
+}
+
+.item22 > div > a:before {
+	content: '';
+	background-image: url(../img/Globe.png);
+	background-repeat: no-repeat;
+	font-size: 36px;
+	height: 20px;
+  	width: 20px;
+	position: absolute;
+  	left: 10;
+	top: 7;
+
+}
+
+.itemm1 {
+left:0px;
+}
+.itemm2 {
+left:150px;
+}
+.itemm3 {
+left:300px;
+}
+.itemm4 {
+left:450px;
+}
+.itemm5 {
+left:600px;
+}
+
+.item1ul {
+left:0px;
+}
+.item2ul {
+left:-150px;
+}
+.item3ul {
+left:-300px;
+}
+.item4ul {
+left:-450px;
+}
+.item5ul {
+left:-600px;
+}
+
+.item33 > a:before {
+	content: '';
+	background-image: url(../img/edit1.png);
+	background-repeat: no-repeat;
+	font-size: 36px;
+	height: 20px;
+  	width: 20px;
+	position: absolute;
+  	left: 10;
+	top:  7;
+}
+
+.item44 > a:before {
+	content: '';
+	background-image: url(../img/vip2.png);
+	background-repeat: no-repeat;
+	font-size: 36px;
+	height: 20px;
+  	width: 20px;
+	position: absolute;
+  	left: 10;
+	top:  7;
+}
+
+.item55 > a:before {
+	content: '';
+	background-image: url(../img/9624.png);
+	background-repeat: no-repeat;
+	font-size: 36px;
+	height: 20px;
+  	width: 20px;
+	position: absolute;
+  	left: 10;
+	top:  7;
+}
+
+.menu_c > li > ul li:hover a,
+.menu_c > li > ul li:hover a span,
+.menu_c > li > ul li:hover a:before {
+}
+
+.menu_c > li > a span {
+	display: inline-block;
+	position: absolute;
+	right: 1em;
+	bottom: 7; 
+	line-height: 1em;
+	height: 1em;
+
+}
+
+

@@ -1,0 +1,25 @@
+FONT		{FONT-FAMILY: verdana; FONT-SIZE: 12px; font-weight: normal;   }
+A:link          {BACKGROUND: none; COLOR: black; FONT-SIZE: 8px tahoma; TEXT-DECORATION: none;}
+A:active        {BACKGROUND: none; COLOR: black; FONT-SIZE: 8px tahoma; TEXT-DECORATION: underline;}
+A:visited       {BACKGROUND: none; COLOR: black; FONT-SIZE: 8px tahoma; TEXT-DECORATION: none;}
+A:hover         {BACKGROUND: none; COLOR: red; FONT-SIZE: 8px tahoma; TEXT-DECORATION: none;}
+
+body {	
+scrollbar-face-color: #ffffff;
+scrollbar-highlight-color: #8080C0;
+scrollbar-shadow-color: #8080C0;
+scrollbar-3dlight-color: #8080C0;
+scrollbar-arrow-color:  #8080C0;
+scrollbar-track-color: #ffffff;
+scrollbar-darkshadow-color: #8080C0;
+}
+
+input{font-family:verdana; font-size:12; color:black; border: 0px solid black; background-color: #FFFFFF}
+textarea{font-family:verdana; font-size:12; color:#BBBBBB; border:2px solid #BBBBBB; background-color: #FFFFFF}
+Select{font-family:verdana; font-size:12; color:#BBBBBB; border:2px solid #BBBBBB; background-color: #FFFFFF}
+radio{font-family:verdana; font-size:12; color:#BBBBBB; border:2px solid #BBBBBB; background-color: #ffffff}
+
+A:link    IMG 	{border:0px; border-thickness: 1px; border-color: #ab09d6; border-style: solid;}
+A:active  IMG 	{border:0px; border-thickness: 1px; border-color: #ab09d6; border-style: solid;}
+A:visited IMG 	{border:0px; border-thickness: 1px; border-color: #ab09d6; border-style: solid;}
+A:hover   IMG 	{border:0px; border-thickness: 1px; border-color: white; border-style: solid;}

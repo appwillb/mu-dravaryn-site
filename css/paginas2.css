@@ -1,0 +1,19 @@
+	body { background: transparent !important; }
+	body,tr			{ font-family: arial, helvetica; color: black; font-size: 12px; }
+
+	A:link			{ text-decoration: none; color: black; }
+	A:visited		{ text-decoration: none; color: black; }
+	A:hover			{ text-decoration: underline; color: green;}
+
+	A:link    IMG 	{border:1px; border-thickness: 0px; border-color: #000000; border-style: solid;}
+	A:active  IMG 	{border:1px; border-thickness: 0px; border-color: #000000; border-style: solid;}
+	A:visited IMG 	{border:1px; border-thickness: 0px; border-color: #000000; border-style: solid;}
+	A:hover   IMG 	{border:1px; border-thickness: 2px; border-color: green; border-style: solid;}
+
+.redondo_avatar {
+   background-color: #363636;
+   color: #FFF;
+ 
+   /* Agora a mágica */
+   border-radius: 50%;
+}
