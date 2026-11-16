@@ -1,153 +1,77 @@
-﻿<head>
-	<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'>
-
-	<link rel="stylesheet" href="css/paginas.css" type="text/css" media="screen" />
-
-        <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
-
-	<script type="text/javascript">
-        function tamanho(){
-		$("#main2", window.parent.document).height($("#tamanho").height() + 40);
-	    }
-        </script>
-
-</head>
-
-<body leftmargin= "0" topmargin="0" onload="tamanho()">
-<div id="tamanho">
-<center>
-
-<BR><BR><font size=3><b>INFORMAÇÕES SOBRE O SERVIDOR</font></b> <BR><BR>
-
-<?
-include("inclu/config_simples.php");
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'>
+    <link rel="stylesheet" href="css/paginas.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background: transparent; color: #d0d7de; }
+        h3, h4 { font-family: 'Cinzel', serif; color: #ffd700; letter-spacing: 1px; }
+        .info-card {
+            background: rgba(15, 20, 30, 0.9);
+            border: 1px solid rgba(0, 180, 255, 0.25);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        .table-custom { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+        .table-custom td { padding: 10px 15px; background: rgba(25, 32, 48, 0.6); border-top: 1px solid rgba(255,255,255,0.05); }
+        .table-custom td.label-col { font-weight: bold; color: #00b4ff; width: 40%; }
+        .badge-gold { background: #d4af37; color: #111; font-weight: bold; padding: 4px 8px; border-radius: 4px; }
+    </style>
+    <script type="text/javascript">
+        function tamanho(){
+            $("#main2", window.parent.document).height($("#tamanho").height() + 80);
+        }
+    </script>
+</head>
+<body onload="tamanho()">
+<div id="tamanho" style="padding: 20px 40px;">
+    <center>
+        <h3>INFORMAÇÕES OFICIAIS DO SERVIDOR</h3>
+        <p style="color: #8b949e;">Configuração 100% balanceada e baseada nos padrões do MU Vanguard</p>
+    </center>
 
-$dados_server = mssql_fetch_row(mssql_query("SELECT * from dbo.fn_info_adm()"));
-
-
-$server_on 	= $dados_server[0];
-$acr2 		= $dados_server[1];
-$acr3 		= $dados_server[2];
-$acr4 		= $dados_server[3];
-$acr5 		= $dados_server[4];
-$acr6 		= $dados_server[5];
-$acr7 		= $dados_server[6];
-$acr8 		= $dados_server[7];
-$acr9 		= $dados_server[8];
-$acr10 		= $dados_server[9];
-$acr11 		= $dados_server[10];
-$acr12 		= $dados_server[11];
-?>
-
-
-<table border = 0 cellpadding='0' cellspacing='2' width=600>
+    <div class="info-card">
+        <h4><i class="glyphicon glyphicon-flash"></i> Visão Geral & Economia</h4>
+        <table class="table-custom">
+            <tr><td class="label-col">Versão</td><td>Season 6 Episódio 3 (Original)</td></tr>
+            <tr><td class="label-col">Experiência Normal (EXP)</td><td><span class="badge-gold">50x</span></td></tr>
+            <tr><td class="label-col">Master Experience (ML)</td><td><span class="badge-gold">30x</span></td></tr>
+            <tr><td class="label-col">Taxa de Drop Geral</td><td>20%</td></tr>
+            <tr><td class="label-col">Level Máximo</td><td>400 (Base) + 200 (Master Level)</td></tr>
+            <tr><td class="label-col">Sistema de Reset</td><td>Level 400 · <b>1.000 pontos</b> por Reset (Pontuativo)</td></tr>
+            <tr><td class="label-col">Custo do Reset</td><td>20.000.000 Zen (Free) / 10.000.000 Zen (VIP)</td></tr>
+            <tr><td class="label-col">Tamanho Máximo da Party</td><td>5 Jogadores (Bônus de Party ativado)</td></tr>
+            <tr><td class="label-col">Spots Mapeados</td><td><b>1.399 spots dedicados</b> (5 monstros por spot em 29 mapas)</td></tr>
+        </table>
+    </div>
 
+    <div class="info-card">
+        <h4><i class="glyphicon glyphicon-time"></i> Cronograma de Invasões & Chefes</h4>
+        <table class="table-custom">
+            <tr><td class="label-col">Golden Dragon (Dragões Dourados)</td><td>00:00 · 06:00 · 12:00 · 18:00 (A cada 6 horas)</td></tr>
+            <tr><td class="label-col">Red Dragon (Dragão Vermelho)</td><td>01:30 · 04:15 · 08:15 · 13:30 · 16:15 · 20:15 (6x ao dia)</td></tr>
+            <tr><td class="label-col">Death King (Rei da Morte)</td><td>00:45 · 03:00 · 06:45 · 09:45 · 12:45 · 15:00 · 18:45 · 21:45</td></tr>
+            <tr><td class="label-col">White Wizard (Mago Branco & Orcs)</td><td>02:15 · 07:30 · 11:00 · 14:15 · 19:30 · 22:30</td></tr>
+            <tr><td class="label-col">Medusa (Boss de Peace)</td><td>05:00 · 17:00 (A cada 12 horas)</td></tr>
+            <tr><td class="label-col">White Rabbits (Coelhos Brancos)</td><td>03:45 · 15:45 (A cada 12 horas)</td></tr>
+        </table>
+    </div>
 
-
-	<tr>
-		<td style='text-align:left;border-top-left-radius: 7px;' class='bgtr'>&nbsp;&nbsp;<b>Versão</b></td>
-		<td style='text-align:left;'>Ex803</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Contas</b></td>
-		<td style='text-align:left;'><?=$acr2;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Shopping</b></td>
-		<td style='text-align:left;'>IN-GAME</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Contas VIP</b></td>
-		<td style='text-align:left;'><?=$acr7;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Exp VIP</b></td>
-		<td style='text-align:left;'>1000x</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Personagens</b></td>
-		<td style='text-align:left;'><?=$acr3;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Exp FREE</b></td>
-		<td style='text-align:left;'>900x</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<a href=online.php><b><u><font color=white>Online</u></b></a></td>
-		<td style='text-align:left;'><?=$server_on;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Max Level</b></td>
-		<td style='text-align:left;'>400(+330 M.Level)</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Recorde Online</b></td>
-		<td style='text-align:left;'><?=$acr12;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Max Status</b></td>
-		<td style='text-align:left;'>64.900</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<a href=banidos.php><b><u><font color=white>Banidos</u></a></b></td>
-		<td style='text-align:left;'><?=$acr4;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Bug Bless</b></td>
-		<td style='text-align:left;'>OFF</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Contas Bloc</b></td>
-		<td style='text-align:left;'><?=$acr9;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Tipo Reset</b></td>
-		<td style='text-align:left;'>Acumulativo</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Adms Online</b></td>
-		<td style='text-align:left;'><?=$acr10;?>/<?=$acr11;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Level Reset</b></td>
-		<td style='text-align:left;'>400</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Gms Online</b></td>
-		<td style='text-align:left;'><?=$acr5;?>/<?=$acr6;?></td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>M.Reset Level</b></td>
-		<td style='text-align:left;'>400</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Chaos Mix</b></td>
-		<td style='text-align:left;'>100%</td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Ativa M.Reset</b></td>
-		<td style='text-align:left;'>300 resets</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Pentagram Mix</b></td>
-		<td style='text-align:left;'>100%</td>
-	</tr>
-
-	<tr>
-		<td style='text-align:left;border-bottom-left-radius: 7px;' class='bgtr'>&nbsp;&nbsp;<b>Item Drop</b></td>
-		<td style='text-align:left;'>85%</td>
-		<td style='text-align:left;' class='bgtr'>&nbsp;&nbsp;<b>Divulgações</b></td>
-		<td style='text-align:left;'><?=$acr8;?></td>
-	</tr>
-
-</table>
-
-<?
-require 'eventos.php';
-
-require 'comandos.php';
-?>
-
-<BR><BR><font size=3><b>CLASSES DISPONÍVEIS</font></b> <BR><BR>
-
-<table border = 0 cellpadding='0' cellspacing='0'>
-	<tr style='padding: 2px;'>
-		<td style='padding: 2px;'><img src=img/dw.jpg></td>
-		<td style='padding: 2px;'><img src=img/dk.jpg></td>
-		<td style='padding: 2px;'><img src=img/elf.jpg></td>
-		<td style='padding: 2px;'><img src=img/mg.jpg></td>
-		<td style='padding: 2px;'><img src=img/dl.jpg></td>
-		<td style='padding: 2px;'><img src=img/sum.jpg></td>
-		<td style='padding: 2px;'><img src=img/rf.jpg></td>
-	</tr>
-</table>
-
+    <div class="info-card">
+        <h4><i class="glyphicon glyphicon-fire"></i> Eventos Diários & Especiais</h4>
+        <table class="table-custom">
+            <tr><td class="label-col">Blood Castle (1 a 8)</td><td>A cada 2 horas (Início em horas ímpares)</td></tr>
+            <tr><td class="label-col">Devil Square (1 a 7)</td><td>A cada 2 horas (Início em horas pares)</td></tr>
+            <tr><td class="label-col">Chaos Castle (1 a 7)</td><td>A cada 4 horas</td></tr>
+            <tr><td class="label-col">Crywolf & Balgass</td><td>Todos os dias às 21:00</td></tr>
+            <tr><td class="label-col">Castle Siege</td><td>Todo Domingo às 16:00</td></tr>
+        </table>
+    </div>
 </div>
+</body>
+</html>
