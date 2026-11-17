@@ -1442,7 +1442,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
       MU Dravaryn Season 6 Episode 3 é um servidor privado independente dedicado aos fãs clássicos de MMORPG. Todos os direitos reservados às respectivas marcas.
     </p>
     <p style="font-size:12px;color:#64748b;margin-top:15px;">
-      &copy; <?=date('Y');?> MU Dravaryn • Desenvolvido com excelência AAA.
+      &copy; <?=date('Y');?> MU Dravaryn • Desenvolvido com excelência AAA. • <a href="site.php?p=admin" style="color: rgba(212,175,55,0.7); text-decoration: none;"><i class="fa fa-lock"></i> Painel Admin</a>
     </p>
   </div>
 </footer>
