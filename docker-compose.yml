@@ -3,10 +3,11 @@ version: '3.8'
 services:
   musite:
     build: .
-    container_name: dravaryn-musite
     restart: always
+    expose:
+      - "80"
     ports:
-      - "8080:80"
+      - "8085:80"
     environment:
       - DB_HOST=187.127.26.213
       - DB_PORT=5432
