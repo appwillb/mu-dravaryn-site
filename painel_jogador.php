@@ -33,15 +33,32 @@ if (!$is_logged) {
 }
 
 // 1. Fetch Logged User Account Details
-$safe_login = addslashes($user_login);
+$safe_login = trim(addslashes($user_login));
 $sql_acc = @mssql_query("SELECT a.\"Id\", a.\"LoginName\", a.\"EMail\", a.\"RegistrationDate\", COALESCE(a.\"WCoinC\", 0) as wcoinc, COALESCE(a.\"WCoinP\", 0) as wcoinp, COALESCE(a.\"GoblinPoints\", 0) as gp, m.\"AccountLevel\", m.\"AccountExpireDate\", m.\"vip\", m.\"dias_vip\" 
     FROM data.\"Account\" a 
     LEFT JOIN public.\"MEMB_INFO\" m ON LOWER(m.memb___id) = LOWER(a.\"LoginName\") 
     WHERE LOWER(a.\"LoginName\") = LOWER('$safe_login')");
 $acc_data = ($sql_acc) ? @mssql_fetch_assoc($sql_acc) : null;
 
+// Fallback: If join query fails or returns empty, query directly from data."Account"
 if (!$acc_data) {
-    echo "<div class='alert alert-danger'>Erro ao carregar os dados da conta. Por favor, relogue.</div>";
+    $sql_acc2 = @mssql_query("SELECT a.\"Id\", a.\"LoginName\", a.\"EMail\", a.\"RegistrationDate\", COALESCE(a.\"WCoinC\", 0) as wcoinc, COALESCE(a.\"WCoinP\", 0) as wcoinp, COALESCE(a.\"GoblinPoints\", 0) as gp 
+        FROM data.\"Account\" a 
+        WHERE LOWER(a.\"LoginName\") = LOWER('$safe_login')");
+    $acc_data = ($sql_acc2) ? @mssql_fetch_assoc($sql_acc2) : null;
+    if ($acc_data) {
+        $acc_data['AccountLevel'] = 0;
+        $acc_data['AccountExpireDate'] = null;
+        $acc_data['vip'] = 0;
+        $acc_data['dias_vip'] = null;
+    }
+}
+
+if (!$acc_data) {
+    echo "<div class='alert alert-danger' style='background:rgba(239,68,68,0.2);border:1px solid #ef4444;color:#fff;padding:16px 20px;border-radius:8px;'>
+        <i class='fa fa-exclamation-triangle' style='margin-right:8px;'></i> 
+        Não foi possível localizar os dados da conta <strong>" . htmlspecialchars($user_login) . "</strong>. Por favor, <a href='logar.php?deslogar=ok' style='color:#ffd700;text-decoration:underline;'>clique aqui para deslogar</a> e faça login novamente.
+    </div>";
     return;
 }
 

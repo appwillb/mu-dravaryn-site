@@ -44,8 +44,13 @@ class MuDatabase {
         $translated = str_ireplace('dbo.', 'public.', $translated);
         $translated = str_ireplace('[dbo].', 'public.', $translated);
         $translated = preg_replace('/\\[(\\w+)\\]/', '"$1"', $translated);
-        $translated = preg_replace('/\\bmemb_info\\b/i', 'public."MEMB_INFO"', $translated);
-        $translated = preg_replace('/\\bmemb_stat\\b/i', 'public."MEMB_STAT"', $translated);
+        // Translate legacy table names safely (avoid double quoting or prefixing)
+        $translated = preg_replace('/(?<!public\.)(?<!")\bmemb_info\b(?!")/i', 'public."MEMB_INFO"', $translated);
+        $translated = preg_replace('/(?<!public\.)(?<!")\bmemb_stat\b(?!")/i', 'public."MEMB_STAT"', $translated);
+        $translated = str_replace('public."public."MEMB_INFO""', 'public."MEMB_INFO"', $translated);
+        $translated = str_replace('public."public."MEMB_STAT""', 'public."MEMB_STAT"', $translated);
+        $translated = str_replace('""MEMB_INFO""', '"MEMB_INFO"', $translated);
+        $translated = str_replace('""MEMB_STAT""', '"MEMB_STAT"', $translated);
         $translated = preg_replace('/CONVERT\\s*\\(\\s*VARCHAR\\s*\\(\\s*\\d+\\s*\\)\\s*,\\s*([^,)]+)\\s*,\\s*\\d+\\s*\\)/i', '($1)::text', $translated);
         $translated = preg_replace('/CONVERT\\s*\\(\\s*VARCHAR\\s*\\(\\s*\\d+\\s*\\)\\s*,\\s*([^)]+)\\s*\\)/i', '($1)::text', $translated);
         $translated = str_ireplace('isnull(', 'coalesce(', $translated);
