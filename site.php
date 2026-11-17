@@ -84,13 +84,14 @@ if (isset($_COOKIE["usuario"]) && isset($_COOKIE["senha"])) {
 
 // Subpage router (NO IFRAMES!)
 $page = isset($_GET['p']) ? strtolower(trim($_GET['p'])) : 'home';
-$allowed_pages = ['home', 'painel', 'loja', 'shop', 'cadastro', 'download', 'info', 'ranking', 'comandos', 'contato', 'suporte', 'dicas', 'eventos', 'guilds', 'mudar_senha'];
+$allowed_pages = ['home', 'painel', 'loja', 'shop', 'cadastro', 'download', 'info', 'ranking', 'comandos', 'contato', 'suporte', 'dicas', 'eventos', 'guilds', 'mudar_senha', 'admin'];
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
 }
 
 $subpage_meta = [
     'painel'      => ['short' => 'Painel', 'title' => 'PAINEL DO <span>JOGADOR</span>', 'desc' => 'Gerencie seus personagens, resets, distribuição de pontos e atributos da conta.'],
+    'admin'       => ['short' => 'Administração', 'title' => 'PAINEL DE <span>ADMINISTRAÇÃO</span>', 'desc' => 'Central de controle mestre: contas, personagens, WCoins, VIP, senhas, bans e segurança.'],
     'loja'        => ['short' => 'WebShop', 'title' => 'LOJA DE ITENS & <span>WEBSHOP</span>', 'desc' => 'Planos VIP, Sets +13 Full, Armas Raras, Asas Level 3, Jóias e Doações PIX.'],
     'shop'        => ['short' => 'WebShop', 'title' => 'LOJA DE ITENS & <span>WEBSHOP</span>', 'desc' => 'Planos VIP, Sets +13 Full, Armas Raras, Asas Level 3, Jóias e Doações PIX.'],
     'cadastro'    => ['short' => 'Cadastro', 'title' => 'CRIAR <span>NOVA CONTA</span>', 'desc' => 'Cadastre-se gratuitamente agora e receba 3 Dias VIP para turbinar seu início!'],
@@ -282,7 +283,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
               <li role="separator" class="divider"></li>
               <li><a href="site.php?p=painel"><i class="fa fa-dashboard text-gold"></i> Painel do Jogador</a></li>
               <li><a href="site.php?p=loja"><i class="fa fa-shopping-cart text-gold"></i> Loja de Itens / WebShop</a></li>
-              <li><a href="painel/index.php" target="_blank"><i class="fa fa-external-link text-gold"></i> Painel Clássico</a></li>
+              <?php if (strtolower($user_login) === 'mauricio' || (isset($_SESSION['is_super_admin']) && $_SESSION['is_super_admin'] === true)): ?>
+                <li><a href="site.php?p=admin" style="color:var(--gold-primary); font-weight:700;"><i class="fa fa-cogs text-gold"></i> Painel de Administração</a></li>
+              <?php endif; ?>
               <li role="separator" class="divider"></li>
               <li><a href="logar.php?deslogar=ok" class="text-danger"><i class="fa fa-sign-out"></i> Desconectar</a></li>
             </ul>
@@ -833,6 +836,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
       <!-- WEBSHOP NATIVO -->
       <section class="subpage-container" style="padding: 20px 0 60px;">
         <?php include("shop_loja.php"); ?>
+      </section>
+
+    <?php elseif ($page == 'admin'): ?>
+
+      <!-- PAINEL DE ADMINISTRAÇÃO NATIVO -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <?php include("painel_admin.php"); ?>
       </section>
 
     <?php elseif ($page == 'ranking'): ?>
