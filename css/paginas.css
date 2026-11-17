@@ -1,80 +1,117 @@
+/* MU DRAVARYN - SUBPAGES & IFRAME MASTER STYLING */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap');
 
-	body,tr			{ font-family: arial, helvetica; color: #363636; font-size: 12px; }
+html, body {
+  background: transparent !important;
+  color: #cdd7e5 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  margin: 0;
+  padding: 10px;
+}
 
-	A:link			{ text-decoration: none; color: #8B0000; }
-	A:visited		{ text-decoration: none; color: #8B0000; }
-	A:hover			{ text-decoration: underline; color: grenn;}
+h1, h2, h3, h4, b, strong, font[size="4"], font[size="5"] {
+  font-family: 'Cinzel', serif !important;
+  color: #d4af37 !important;
+  letter-spacing: 1px;
+}
 
-         input    { font-family:verdana; font-size:14; color:#363636; border:1px solid #696969; background: #BEBEBE; }
-         textarea { font-family:verdana; font-size:12; color:#363636; border:1px solid #696969; background: #BEBEBE; }
-         Select   { font-family:verdana; font-size:14; color:#363636; border:1px solid #696969; background: #BEBEBE; }
-         radio    { font-family:verdana; font-size:12; color:#363636; border:1px solid #696969; background: #BEBEBE; }
+a {
+  color: #d4af37 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+a:hover {
+  color: #fce08a !important;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
 
-	.bordaBox {background: transparent;}
-	.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b4, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b, .bordaBox .b4b {display:block; overflow:hidden; font-size:1px;}
-	.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b {height:1px;}
-	.bordaBox .b2, .bordaBox .b3, .bordaBox .b4 {background:url('../img/fundonews2.png'); border-left:1px solid #c9c9c9; border-right:1px solid #c9c9c9;}
-	.bordaBox .b1 {margin:0 5px; background:#c9c9c9;}
-	.bordaBox .b2 {margin:0 3px; border-width:0 2px;}
-	.bordaBox .b3 {margin:0 2px;}
-	.bordaBox .b4 {height:2px; margin:0 1px;}
-	.bordaBox .conteudo {padding:0px;display:block; background:url('../img/fundonews2.png'); border-left:1px solid #c9c9c9; border-right:1px solid #c9c9c9;}
+/* Forms & Inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  background: rgba(12, 17, 26, 0.9) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  color: #fff !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  outline: none !important;
+  font-family: 'Montserrat', sans-serif !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4) !important;
+}
 
-	.imput {
-	font: 17px Arial, sans-serif;
-	color: #363636;
-	}
+/* Buttons */
+input[type="submit"],
+input[type="button"],
+button,
+.btn-primary,
+.btn-info {
+  background: linear-gradient(135deg, #fce08a 0%, #d4af37 50%, #996515 100%) !important;
+  color: #0b0f17 !important;
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 10px 22px !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+}
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+.btn-primary:hover,
+.btn-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5) !important;
+  filter: brightness(1.1);
+}
 
-	.redondo_avatar {
-        background-color: #363636;
-        color: #FFF;      
-        border-radius: 50%;
-	}
+/* Tables */
+table {
+  background: rgba(13, 18, 28, 0.75) !important;
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+  border-radius: 10px !important;
+  color: #cdd7e5 !important;
+}
+th {
+  background: rgba(212, 175, 55, 0.12) !important;
+  color: #d4af37 !important;
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  padding: 10px !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+td {
+  padding: 8px 12px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #cdd7e5 !important;
+}
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+tr:hover {
+  background: rgba(212, 175, 55, 0.06) !important;
+}
 
-	.redondo2 {
-   	height: 30px;
-   	background-color: #363636;
-   	color: #FFF;
- 	border-radius: 5px;
-	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
-	}
-
-	table {
-    	border: 1px solid #000;
-    	font-family: Verdana,sans-serif;
-    	font-size: 12px;
-	border-radius: 10px;
-	}
-
-	th, td {
-    	padding: 5px;
-    	text-align: center;
-	}
-
-	thead tr:first-child th:first-child 
-	{
-	border-top-left-radius: 7px; 
-  	background-color:rgb(25,28,35);
-    	color: #fff;
-	}
-	thead tr:first-child th:last-child 
-	{ 
-	border-top-right-radius: 7px; 
-  	background-color:rgb(25,28,35);
-    	color: #fff;
-	}
-
-	.bgtr {
-  	background-color:rgb(25,28,35);
-    	color: #fff;
-	}
-
-	tbody tr:hover {
-    	background: rgba(135,206,250,.2);
-    	//cursor: pointer;
-	}
-
-	tr:nth-child(even) {
-    	background: #eee;
-	border-bottom-right-radius: 7px; 
-	}
+/* Badges & Accents */
+.badge-gold {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid #d4af37;
+  color: #fce08a;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
