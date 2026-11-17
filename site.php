@@ -88,6 +88,74 @@ $allowed_pages = ['home', 'painel', 'loja', 'shop', 'cadastro', 'download', 'inf
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
 }
+
+// Handle Registration POST
+$reg_error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
+    $r_login = isset($_POST['ps_loginname']) ? strtolower(trim($_POST['ps_loginname'])) : '';
+    $r_name  = isset($_POST['ps_name']) ? trim($_POST['ps_name']) : '';
+    $r_email = isset($_POST['ps_email']) ? strtolower(trim($_POST['ps_email'])) : '';
+    $r_email2= isset($_POST['ps_email2']) ? strtolower(trim($_POST['ps_email2'])) : '';
+    $r_pwd   = isset($_POST['ps_password']) ? trim($_POST['ps_password']) : '';
+    $r_pwd2  = isset($_POST['ps_re_password']) ? trim($_POST['ps_re_password']) : (isset($_POST['ps_repassword']) ? trim($_POST['ps_repassword']) : '');
+    $r_ip    = isset($_SERVER["REMOTE_ADDR"]) ? $_SERVER["REMOTE_ADDR"] : '127.0.0.1';
+
+    if (empty($r_login) || empty($r_name) || empty($r_email) || empty($r_pwd)) {
+        $reg_error = "Preencha todos os campos obrigatórios!";
+    } elseif (strlen($r_login) < 4 || strlen($r_login) > 10) {
+        $reg_error = "O login deve conter entre 4 e 10 caracteres alfanuméricos!";
+    } elseif (!preg_match('/^[a-zA-Z0-9]+$/', $r_login)) {
+        $reg_error = "O login não pode conter espaços ou caracteres especiais!";
+    } elseif (strlen($r_pwd) < 4 || strlen($r_pwd) > 20) {
+        $reg_error = "A senha deve conter entre 4 e 20 caracteres!";
+    } elseif ($r_pwd !== $r_pwd2) {
+        $reg_error = "A confirmação de senha não confere com a senha digitada!";
+    } elseif (!empty($r_email2) && $r_email !== $r_email2) {
+        $reg_error = "A confirmação de e-mail não confere com o e-mail digitado!";
+    } elseif (!filter_var($r_email, FILTER_VALIDATE_EMAIL)) {
+        $reg_error = "Informe um endereço de e-mail válido!";
+    } else {
+        $safe_login = addslashes($r_login);
+        $check_login = @mssql_query("SELECT memb___id FROM MEMB_INFO WHERE LOWER(memb___id) = LOWER('$safe_login')");
+        $exists = ($check_login && @mssql_num_rows($check_login) > 0);
+
+        if (!$exists) {
+            $check_openmu = @mssql_query("SELECT \"LoginName\" FROM data.\"Account\" WHERE LOWER(\"LoginName\") = LOWER('$safe_login')");
+            $exists = ($check_openmu && @mssql_num_rows($check_openmu) > 0);
+        }
+
+        if ($exists) {
+            $reg_error = "Este login já está cadastrado por outro jogador! Escolha outro login.";
+        } else {
+            $safe_email = addslashes($r_email);
+            $check_mail = @mssql_query("SELECT mail_addr FROM MEMB_INFO WHERE LOWER(mail_addr) = LOWER('$safe_email')");
+            if ($check_mail && @mssql_num_rows($check_mail) > 0) {
+                $reg_error = "Este e-mail já foi utilizado em outra conta cadastrada!";
+            } else {
+                $hash = password_hash($r_pwd, PASSWORD_BCRYPT);
+                $safe_hash = addslashes($hash);
+                $safe_name = addslashes($r_name);
+
+                @mssql_query("SELECT public.fn_register_account('$safe_login', '$safe_hash', '$safe_name', '$safe_email', '$r_ip')");
+
+                // Auto login the newly registered user
+                $cookie_pass = md5($hash);
+                setcookie("usuario", $r_login, time() + (86400 * 30), "/");
+                setcookie("senha", $cookie_pass, time() + (86400 * 30), "/");
+                $_SESSION['usuario'] = $r_login;
+                $_SESSION['senha']   = $cookie_pass;
+
+                if (!headers_sent()) {
+                    header("Location: site.php?p=painel&cadastro=sucesso");
+                }
+                echo "<script>window.location.href='site.php?p=painel&cadastro=sucesso';</script>";
+                exit();
+            }
+        }
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -558,7 +626,14 @@ if (!in_array($page, $allowed_pages)) {
             <p>Cadastre-se agora e receba 3 Dias VIP para acelerar sua jornada!</p>
           </div>
 
-          <form action="cadastrar_done.php" method="post" class="form-horizontal" style="max-width:700px;margin:30px auto 0;">
+          <?php if (!empty($reg_error)): ?>
+            <div class="alert alert-danger" style="background: rgba(239,68,68,0.25); border: 1px solid #ef4444; color: #fff; font-size: 15px; margin-bottom: 25px; padding: 15px; border-radius: 6px;">
+              <i class="fa fa-exclamation-circle" style="color: #ef4444; margin-right: 8px;"></i> <?=$reg_error;?>
+            </div>
+          <?php endif; ?>
+
+          <form action="site.php?p=cadastro" method="post" class="form-horizontal" style="max-width:700px;margin:30px auto 0;">
+            <input type="hidden" name="action_register" value="1">
             <div class="form-group">
               <label class="col-sm-4 control-label text-gold">Login da Conta:</label>
               <div class="col-sm-8">

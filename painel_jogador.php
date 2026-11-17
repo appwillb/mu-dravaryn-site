@@ -237,6 +237,16 @@ if ($sql_chars) {
 }
 ?>
 
+<!-- REGISTRATION SUCCESS ALERT -->
+<?php if (isset($_GET['cadastro']) && $_GET['cadastro'] === 'sucesso'): ?>
+<div class="alert alert-success" style="background: linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(5,150,105,0.3) 100%); border: 1px solid #10b981; color: #fff; font-size: 16px; margin-bottom: 25px; padding: 20px; border-radius: 8px; box-shadow: 0 4px 20px rgba(16,185,129,0.3);">
+    <h4 class="font-cinzel" style="margin: 0 0 8px 0; color: #6ee7b7; font-weight: 800;"><i class="fa fa-check-circle"></i> CONTA CRIADA COM SUCESSO!</h4>
+    <p style="margin: 0; color: #e2e8f0; font-size: 14px;">
+        Parabéns, <strong><?=htmlspecialchars(strtoupper($user_login));?></strong>! Sua conta foi criada no servidor e seus <strong>3 Dias de VIP Grátis</strong> já estão ativados. Você já está conectado no seu <strong>Painel do Jogador</strong>.
+    </p>
+</div>
+<?php endif; ?>
+
 <!-- FEEDBACK ALERTS -->
 <?php if (!empty($feedback_msg)): ?>
 <div class="alert alert-<?=$feedback_type;?> alert-dismissible" role="alert" style="background: rgba(15,23,42,0.9); border-color: <?=$feedback_type=='success'?'#52e591':($feedback_type=='danger'?'#ef4444':'#f59e0b');?>; color:#fff; font-size:15px; margin-bottom:25px;">

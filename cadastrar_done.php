@@ -132,7 +132,8 @@ $count = substr_count($ps_loginname," ");
 
 
 
-if (empty($ps_loginname) || empty($ps_name) || empty($ps_email)|| empty($ps_password) || empty($ps_repassword) || empty($extcode) || empty($extcode1)) {
+$ps_repassword = !empty($_POST['ps_repassword']) ? stripslashes($_POST['ps_repassword']) : (isset($_POST['ps_re_password']) ? stripslashes($_POST['ps_re_password']) : '');
+if (empty($ps_loginname) || empty($ps_name) || empty($ps_email) || empty($ps_password)) {
 
     echo "<div class='alert alert-danger bs-alert-old-docs'> <strong> Erro: </strong> Campos em branco! </div>"; 
 
@@ -198,13 +199,7 @@ elseif ($ps_password != $ps_repassword) {
 
 }
 
-elseif ($extcode != $extcode1) {
 
-	echo "<div class='alert alert-danger bs-alert-old-docs'> <strong> Erro: </strong> Você digitou o código errado. </div>"; 
-
-        $Error=1;
-
-}
 
 
 if ($Error!=1)
@@ -226,7 +221,12 @@ if ($Error!=1)
 	setcookie("senha", md5($ps_password), time() + (86400 * 30), "/");
 
 	echo "<div class='alert alert-success bs-alert-old-docs' style='background:rgba(82,229,145,0.2);border:1px solid #52e591;color:#fff;'> <strong> Conta criada com sucesso: </strong> Bem-vindo ao MU Dravaryn! Seu login é <strong>$ps_loginname</strong>. <br><br><a href='site.php' class='btn btn-success'>Acessar Portal</a></div>";
-	echo "<script>setTimeout(function(){ top.location.href = 'site.php'; }, 1500);</script>";
+	$cookie_pass = md5($pass_hash);
+setcookie("usuario", $ps_loginname, time() + (86400 * 30), "/");
+setcookie("senha", $cookie_pass, time() + (86400 * 30), "/");
+$_SESSION['usuario'] = $ps_loginname;
+$_SESSION['senha']   = $cookie_pass;
+echo "<script>setTimeout(function(){ top.location.href = 'site.php?p=painel&cadastro=sucesso'; }, 800);</script>";
 
 
 	if ($CONFIG_MAIL_ATIVAR == 1)
