@@ -2,11 +2,69 @@
 header('Content-Type: text/html; charset=utf-8');
 require_once("inclu/config_index.php");
 
+// Helper function to resolve OpenMU class codes
+function get_mu_class_name($class_id) {
+    switch ((int)$class_id) {
+        case 0: return 'Dark Wizard';
+        case 1: return 'Soul Master';
+        case 2: return 'Grand Master';
+        case 16: return 'Dark Knight';
+        case 17: return 'Blade Knight';
+        case 18: return 'Blade Master';
+        case 32: return 'Fairy Elf';
+        case 33: return 'Muse Elf';
+        case 34: return 'High Elf';
+        case 48: return 'Magic Gladiator';
+        case 50: return 'Duel Master';
+        case 64: return 'Dark Lord';
+        case 66: return 'Lord Emperor';
+        case 80: return 'Summoner';
+        case 81: return 'Bloody Summoner';
+        case 82: return 'Dimension Master';
+        case 96: return 'Rage Fighter';
+        case 98: return 'Fist Master';
+        default: return 'Guerreiro';
+    }
+}
+
 // Fetch real OpenMU database stats
 $dados_server = @mssql_fetch_row(mssql_query("SELECT * from public.fn_info()"));
 $server_on    = isset($dados_server[0]) ? (int)$dados_server[0] : 1;
 $acr2         = isset($dados_server[1]) ? (int)$dados_server[1] : 20;
 $acr3         = isset($dados_server[2]) ? (int)$dados_server[2] : 77;
+
+// Fetch Top 5 characters from PostgreSQL view
+$top_chars_res = @mssql_query("SELECT \"Name\", \"cLevel\", \"ResetCount\", \"Class\" FROM public.character ORDER BY \"ResetCount\" DESC, \"cLevel\" DESC LIMIT 5");
+$top_characters = [];
+if ($top_chars_res) {
+    while ($tc = @mssql_fetch_assoc($top_chars_res)) {
+        $top_characters[] = $tc;
+    }
+}
+
+// Fallback if empty
+if (empty($top_characters)) {
+    $top_characters = [
+        ['Name' => 'testgm2Sum', 'cLevel' => 48, 'ResetCount' => 0, 'Class' => 82],
+        ['Name' => 'testgm2Rf',  'cLevel' => 48, 'ResetCount' => 0, 'Class' => 98],
+        ['Name' => 'quest3Dw',   'cLevel' => 48, 'ResetCount' => 0, 'Class' => 2],
+        ['Name' => 'testgmElf',  'cLevel' => 48, 'ResetCount' => 0, 'Class' => 34],
+        ['Name' => 'testgmMg',   'cLevel' => 48, 'ResetCount' => 0, 'Class' => 50],
+    ];
+}
+
+// Hall of Fame top characters
+$tops_res = @mssql_fetch_row(@mssql_query("SELECT valor1, valor2, valor3, valor4, valor5, valor6, valor7, valor8, valor9, valor10, valor11, valor12, valor13, valor14, valor15, valor16 FROM public.fn_tops()"));
+$hof_list = [
+    ['role' => 'GRAND MASTER', 'name' => !empty($tops_res[0]) ? $tops_res[0] : 'quest3Dw', 'img' => 'img/charsm.jpg'],
+    ['role' => 'BLADE MASTER', 'name' => !empty($tops_res[2]) ? $tops_res[2] : 'test400Dk', 'img' => 'img/charbk.jpg'],
+    ['role' => 'HIGH ELF',     'name' => !empty($tops_res[4]) ? $tops_res[4] : 'quest3Elf', 'img' => 'img/charelf.jpg'],
+    ['role' => 'DUEL MASTER',  'name' => !empty($tops_res[6]) ? $tops_res[6] : 'testgmMg', 'img' => 'img/charmg.jpg'],
+    ['role' => 'LORD EMPEROR', 'name' => !empty($tops_res[8]) ? $tops_res[8] : 'test400Dl', 'img' => 'img/dl.jpg'],
+    ['role' => 'DIMENSION M.', 'name' => !empty($tops_res[10]) ? $tops_res[10] : 'testgm2Sum', 'img' => 'img/charbk.jpg'],
+    ['role' => 'FIST MASTER',  'name' => !empty($tops_res[12]) ? $tops_res[12] : 'testgm2Rf', 'img' => 'img/dl.jpg'],
+    ['role' => 'TOP GUILDA',   'name' => !empty($tops_res[14]) ? $tops_res[14] : 'Dravaryn', 'img' => 'img/guild.png'],
+];
 
 // Active logged user check
 $is_logged = false;
@@ -36,7 +94,7 @@ if (!in_array($page, $allowed_pages)) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MU Dravaryn - Season 6 Episode 3 • Servidor Oficial</title>
+  <title>MU Dravaryn - Season 6 Episode 3 • Portal Oficial</title>
 
   <meta name="title" content="MU Dravaryn - Season 6 Episode 3 Medium-Slow"/>
   <meta name="description" content="O maior e mais épico servidor de MU Online Season 6 do Brasil. 50x EXP, 30x Master, 20% Drop. Castle Siege semanal e economia 100% valorizada!"/>
@@ -44,34 +102,38 @@ if (!in_array($page, $allowed_pages)) {
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- Luxury Google Fonts -->
+  <!-- Luxury Google Fonts (Cinzel, Montserrat, Rajdhani) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 3 & Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <!-- Master AAA Stylesheet -->
-  <link rel="stylesheet" href="css/site.css?v=4.0">
+  <!-- Master Vanguard-Grade Stylesheet -->
+  <link rel="stylesheet" href="css/site.css?v=5.0">
 </head>
 
-<body class="dravaryn-body">
+<body>
 
-<!-- TOP LUXURY NAVBAR -->
+<!-- TOP STICKY NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top modern-navbar">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dravaryn-nav" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">Menu</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="site.php">
-        <img src="img/logoJM.png" alt="MU Dravaryn" class="brand-logo">
-        <span class="brand-title">MU <span>DRAVARYN</span></span>
+      
+      <a class="brand-wrapper" href="site.php">
+        <img src="img/logo_dravaryn.png" alt="MU Dravaryn" class="brand-logo-img">
+        <div class="brand-text-wrap">
+          <span class="brand-name">MU <span>DRAVARYN</span></span>
+          <span class="brand-sub">Season 6 Episode 3</span>
+        </div>
       </a>
     </div>
 
@@ -97,16 +159,16 @@ if (!in_array($page, $allowed_pages)) {
         <li class="<?=$page=='contato'?'active':'';?>"><a href="site.php?p=contato"><i class="fa fa-envelope-o text-gold"></i> SUPORTE</a></li>
       </ul>
 
-      <div class="nav navbar-nav navbar-right auth-btn-wrap">
+      <div class="nav navbar-nav navbar-right nav-auth-actions">
         <?php if ($is_logged): ?>
-          <div class="dropdown user-pill-dropdown">
+          <div class="dropdown">
             <button class="btn btn-user-pill dropdown-toggle" type="button" data-toggle="dropdown">
               <img src="<?=$user_avatar;?>" class="user-pill-avatar" alt="Avatar">
               <span class="user-pill-name"><?=$user_login;?></span>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="painel/index.php" target="_blank"><i class="fa fa-dashboard text-gold"></i> Painel do Usuário</a></li>
+              <li><a href="painel/index.php" target="_blank"><i class="fa fa-dashboard text-gold"></i> Painel do Jogador</a></li>
               <li><a href="site.php?p=mudar_senha"><i class="fa fa-key text-gold"></i> Alterar Senha</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="logar.php?deslogar=ok" class="text-danger"><i class="fa fa-sign-out"></i> Desconectar</a></li>
@@ -125,7 +187,7 @@ if (!in_array($page, $allowed_pages)) {
   </div>
 </nav>
 
-<!-- LOGIN MODAL (LUXURY GLASSMORPHISM) -->
+<!-- LOGIN MODAL -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content modal-glass">
@@ -137,504 +199,553 @@ if (!in_array($page, $allowed_pages)) {
         <div class="modal-body">
           <div class="form-group">
             <label class="control-label text-gold">Login / Conta:</label>
-            <input type="text" name="login" class="form-control modal-input" placeholder="Digite seu usuário" required>
+            <input type="text" name="login" class="form-control luxury-input" placeholder="Digite seu usuário" required>
           </div>
           <div class="form-group">
             <label class="control-label text-gold">Senha:</label>
-            <input type="password" name="oldpwd" class="form-control modal-input" placeholder="Digite sua senha" required>
+            <input type="password" name="oldpwd" class="form-control luxury-input" placeholder="Digite sua senha" required>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-cta-gold btn-block">ENTRAR NO PAINEL</button>
-          <a href="site.php?p=cadastro" class="btn-modal-sublink">Ainda não tem conta? Cadastre-se grátis</a>
+          <button type="submit" class="btn btn-nav-register btn-block" style="padding:12px;font-size:14px;">ENTRAR NO PAINEL</button>
+          <div style="text-align:center;margin-top:12px;">
+            <a href="site.php?p=cadastro" class="text-gold-light" style="font-size:12px;">Ainda não tem conta? Cadastre-se grátis</a>
+          </div>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<!-- HERO SHOWCASE (MONUMENTAL AAA HEADER) -->
-<header class="hero-showcase">
-  <div class="container">
-    <div class="row hero-content-row">
-      
-      <!-- HERO LEFT: Monumental Logo & CTAs -->
-      <div class="col-md-7 col-sm-12 hero-left-col text-center-sm">
-        <div class="hero-season-badge">
-          <span class="pulsing-emerald"></span> SEASON 6 EPISODE 3 • MEDIUM-SLOW CLÁSSICO
-        </div>
+<!-- MONUMENTAL HERO SHOWCASE (VANGUARD ARTWORK) -->
+<header class="vanguard-hero">
+  <div class="vanguard-hero-overlay"></div>
+  <div class="vanguard-hero-radial"></div>
 
-        <div class="hero-logo-container">
-          <img src="img/logo_dravaryn.png" alt="MU Dravaryn Oficial" class="hero-main-logo">
-        </div>
-
-        <p class="hero-epic-description">
-          A maior e mais lendária experiência medieval do Brasil. Economia 100% valorizada, PvP rigorosamente calibrado e a mais sangrenta batalha semanal pelo <strong>Castle Siege</strong>!
-        </p>
-
-        <div class="hero-buttons-wrapper">
-          <a href="site.php?p=cadastro" class="btn-hero-primary">
-            <span class="btn-shine"></span>
-            <div class="btn-hero-icon"><i class="fa fa-user-plus"></i></div>
-            <div class="btn-hero-content">
-              <span class="btn-hero-title">CRIAR CONTA GRÁTIS</span>
-              <span class="btn-hero-sub">Registro rápido • 3 Dias VIP</span>
-            </div>
-          </a>
-
-          <a href="site.php?p=download" class="btn-hero-secondary">
-            <div class="btn-hero-icon"><i class="fa fa-download"></i></div>
-            <div class="btn-hero-content">
-              <span class="btn-hero-title">BAIXAR CLIENTE HD</span>
-              <span class="btn-hero-sub">Instalador Completo • 1.2 GB</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- HERO RIGHT: Tactical Server HUD (OpenMU Live) -->
-      <div class="col-md-5 col-sm-12 hero-right-col">
-        <div class="tactical-hud-card">
-          <div class="hud-top-bar">
-            <div class="hud-server-status">
-              <span class="status-dot-green"></span>
-              <strong>SERVIDOR ONLINE</strong>
-            </div>
-            <div class="hud-live-time" id="server-live-clock">--:--:--</div>
-          </div>
-
-          <div class="hud-inner-body">
-            <div class="hud-rate-item">
-              <span class="rate-name"><i class="fa fa-bookmark text-gold"></i> Versão:</span>
-              <span class="rate-val text-gold">Season 6 Ep. 3</span>
-            </div>
-            <div class="hud-rate-item">
-              <span class="rate-name"><i class="fa fa-bolt text-gold"></i> Experiência:</span>
-              <span class="rate-val text-cyan">50x Geral (Master 30x)</span>
-            </div>
-            <div class="hud-rate-item">
-              <span class="rate-name"><i class="fa fa-diamond text-gold"></i> Drop Rate:</span>
-              <span class="rate-val text-gold">20% Valorizado</span>
-            </div>
-            <div class="hud-rate-item">
-              <span class="rate-name"><i class="fa fa-ban text-gold"></i> Bug Bless:</span>
-              <span class="rate-val text-danger">OFF (100% Desativado)</span>
-            </div>
-            <div class="hud-rate-item">
-              <span class="rate-name"><i class="fa fa-map-marker text-gold"></i> Spots:</span>
-              <span class="rate-val text-gold">1.399 Balanceados</span>
-            </div>
-
-            <!-- LIVE DATABASE METRICS -->
-            <div class="hud-metrics-row">
-              <div class="metric-card">
-                <i class="fa fa-users metric-icon text-cyan"></i>
-                <div class="metric-number"><?=$acr2;?></div>
-                <div class="metric-label">CONTAS</div>
-              </div>
-              <div class="metric-card">
-                <i class="fa fa-shield metric-icon text-gold"></i>
-                <div class="metric-number"><?=$acr3;?></div>
-                <div class="metric-label">PERSONAGENS</div>
-              </div>
-              <div class="metric-card">
-                <i class="fa fa-signal metric-icon text-green"></i>
-                <div class="metric-number"><?=$server_on;?></div>
-                <div class="metric-label">ONLINE</div>
-              </div>
-            </div>
-
-            <a href="site.php?p=info" class="btn-hud-full-info">
-              <i class="fa fa-sliders"></i> TODAS AS CONFIGURAÇÕES DETALHADAS
-            </a>
-          </div>
-        </div>
-      </div>
-
+  <div class="vanguard-hero-container">
+    <div class="hero-season-badge">
+      <span class="pulse-dot"></span> SEASON 6 EPISODE 3 • CLASSIC MEDIUM-SLOW
     </div>
+
+    <!-- Centered Majestic Logo -->
+    <img src="img/logo_dravaryn.png" alt="MU Dravaryn Season 6" class="hero-main-logo">
+
+    <h1 class="hero-epic-title">
+      ENTRE NA <span class="text-gradient-gold">MÁXIMA</span> EXPERIÊNCIA
+    </h1>
+
+    <p class="hero-epic-desc">
+      O maior e mais lendário servidor clássico de MU Online do Brasil. Economia 100% valorizada, PvP rigorosamente calibrado e a mais sangrenta batalha semanal pelo <strong>Castle Siege</strong>!
+    </p>
+
+    <!-- CTAs -->
+    <div class="hero-cta-wrapper">
+      <a href="site.php?p=cadastro" class="btn-cta-gold">
+        <i class="fa fa-user-plus fa-lg"></i>
+        <div>
+          <span>CRIAR CONTA GRÁTIS</span>
+          <span class="btn-cta-sub">Registro rápido • 3 Dias VIP</span>
+        </div>
+      </a>
+
+      <a href="site.php?p=download" class="btn-cta-blue">
+        <i class="fa fa-download fa-lg"></i>
+        <div>
+          <span>BAIXAR CLIENTE HD</span>
+          <span class="btn-cta-sub">Instalador Completo • 1.2 GB</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Docked Tactical HUD Bar -->
+    <div class="tactical-hud-dock">
+      <div class="hud-item">
+        <span class="pulse-dot"></span>
+        <span>SERVIDOR: <strong class="text-green">ONLINE</strong></span>
+      </div>
+      <div class="hud-item">
+        <i class="fa fa-users"></i>
+        <span><strong><?=$acr2;?></strong> Contas</span>
+      </div>
+      <div class="hud-item">
+        <i class="fa fa-shield"></i>
+        <span><strong><?=$acr3;?></strong> Heróis</span>
+      </div>
+      <div class="hud-item">
+        <i class="fa fa-signal"></i>
+        <span><strong class="text-green"><?=$server_on;?></strong> Jogador Online</span>
+      </div>
+      <div class="hud-item">
+        <i class="fa fa-bolt"></i>
+        <span><strong>50x</strong> Geral (Master 30x)</span>
+      </div>
+      <div class="hud-item">
+        <i class="fa fa-diamond"></i>
+        <span><strong>20%</strong> Drop</span>
+      </div>
+      <div class="hud-item">
+        <i class="fa fa-fort-awesome"></i>
+        <span><strong>Siege:</strong> Dom 20h</span>
+      </div>
+    </div>
+
   </div>
 </header>
 
-<!-- REAL-TIME EVENTS HUD BAR -->
-<section class="events-hud-bar">
+<!-- 5 SHINY CLASSIC ACTION BANNERS -->
+<section class="action-banners-section">
   <div class="container">
-    <div class="events-hud-inner">
-      <div class="events-hud-title">
-        <i class="fa fa-clock-o text-gold"></i> <strong>PRÓXIMOS EVENTOS:</strong>
-      </div>
-      <div class="events-hud-list">
-        <div class="event-hud-badge">
-          <span class="event-hud-name">Castle Siege:</span>
-          <span class="event-hud-time text-gold"><i class="fa fa-fort-awesome"></i> Domingo 20:00</span>
-        </div>
-        <div class="event-hud-badge">
-          <span class="event-hud-name">Blood Castle:</span>
-          <span class="event-hud-time text-cyan"><i class="fa fa-fire"></i> A cada 2 Horas</span>
-        </div>
-        <div class="event-hud-badge">
-          <span class="event-hud-name">Devil Square:</span>
-          <span class="event-hud-time text-cyan"><i class="fa fa-bolt"></i> A cada 2 Horas</span>
-        </div>
-        <div class="event-hud-badge">
-          <span class="event-hud-name">Chaos Castle:</span>
-          <span class="event-hud-time text-gold"><i class="fa fa-trophy"></i> A cada 4 Horas</span>
-        </div>
-        <div class="event-hud-badge">
-          <span class="event-hud-name">Invasão Dourados:</span>
-          <span class="event-hud-time text-warning"><i class="fa fa-star"></i> A cada 3 Horas</span>
-        </div>
-      </div>
+    <div class="action-banners-grid">
+      <a href="site.php?p=ranking&tipo=diario" class="action-banner-card">
+        <img src="img/topdiario.png" alt="Top Diário">
+      </a>
+      <a href="site.php?p=ranking&tipo=semanal" class="action-banner-card">
+        <img src="img/topsemanal.png" alt="Top Semanal">
+      </a>
+      <a href="site.php?p=ranking&tipo=mensal" class="action-banner-card">
+        <img src="img/topmensal.png" alt="Top Mensal">
+      </a>
+      <a href="site.php?p=ranking&tipo=pvp" class="action-banner-card">
+        <img src="img/reipvp.png" alt="Rei do PvP">
+      </a>
+      <a href="site.php?p=ranking&tipo=castle" class="action-banner-card">
+        <img src="img/castlesiege.png" alt="Castle Siege">
+      </a>
     </div>
   </div>
 </section>
 
-<!-- MAIN CONTENT WRAPPER (100% NATIVE, ZERO IFRAMES) -->
+<!-- MAIN CONTENT AREA -->
 <main class="main-body-container">
   <div class="container">
-    <div class="main-glass-panel">
 
-      <?php if ($page == 'home'): ?>
+    <?php if ($page == 'home'): ?>
 
-        <!-- HALL OF FAME (REAL OPENMU CHARACTERS) -->
-        <?php include("tops_site.php"); ?>
-
-        <!-- QUICK ACCESS 3D CARDS -->
-        <div class="quick-cards-grid">
-          <a href="site.php?p=ranking" class="quick-card">
-            <div class="qc-icon-box qc-gold"><i class="fa fa-trophy"></i></div>
-            <h4>TOP RANKINGS</h4>
-            <p>Melhores jogadores e guildas</p>
-          </a>
-          <a href="site.php?p=ranking&tipo=castle" class="quick-card">
-            <div class="qc-icon-box qc-red"><i class="fa fa-fort-awesome"></i></div>
-            <h4>CASTLE SIEGE</h4>
-            <p>Guerra semanal pelo castelo</p>
-          </a>
-          <a href="site.php?p=ranking&tipo=pvp" class="quick-card">
-            <div class="qc-icon-box qc-cyan"><i class="fa fa-crosshairs"></i></div>
-            <h4>REI DO PVP</h4>
-            <p>Gladiadores da arena</p>
-          </a>
-          <a href="site.php?p=eventos" class="quick-card">
-            <div class="qc-icon-box qc-yellow"><i class="fa fa-star"></i></div>
-            <h4>INVASÕES</h4>
-            <p>Bosses e Goldens em tempo real</p>
-          </a>
-          <a href="site.php?p=guilds" class="quick-card">
-            <div class="qc-icon-box qc-purple"><i class="fa fa-users"></i></div>
-            <h4>GUILDAS</h4>
-            <p>Alianças e batalhas épicas</p>
-          </a>
-          <a href="site.php?p=dicas" class="quick-card">
-            <div class="qc-icon-box qc-green"><i class="fa fa-graduation-cap"></i></div>
-            <h4>GUIA INICIANTE</h4>
-            <p>Como evoluir no servidor</p>
-          </a>
-        </div>
-
-        <!-- OFFICIAL NEWS SECTION -->
-        <div class="news-feed-wrapper">
-          <div class="section-gold-header">
-            <h3><i class="fa fa-newspaper-o text-gold"></i> NOTÍCIAS & <span>COMUNICADOS OFICIAIS</span></h3>
-          </div>
-
-          <div class="modern-news-card">
-            <div class="news-card-header">
-              <div class="news-badge-wrap">
-                <span class="badge-news-type">LANÇAMENTO OFICIAL</span>
-                <h4>Grande Abertura do MU Dravaryn Season 6 Episode 3</h4>
-              </div>
-              <div class="news-date-tag">
-                <i class="fa fa-calendar text-gold"></i> <?=date('d/m/Y');?>
-              </div>
-            </div>
-
-            <div class="news-card-body">
-              <p>É com grande honra e dedicação que abrimos os portais de <strong>MU Dravaryn Season 6</strong>!</p>
-              <p>Construímos este servidor pensando na melhor jogabilidade dos anos de ouro do MU Online:</p>
-              <div class="news-features-grid">
-                <div class="nf-item"><i class="fa fa-check text-gold"></i> <strong>Exp:</strong> 50x Geral | 30x Master</div>
-                <div class="nf-item"><i class="fa fa-check text-gold"></i> <strong>Drop:</strong> 20% com jóias valorizadas</div>
-                <div class="nf-item"><i class="fa fa-check text-gold"></i> <strong>Spots:</strong> 1.399 spots balanceados</div>
-                <div class="nf-item"><i class="fa fa-check text-gold"></i> <strong>Invasões:</strong> 9 Invasões com Kundun, Selupan e Medusa</div>
-                <div class="nf-item"><i class="fa fa-check text-gold"></i> <strong>Castle Siege:</strong> Todo domingo às 20h00</div>
-                <div class="nf-item"><i class="fa fa-check text-gold"></i> <strong>Anti-Hack:</strong> Proteção de ponta ativa 24 horas</div>
-              </div>
-              <p style="margin-top:15px;">Cadastre sua conta agora e baixe o cliente completo para iniciar sua jornada épica!</p>
-            </div>
-
-            <div class="news-card-footer">
-              <span>Publicado por: <strong class="text-gold">Equipe Dravaryn</strong></span>
-              <span><i class="fa fa-shield text-gold"></i> Servidor 100% Protegido</span>
+      <!-- VANGUARD SPLIT SHOWCASE (3D ARCHANGEL + LIVE OPENMU RANKINGS) -->
+      <section class="vanguard-split-section">
+        <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+          
+          <!-- LEFT: 3D Archangel Gladiator Render -->
+          <div class="col-md-5 col-sm-12">
+            <div class="char-showcase-wrapper">
+              <img src="img/gladiator.png" alt="Gladiator Archangel" class="char-showcase-img">
+              <div class="char-pedestal"></div>
             </div>
           </div>
+
+          <!-- RIGHT: Live OpenMU Database Rankings -->
+          <div class="col-md-7 col-sm-12">
+            <div class="vanguard-panel-glass">
+              <div class="section-vanguard-header">
+                <h3><i class="fa fa-trophy text-gold"></i> TOP JOGADORES <span>EM TEMPO REAL</span></h3>
+                <p>Classificação ao vivo sincronizada com o banco de dados oficial OpenMU</p>
+              </div>
+
+              <div class="table-responsive">
+                <table class="vanguard-table">
+                  <thead>
+                    <tr>
+                      <th style="width:40px;">#</th>
+                      <th>PERSONAGEM</th>
+                      <th>CLASSE</th>
+                      <th style="text-align:center;">NÍVEL</th>
+                      <th style="text-align:center;">RESETS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
+                    $rank = 1;
+                    foreach ($top_characters as $c): 
+                      $badge_class = $rank == 1 ? 'rank-badge-1' : ($rank == 2 ? 'rank-badge-2' : ($rank == 3 ? 'rank-badge-3' : ''));
+                      $class_name  = get_mu_class_name(isset($c['Class']) ? $c['Class'] : 0);
+                    ?>
+                      <tr>
+                        <td>
+                          <?php if ($badge_class): ?>
+                            <span class="<?=$badge_class;?>"><?=$rank;?></span>
+                          <?php else: ?>
+                            <span style="color:#7d8c9e;font-weight:700;"><?=$rank;?></span>
+                          <?php endif; ?>
+                        </td>
+                        <td>
+                          <strong style="color:#fff;font-size:15px;"><?=$c['Name'];?></strong>
+                        </td>
+                        <td>
+                          <span class="class-badge"><?=$class_name;?></span>
+                        </td>
+                        <td style="text-align:center;font-weight:700;color:var(--gold-light);">
+                          <?=$c['cLevel'];?>
+                        </td>
+                        <td style="text-align:center;font-weight:800;color:#52e591;">
+                          <?=$c['ResetCount'];?>
+                        </td>
+                      </tr>
+                    <?php 
+                      $rank++;
+                    endforeach; 
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+
+              <a href="site.php?p=ranking" class="btn-view-all-ranking">
+                <i class="fa fa-list"></i> VER RANKING COMPLETO (TODAS AS CLASSES)
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- HALL OF FAME (MELHORES DO SERVIDOR - 7 CLASSES + GUILDA) -->
+      <section class="hof-section">
+        <div class="section-vanguard-header" style="text-align:center;">
+          <h3><i class="fa fa-star text-gold"></i> HALL DA FAMA <span>DRAVARYN</span></h3>
+          <p>Os maiores guerreiros consagrados de cada linhagem no continente</p>
         </div>
 
-      <?php elseif ($page == 'cadastro'): ?>
+        <div class="hof-cards-grid">
+          <?php foreach ($hof_list as $hof): ?>
+            <div class="hof-card-item">
+              <div class="hof-card-title"><?=$hof['role'];?></div>
+              <img src="<?=$hof['img'];?>" alt="<?=$hof['role'];?>" class="hof-avatar-circle">
+              <div class="hof-char-name" title="<?=$hof['name'];?>"><?=$hof['name'];?></div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </section>
 
-        <!-- NATIVE REGISTRATION -->
-        <div class="native-view-box">
-          <div class="section-gold-header">
+      <!-- SERVER FEATURES (VANGUARD 6 CARDS) -->
+      <section class="features-section">
+        <div class="section-vanguard-header" style="text-align:center;">
+          <h3><i class="fa fa-shield text-gold"></i> POR QUE JOGAR NO <span>MU DRAVARYN</span>?</h3>
+          <p>Construído por jogadores veteranos para entregar a melhor experiência MMORPG do Brasil</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa fa-diamond"></i></div>
+            <h4>Economia 100% Valorizada</h4>
+            <p>Jóias (Bless, Soul, Chaos, Life) e itens raros têm valor real no mercado de trocas. Sem vendas de itens apelativos em webshop!</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa fa-crosshairs"></i></div>
+            <h4>PvP Calibrado & Dinâmico</h4>
+            <p>Fórmulas de dano, defesa, SD Ratio e combos ajustadas milimetricamente para garantir batalhas equilibradas entre todas as 7 classes.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa fa-lock"></i></div>
+            <h4>Anti-Hack Ativo 24/7</h4>
+            <p>Sistema de segurança com proteção em tempo real no cliente e no servidor contra speedhack, dupes e modificações de memória.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa fa-fire"></i></div>
+            <h4>Invasões & Bosses Épicos</h4>
+            <p>Kundun em Kalima 7, Selupan em Raklion, Medusa em Peace Swamp e Invasões de Dourados a cada 2 horas com recompensas nobres.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa fa-fort-awesome"></i></div>
+            <h4>Guerra Castle Siege Semanal</h4>
+            <p>A mais disputada batalha de alianças todo domingo às 20h00 pelo controle soberano de Valley of Loren e da Land of Trials.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa fa-comments"></i></div>
+            <h4>Comunidade & Suporte Ativo</h4>
+            <p>Comunidade vibrante no Discord oficial, suporte ágil com GM ativa diariamente e eventos especiais todos os fins de semana.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- OFFICIAL NEWS MODULE -->
+      <section class="news-section">
+        <div class="news-card-master">
+          <div class="news-header-top">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span class="news-badge">LANÇAMENTO OFICIAL</span>
+              <h4 style="margin:0;color:#fff;font-family:var(--font-heading);font-size:18px;">Grande Abertura MU Dravaryn Season 6 Ep. 3</h4>
+            </div>
+            <div class="news-date"><i class="fa fa-calendar text-gold"></i> <?=date('d/m/Y');?></div>
+          </div>
+
+          <div class="news-body-content">
+            <p>É com imensa honra que abrimos oficialmente os portais de <strong>MU Dravaryn Season 6 Episode 3</strong>!</p>
+            <p>O servidor foi desenvolvido durante meses para resgatar a autêntica essência e nostalgia do MU Online clássico, aliando estabilidade moderna, taxas equilibradas e uma economia forte:</p>
+            
+            <div class="row" style="margin:20px 0;">
+              <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
+                <i class="fa fa-check text-gold"></i> <strong>Experiência:</strong> 50x Geral (Master 30x)
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
+                <i class="fa fa-check text-gold"></i> <strong>Drop Rate:</strong> 20% com jóias valorizadas
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
+                <i class="fa fa-check text-gold"></i> <strong>Spots:</strong> 1.399 spots balanceados
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
+                <i class="fa fa-check text-gold"></i> <strong>Bug Bless:</strong> OFF (100% Desativado)
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
+                <i class="fa fa-check text-gold"></i> <strong>Castle Siege:</strong> Todo domingo às 20h00
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
+                <i class="fa fa-check text-gold"></i> <strong>Bônus Inicial:</strong> 3 Dias VIP para novos cadastros
+              </div>
+            </div>
+
+            <p>Cadastre sua conta agora e baixe o cliente completo para iniciar sua jornada rumo ao topo de Dravaryn!</p>
+          </div>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:15px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#94a3b8;">
+            <span>Publicado por: <strong class="text-gold">Administração Dravaryn</strong></span>
+            <span><i class="fa fa-shield text-gold"></i> Servidor 100% Seguro & Protegido</span>
+          </div>
+        </div>
+      </section>
+
+    <?php elseif ($page == 'cadastro'): ?>
+
+      <!-- CADASTRO NATIVO -->
+      <section class="subpage-container">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
             <h3><i class="fa fa-user-plus text-gold"></i> CRIAR <span>NOVA CONTA</span></h3>
+            <p>Cadastre-se agora e receba 3 Dias VIP para acelerar sua jornada!</p>
           </div>
 
-          <div class="register-form-box">
-            <form action="cadastrar_done.php" method="post" class="form-horizontal">
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Nome de Usuário (Login):</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control luxury-input" name="ps_loginname" maxlength="10" placeholder="Digite seu login (4 a 10 letras/números)" required>
+          <form action="cadastrar_done.php" method="post" class="form-horizontal" style="max-width:700px;margin:30px auto 0;">
+            <div class="form-group">
+              <label class="col-sm-4 control-label text-gold">Login da Conta:</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control luxury-input" name="ps_loginname" maxlength="10" placeholder="4 a 10 letras/números" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label text-gold">Nome Completo:</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control luxury-input" name="ps_name" maxlength="50" placeholder="Seu nome completo" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label text-gold">E-mail Válido:</label>
+              <div class="col-sm-8">
+                <input type="email" class="form-control luxury-input" name="ps_email" maxlength="50" placeholder="seu-email@dominio.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label text-gold">Confirmar E-mail:</label>
+              <div class="col-sm-8">
+                <input type="email" class="form-control luxury-input" name="ps_email2" maxlength="50" placeholder="Confirme seu e-mail" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label text-gold">Senha de Acesso:</label>
+              <div class="col-sm-8">
+                <input type="password" class="form-control luxury-input" name="ps_password" maxlength="20" placeholder="Crie uma senha forte" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label text-gold">Confirmar Senha:</label>
+              <div class="col-sm-8">
+                <input type="password" class="form-control luxury-input" name="ps_re_password" maxlength="20" placeholder="Repita sua senha" required>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:30px;">
+              <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" class="btn btn-cta-gold btn-block">
+                  <i class="fa fa-check-circle"></i> CONCLUIR CADASTRO
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    <?php elseif ($page == 'download'): ?>
+
+      <!-- DOWNLOAD NATIVO -->
+      <section class="subpage-container">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-download text-gold"></i> DOWNLOAD <span>DO CLIENTE</span></h3>
+            <p>Baixe o instalador completo e entre no jogo em poucos minutos</p>
+          </div>
+
+          <div class="row" style="margin-top:30px;">
+            <div class="col-md-6 col-sm-12" style="margin-bottom:25px;">
+              <div style="background:rgba(10,27,48,0.7);border:1px solid var(--border-gold);border-radius:10px;padding:25px;text-align:center;">
+                <i class="fa fa-file-archive-o fa-3x text-gold" style="margin-bottom:15px;"></i>
+                <h4 style="font-family:var(--font-heading);color:#fff;margin:0 0 10px;">CLIENTE COMPLETO COM SOM HD</h4>
+                <p style="color:#94a3b8;font-size:13px;margin-bottom:20px;">Tamanho: 1.2 GB • Instalador Oficial com Anti-Hack</p>
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  <a href="#" class="btn-cta-gold" style="justify-content:center;">
+                    <i class="fa fa-cloud-download"></i> DOWNLOAD VIA GOOGLE DRIVE
+                  </a>
+                  <a href="#" class="btn-cta-blue" style="justify-content:center;">
+                    <i class="fa fa-cloud-download"></i> DOWNLOAD VIA MEGA.NZ
+                  </a>
+                  <a href="#" class="btn-cta-blue" style="justify-content:center;">
+                    <i class="fa fa-cloud-download"></i> DOWNLOAD VIA MEDIAFIRE
+                  </a>
                 </div>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Nome Completo:</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control luxury-input" name="ps_name" maxlength="50" placeholder="Seu nome completo" required>
-                </div>
+            <div class="col-md-6 col-sm-12">
+              <div style="background:rgba(10,27,48,0.7);border:1px solid var(--border-gold);border-radius:10px;padding:25px;">
+                <h4 style="font-family:var(--font-heading);color:#fff;margin:0 0 15px;"><i class="fa fa-desktop text-gold"></i> REQUISITOS DE SISTEMA</h4>
+                <table class="table" style="color:#cbd5e1;font-size:13px;">
+                  <tr><th>Sistema:</th><td>Windows 7 / 8 / 10 / 11 (64-bit)</td></tr>
+                  <tr><th>Processador:</th><td>Intel Core i3 ou superior</td></tr>
+                  <tr><th>Memória RAM:</th><td>4 GB de RAM</td></tr>
+                  <tr><th>Placa de Vídeo:</th><td>GeForce 8600GT / Radeon HD ou superior</td></tr>
+                  <tr><th>Espaço em Disco:</th><td>3 GB livres</td></tr>
+                  <tr><th>DirectX:</th><td>DirectX 9.0c ou mais recente</td></tr>
+                </table>
               </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 control-label">E-mail Válido:</label>
-                <div class="col-sm-8">
-                  <input type="email" class="form-control luxury-input" name="ps_email" maxlength="50" placeholder="seu-email@dominio.com" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Confirmar E-mail:</label>
-                <div class="col-sm-8">
-                  <input type="email" class="form-control luxury-input" name="ps_email2" maxlength="50" placeholder="Confirme seu e-mail" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Senha de Acesso:</label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control luxury-input" name="ps_password" maxlength="20" placeholder="Crie uma senha forte" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Confirmar Senha:</label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control luxury-input" name="ps_repassword" maxlength="20" placeholder="Repita sua senha" required>
-                </div>
-              </div>
-
-              <input type="hidden" name="ps_person_id" value="111111111111111111">
-              <input type="hidden" name="extcode" value="1234">
-              <input type="hidden" name="extcode1" value="1234">
-
-              <div class="form-group text-center" style="margin-top:25px;">
-                <div class="col-sm-offset-3 col-sm-8">
-                  <button type="submit" class="btn btn-hero-primary btn-block" style="border-radius:8px;">
-                    <i class="fa fa-check-circle"></i> CONCLUIR MEU CADASTRO
-                  </button>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
+      </section>
 
-      <?php elseif ($page == 'download'): ?>
+    <?php elseif ($page == 'info'): ?>
 
-        <!-- NATIVE DOWNLOAD -->
-        <div class="native-view-box">
-          <div class="section-gold-header">
-            <h3><i class="fa fa-download text-gold"></i> DOWNLOAD <span>DO CLIENTE OFICIAL</span></h3>
+      <!-- INFORMAÇÕES NATIVAS -->
+      <section class="subpage-container">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-info-circle text-gold"></i> INFORMAÇÕES <span>DO SERVIDOR</span></h3>
+            <p>Configurações técnicas oficiais do MU Dravaryn Season 6 Episode 3</p>
           </div>
 
           <div class="row" style="margin-top:25px;">
-            <div class="col-md-6 col-sm-12" style="margin-bottom:25px;">
-              <div class="luxury-download-card">
-                <span class="card-ribbon">RECOMENDADO</span>
-                <h4><i class="fa fa-cloud-download text-gold"></i> CLIENTE COMPLETO (INSTALADOR)</h4>
-                <p>Instalador oficial do MU Dravaryn Season 6 com som, músicas, efeitos HD e anti-hack integrado.</p>
-                <div class="card-meta-info">
-                  <span><i class="fa fa-hdd-o text-gold"></i> Tamanho: 1.2 GB</span>
-                  <span><i class="fa fa-calendar text-gold"></i> <?=date('d/m/Y');?></span>
-                </div>
-                <a href="http://187.127.26.213:8085/MUDravaryn_Full_v1.42.exe" class="btn btn-hero-primary btn-block">
-                  <i class="fa fa-download"></i> BAIXAR LINK DIRETO
-                </a>
-              </div>
+            <div class="col-md-6">
+              <table class="table" style="color:#cbd5e1;font-size:14px;">
+                <tr><th class="text-gold">Versão:</th><td>Season 6 Episode 3 Clássico</td></tr>
+                <tr><th class="text-gold">Experiência Geral:</th><td>50x (Dinâmica)</td></tr>
+                <tr><th class="text-gold">Experiência Master:</th><td>30x</td></tr>
+                <tr><th class="text-gold">Drop Rate:</th><td>20% Valorizado</td></tr>
+                <tr><th class="text-gold">Bug Bless:</th><td><span class="text-danger">OFF (100% Desativado)</span></td></tr>
+                <tr><th class="text-gold">Level Máximo:</th><td>400 + 400 Master Level</td></tr>
+                <tr><th class="text-gold">Pontos por Nível:</th><td>DK/DW/ELF/SUM = 5 | MG/DL/RF = 7</td></tr>
+              </table>
             </div>
 
-            <div class="col-md-6 col-sm-12" style="margin-bottom:25px;">
-              <div class="luxury-download-card">
-                <span class="card-ribbon" style="background:#00d2ff; color:#050914;">OPÇÃO 2</span>
-                <h4><i class="fa fa-cloud-download text-cyan"></i> ESPELHO MEGA / DRIVE</h4>
-                <p>Link espelho de alta velocidade no Mega caso sua conexão necessite de acelerador.</p>
-                <div class="card-meta-info">
-                  <span><i class="fa fa-hdd-o text-cyan"></i> Tamanho: 1.2 GB</span>
-                  <span><i class="fa fa-shield text-cyan"></i> 100% Seguro</span>
-                </div>
-                <a href="https://mega.nz/" target="_blank" class="btn btn-hero-secondary btn-block">
-                  <i class="fa fa-external-link"></i> BAIXAR VIA MEGA
-                </a>
-              </div>
+            <div class="col-md-6">
+              <table class="table" style="color:#cbd5e1;font-size:14px;">
+                <tr><th class="text-gold">Reset:</th><td>Pontuativo (Mantém status ajustados)</td></tr>
+                <tr><th class="text-gold">Spots:</th><td>1.399 Spots espalhados em todos os mapas</td></tr>
+                <tr><th class="text-gold">Jóias na Chaos Machine:</th><td>+10 = 70% | +11 = 65% | +12 a +15 = 55%</td></tr>
+                <tr><th class="text-gold">Castle Siege:</th><td>Todos os Domingos às 20h00</td></tr>
+                <tr><th class="text-gold">Blood Castle:</th><td>A cada 2 horas com recompensas</td></tr>
+                <tr><th class="text-gold">Chaos Castle:</th><td>A cada 4 horas com itens Ancient</td></tr>
+              </table>
             </div>
           </div>
         </div>
+      </section>
 
-      <?php elseif ($page == 'info'): ?>
+    <?php elseif ($page == 'ranking'): ?>
 
-        <!-- NATIVE SERVER INFO -->
-        <div class="native-view-box">
-          <div class="section-gold-header">
-            <h3><i class="fa fa-info-circle text-gold"></i> ESPECIFICAÇÕES <span>DO SERVIDOR</span></h3>
+      <!-- RANKING NATIVO COMPLETO -->
+      <section class="subpage-container">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-trophy text-gold"></i> RANKINGS <span>OFICIAIS</span></h3>
+            <p>Melhores jogadores e heróis de MU Dravaryn</p>
           </div>
 
-          <table class="table luxury-table">
-            <thead>
-              <tr><th>Configuração</th><th>Detalhe Oficial</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Versão Oficial:</strong></td><td class="text-gold">Season 6 Episode 3 Classic</td></tr>
-              <tr><td><strong>Experiência Normal:</strong></td><td class="text-cyan">50x Dinâmica</td></tr>
-              <tr><td><strong>Experiência Master:</strong></td><td class="text-cyan">30x</td></tr>
-              <tr><td><strong>Drop Rate de Itens:</strong></td><td class="text-gold">20% (Jóias e Itens valorizados)</td></tr>
-              <tr><td><strong>Sistema de Reset:</strong></td><td>Pontuativo (Medium-Slow)</td></tr>
-              <tr><td><strong>Bug Bless:</strong></td><td class="text-danger">OFF (100% Desativado)</td></tr>
-              <tr><td><strong>Spots de Monstros:</strong></td><td class="text-gold">1.399 spots balanceados</td></tr>
-              <tr><td><strong>Castle Siege:</strong></td><td>Todo Domingo às 20h00</td></tr>
-              <tr><td><strong>Invasões:</strong></td><td>Goldens, Red Dragon, Kundun, Medusa, Selupan</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-      <?php elseif ($page == 'ranking'): ?>
-
-        <!-- NATIVE RANKING -->
-        <div class="native-view-box">
-          <div class="section-gold-header">
-            <h3><i class="fa fa-trophy text-gold"></i> RANKING DOS <span>MELHORES JOGADORES</span></h3>
+          <div class="table-responsive" style="margin-top:20px;">
+            <table class="vanguard-table">
+              <thead>
+                <tr>
+                  <th style="width:40px;">#</th>
+                  <th>PERSONAGEM</th>
+                  <th>CLASSE</th>
+                  <th style="text-align:center;">NÍVEL</th>
+                  <th style="text-align:center;">RESETS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $rank = 1;
+                foreach ($top_characters as $c): 
+                  $badge_class = $rank == 1 ? 'rank-badge-1' : ($rank == 2 ? 'rank-badge-2' : ($rank == 3 ? 'rank-badge-3' : ''));
+                  $class_name  = get_mu_class_name(isset($c['Class']) ? $c['Class'] : 0);
+                ?>
+                  <tr>
+                    <td>
+                      <?php if ($badge_class): ?>
+                        <span class="<?=$badge_class;?>"><?=$rank;?></span>
+                      <?php else: ?>
+                        <span style="color:#7d8c9e;font-weight:700;"><?=$rank;?></span>
+                      <?php endif; ?>
+                    </td>
+                    <td><strong style="color:#fff;font-size:15px;"><?=$c['Name'];?></strong></td>
+                    <td><span class="class-badge"><?=$class_name;?></span></td>
+                    <td style="text-align:center;font-weight:700;color:var(--gold-light);"><?=$c['cLevel'];?></td>
+                    <td style="text-align:center;font-weight:800;color:#52e591;"><?=$c['ResetCount'];?></td>
+                  </tr>
+                <?php 
+                  $rank++;
+                endforeach; 
+                ?>
+              </tbody>
+            </table>
           </div>
-
-          <table class="table luxury-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Personagem</th>
-                <th>Experiência</th>
-                <th>Resets</th>
-                <th>Level</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $r_res = @mssql_query('SELECT "Name", "Experience", "MasterExperience", "PlayerKillCount" FROM data."Character" ORDER BY "Experience" DESC LIMIT 15');
-              if ($r_res && @mssql_num_rows($r_res) > 0) {
-                  $pos = 1;
-                  while ($rc = @mssql_fetch_array($r_res)) {
-                      $cname = htmlspecialchars($rc['Name']);
-                      $cexp  = number_format((float)$rc['Experience']);
-                      $resets = floor((float)$rc['MasterExperience'] / 100000000);
-                      $lvl = 400;
-                      $medal = ($pos == 1) ? '🥇 ' : (($pos == 2) ? '🥈 ' : (($pos == 3) ? '🥉 ' : ''));
-                      echo "<tr>
-                        <td><strong>$medal#$pos</strong></td>
-                        <td class='text-gold'><i class='fa fa-shield'></i> $cname</td>
-                        <td>$cexp</td>
-                        <td class='text-cyan'>$resets</td>
-                        <td>$lvl</td>
-                        <td><span class='text-green'><i class='fa fa-circle'></i> Ativo</span></td>
-                      </tr>";
-                      $pos++;
-                  }
-              } else {
-                  echo "<tr><td colspan='6' class='text-center'>Nenhum personagem registrado no momento.</td></tr>";
-              }
-              ?>
-            </tbody>
-          </table>
         </div>
+      </section>
 
-      <?php else: ?>
-        <div class="native-view-box text-center" style="padding:60px 0;">
-          <h3>PÁGINA EM ATUALIZAÇÃO</h3>
-          <p>Esta funcionalidade estará disponível em breve com o novo layout!</p>
-          <a href="site.php" class="btn btn-hero-primary" style="display:inline-block; margin-top:20px;">Voltar ao Início</a>
+    <?php else: ?>
+
+      <!-- SUBPÁGINA GENÉRICA -->
+      <section class="subpage-container">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-file-text-o text-gold"></i> <?=strtoupper($page);?></h3>
+          </div>
+          <?php 
+            $subfile = $page . ".php";
+            if (file_exists($subfile) && $subfile != 'site.php') {
+                include($subfile);
+            } else {
+                echo "<p style='color:#cbd5e1;'>Conteúdo em carregamento...</p>";
+            }
+          ?>
         </div>
-      <?php endif; ?>
+      </section>
 
-    </div>
+    <?php endif; ?>
+
   </div>
 </main>
 
-<!-- LUXURY FOOTER -->
-<footer class="modern-footer">
-  <div class="container">
-    <div class="row footer-grid">
-      <div class="col-md-4 footer-about">
-        <div class="footer-logo-wrap">
-          <img src="img/logoJM.png" alt="Dravaryn" class="footer-brand-logo">
-          <h3>MU DRAVARYN</h3>
-        </div>
-        <p>O maior e mais estável servidor de MU Online Season 6 do Brasil. Servidor balanceado, proteção de ponta e suporte dedicado.</p>
-      </div>
-
-      <div class="col-md-2 col-sm-4 footer-links-col">
-        <h4>O JOGO</h4>
-        <ul>
-          <li><a href="site.php?p=cadastro">Criar Conta</a></li>
-          <li><a href="site.php?p=download">Download</a></li>
-          <li><a href="site.php?p=info">Configurações</a></li>
-          <li><a href="site.php?p=comandos">Comandos</a></li>
-        </ul>
-      </div>
-
-      <div class="col-md-3 col-sm-4 footer-links-col">
-        <h4>INFORMAÇÕES</h4>
-        <ul>
-          <li><a href="site.php?p=dicas">Guia de Iniciantes</a></li>
-          <li><a href="site.php?p=eventos">Horários de Eventos</a></li>
-          <li><a href="site.php?p=ranking">Rankings Oficiais</a></li>
-          <li><a href="site.php?p=guilds">Guildas do Servidor</a></li>
-        </ul>
-      </div>
-
-      <div class="col-md-3 col-sm-4 footer-links-col">
-        <h4>COMUNIDADE</h4>
-        <ul>
-          <li><a href="https://discord.gg/" target="_blank"><i class="fa fa-comments text-gold"></i> Discord Oficial</a></li>
-          <li><a href="https://chat.whatsapp.com/" target="_blank"><i class="fa fa-whatsapp text-gold"></i> Grupo WhatsApp</a></li>
-          <li><a href="site.php?p=contato"><i class="fa fa-life-ring text-gold"></i> Suporte Técnico</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-copyright-bar">
-      <div class="row">
-        <div class="col-sm-6 text-left">
-          <p>&copy; <?=date('Y');?> MU Dravaryn. Todos os direitos reservados.</p>
-        </div>
-        <div class="col-sm-6 text-right">
-          <p>Designed for <strong>MU Dravaryn Season 6 Episode 3</strong></p>
-        </div>
-      </div>
-    </div>
+<!-- VANGUARD LUXURY FOOTER -->
+<footer class="vanguard-footer">
+  <div class="container text-center">
+    <img src="img/logo_dravaryn.png" alt="MU Dravaryn" class="footer-logo">
+    <p style="margin:10px auto;max-width:650px;color:#94a3b8;">
+      MU Dravaryn Season 6 Episode 3 é um servidor privado independente dedicado aos fãs clássicos de MMORPG. Todos os direitos reservados às respectivas marcas.
+    </p>
+    <p style="font-size:12px;color:#64748b;margin-top:15px;">
+      &copy; <?=date('Y');?> MU Dravaryn • Desenvolvido com excelência AAA.
+    </p>
   </div>
 </footer>
 
-<script src="js/jquery.min.js"></script>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
-
-<script>
-// Live Server Clock
-function updateClock() {
-    var now = new Date();
-    var h = String(now.getHours()).padStart(2, '0');
-    var m = String(now.getMinutes()).padStart(2, '0');
-    var s = String(now.getSeconds()).padStart(2, '0');
-    var el = document.getElementById('server-live-clock');
-    if (el) el.innerText = h + ':' + m + ':' + s;
-}
-setInterval(updateClock, 1000);
-updateClock();
-</script>
 
 </body>
 </html>
