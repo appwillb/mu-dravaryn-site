@@ -25,129 +25,95 @@ $result = @mssql_query($query);
 $row    = @mssql_fetch_row($result);
 
 $top_cards = [
-    ['title' => '#1 M.RESETS', 'name' => !empty($row[0]) ? $row[0] : 'Dravaryn', 'icon' => 'img/charbk.jpg', 'badge' => 'icon-gold'],
-    ['title' => '#1 RESETS',   'name' => !empty($row[2]) ? $row[2] : 'Dravaryn', 'icon' => 'img/charsm.jpg', 'badge' => 'icon-gold'],
-    ['title' => '#1 PATENTE',  'name' => !empty($row[4]) ? $row[4] : 'Dravaryn', 'icon' => 'img/charelf.jpg', 'badge' => 'icon-cyan'],
-    ['title' => '#1 EVENTOS',  'name' => !empty($row[6]) ? $row[6] : 'Dravaryn', 'icon' => 'img/charmg.jpg', 'badge' => 'icon-yellow'],
-    ['title' => '#1 ASSASSINO','name' => !empty($row[8]) ? $row[8] : 'Dravaryn', 'icon' => 'img/dl.jpg', 'badge' => 'icon-red'],
-    ['title' => '#1 HERÓI',    'name' => !empty($row[10]) ? $row[10] : 'Dravaryn', 'icon' => 'img/sum.jpg', 'badge' => 'icon-green'],
-    ['title' => '#1 DUELO',    'name' => !empty($row[14]) ? $row[14] : 'Dravaryn', 'icon' => 'img/rf.jpg', 'badge' => 'icon-purple'],
-    ['title' => '#1 GUILD',    'name' => !empty($row[12]) ? $row[12] : 'Dravaryn', 'icon' => 'img/guild.png', 'badge' => 'icon-gold'],
+    ['title' => '#1 M.RESETS', 'name' => !empty($row[0]) ? $row[0] : 'testgm2Sum', 'icon' => 'img/charbk.jpg'],
+    ['title' => '#1 RESETS',   'name' => !empty($row[2]) ? $row[2] : 'quest3Elf',  'icon' => 'img/charsm.jpg'],
+    ['title' => '#1 ASSASSINO','name' => !empty($row[8]) ? $row[8] : 'testgm2Rf',   'icon' => 'img/dl.jpg'],
+    ['title' => '#1 GUILDA',   'name' => !empty($row[12]) ? $row[12] : 'Dravaryn',  'icon' => 'img/guild.png'],
+    ['title' => 'TOP BLADE M.', 'name' => !empty($row[18]) ? $row[18] : 'test400Dk', 'icon' => 'img/charbk.jpg'],
+    ['title' => 'TOP GRAND M.', 'name' => !empty($row[16]) ? $row[16] : 'quest3Dw',  'icon' => 'img/charsm.jpg'],
+    ['title' => 'TOP HIGH ELF', 'name' => !empty($row[20]) ? $row[20] : 'testgmElf', 'icon' => 'img/charelf.jpg'],
+    ['title' => 'TOP LORD E.',  'name' => !empty($row[24]) ? $row[24] : 'test400Dl', 'icon' => 'img/dl.jpg'],
 ];
 ?>
 <style>
-.hall-of-fame-wrap {
-  margin-bottom: 25px;
+.luxury-hof-wrapper {
+  margin-bottom: 35px;
 }
-.hof-title-bar {
-  text-align: center;
-  margin-bottom: 18px;
-  position: relative;
-}
-.hof-title-bar h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #fff;
-  margin: 0;
-  display: inline-block;
-  background: rgba(13, 17, 26, 0.95);
-  padding: 0 20px;
-  position: relative;
-  z-index: 2;
-}
-.hof-title-bar h3 span {
-  color: #d4af37;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
-}
-.hof-title-bar::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
-  z-index: 1;
-}
-
-.hof-grid {
+.hof-pedestal-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 @media (max-width: 991px) {
-  .hof-grid { grid-template-columns: repeat(4, 1fr); }
+  .hof-pedestal-grid { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 600px) {
-  .hof-grid { grid-template-columns: repeat(2, 1fr); }
+  .hof-pedestal-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.hof-card {
-  background: rgba(16, 22, 33, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 12px;
-  padding: 14px 8px;
+.hof-pedestal-card {
+  background: rgba(14, 20, 32, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 14px;
+  padding: 16px 8px;
   text-align: center;
-  transition: all 0.25s ease;
-  cursor: pointer;
-}
-.hof-card:hover {
-  background: rgba(22, 30, 46, 0.95);
-  border-color: #d4af37;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), 0 0 12px rgba(212, 175, 55, 0.3);
-}
-
-.hof-avatar-wrap {
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 10px auto;
+  overflow: hidden;
 }
-.hof-avatar-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #d4af37;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+.hof-pedestal-card:hover {
+  background: rgba(18, 26, 42, 0.98);
+  border-color: #d4af37;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85), 0 0 15px rgba(212, 175, 55, 0.35);
 }
-.hof-badge {
+.hof-rank-tag {
   font-family: 'Rajdhani', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: #d4af37;
-  text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
-.hof-name {
+.hof-avatar-circle {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  overflow: hidden;
+}
+.hof-avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hof-char-name {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 700;
   color: #fff;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0;
 }
 </style>
 
-<div class="hall-of-fame-wrap">
-  <div class="hof-title-bar">
-    <h3>MELHORES DO <span>SERVIDOR</span></h3>
+<div class="luxury-hof-wrapper">
+  <div class="section-gold-header">
+    <h3><i class="fa fa-star text-gold"></i> HALL DA GLÓRIA • <span>TOP JOGADORES</span></h3>
   </div>
 
-  <div class="hof-grid">
-    <?php foreach ($top_cards as $card): ?>
-    <div class="hof-card" onclick="document.location.href='info_char_pop.php?name=<?=urlencode($card['name']);?>&painel=ok'">
-      <div class="hof-badge"><?=$card['title'];?></div>
-      <div class="hof-avatar-wrap">
-        <img src="<?=$card['icon'];?>" alt="<?=$card['name'];?>" class="hof-avatar-img">
+  <div class="hof-pedestal-grid">
+    <?php foreach ($top_cards as $c): ?>
+    <div class="hof-pedestal-card">
+      <div class="hof-rank-tag"><?=$c['title'];?></div>
+      <div class="hof-avatar-circle">
+        <img src="<?=$c['icon'];?>" alt="<?=$c['name'];?>">
       </div>
-      <h5 class="hof-name"><?=$card['name'];?></h5>
+      <h5 class="hof-char-name"><?=$c['name'];?></h5>
     </div>
     <?php endforeach; ?>
   </div>
