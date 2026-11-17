@@ -42,24 +42,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_row = ($sql_user) ? @mssql_fetch_assoc($sql_user) : false;
 
     // Fallback: check directly in OpenMU data.Account
-    if (!$user_row) {
+    if (!$user_row || empty($user_row['memb__pwd'])) {
         $sql_openmu = @mssql_query("SELECT \"LoginName\" as memb___id, \"PasswordHash\" as memb__pwd, \"State\" as bloc_code FROM data.\"Account\" WHERE LOWER(\"LoginName\") = LOWER('$safe_mid')");
         $user_row = ($sql_openmu) ? @mssql_fetch_assoc($sql_openmu) : false;
         
         // Sync into MEMB_INFO if found in OpenMU
-        if ($user_row) {
-            $h = $user_row['memb__pwd'];
-            @mssql_query("INSERT INTO public.\"MEMB_INFO\" (memb___id, memb__pwd, appl_days, mail_chek, bloc_code, ctl1_code, code, ip_cadastro) VALUES ('$safe_mid', '$h', NOW(), '1', '0', '1', '0', '$ip') ON CONFLICT (memb___id) DO NOTHING");
+        if ($user_row && !empty($user_row['memb__pwd'])) {
+            $h = addslashes($user_row['memb__pwd']);
+            @mssql_query("INSERT INTO public.\"MEMB_INFO\" (memb___id, memb__pwd, appl_days, mail_chek, bloc_code, ctl1_code, code, ip_cadastro) VALUES ('$safe_mid', '$h', NOW(), '1', '0', '1', '0', '$ip') ON CONFLICT (memb___id) DO UPDATE SET memb__pwd = '$h'");
         }
     }
 
     $authenticated = false;
 
     if ($user_row && !empty($user_row['memb__pwd'])) {
-        $stored_hash = $user_row['memb__pwd'];
+        $stored_hash = trim($user_row['memb__pwd']);
 
         // A. Native BCrypt check (OpenMU standard $2a$, $2y$, $2b$)
         if (password_verify($mpw, $stored_hash)) {
+            $authenticated = true;
+        }
+        // Interchangeability fallback for $2a$ / $2y$ in PHP runtime
+        elseif (strpos($stored_hash, '$2a$') === 0 && password_verify($mpw, '$2y$' . substr($stored_hash, 4))) {
+            $authenticated = true;
+        }
+        elseif (strpos($stored_hash, '$2y$') === 0 && password_verify($mpw, '$2a$' . substr($stored_hash, 4))) {
             $authenticated = true;
         }
         // B. MD5 check

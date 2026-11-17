@@ -156,23 +156,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
                 $reg_error = "Este e-mail já foi utilizado em outra conta cadastrada!";
             } else {
                 $hash = password_hash($r_pwd, PASSWORD_BCRYPT);
+                if (strpos($hash, '$2y$') === 0) {
+                    $hash = '$2a$' . substr($hash, 4);
+                }
                 $safe_hash = addslashes($hash);
                 $safe_name = addslashes($r_name);
 
-                @mssql_query("SELECT public.fn_register_account('$safe_login', '$safe_hash', '$safe_name', '$safe_email', '$r_ip')");
+                $reg_query = @mssql_query("SELECT public.fn_register_account('$safe_login', '$safe_hash', '$safe_name', '$safe_email', '$r_ip')");
+                $reg_res = ($reg_query) ? @mssql_fetch_row($reg_query) : null;
 
-                // Auto login the newly registered user
-                $cookie_pass = md5($hash);
-                setcookie("usuario", $r_login, time() + (86400 * 30), "/");
-                setcookie("senha", $cookie_pass, time() + (86400 * 30), "/");
-                $_SESSION['usuario'] = $r_login;
-                $_SESSION['senha']   = $cookie_pass;
+                if (!$reg_res || ($reg_res[0] !== true && $reg_res[0] !== 't' && $reg_res[0] !== 1 && $reg_res[0] !== '1')) {
+                    $reg_error = "Ocorreu uma falha ao gravar a conta no banco de dados. Tente novamente!";
+                } else {
+                    // Auto login the newly registered user
+                    $cookie_pass = md5($hash);
+                    setcookie("usuario", $r_login, time() + (86400 * 30), "/");
+                    setcookie("senha", $cookie_pass, time() + (86400 * 30), "/");
+                    $_SESSION['usuario'] = $r_login;
+                    $_SESSION['senha']   = $cookie_pass;
 
-                if (!headers_sent()) {
-                    header("Location: site.php?p=painel&cadastro=sucesso");
+                    if (!headers_sent()) {
+                        header("Location: site.php?p=painel&cadastro=sucesso");
+                    }
+                    echo "<script>window.location.href='site.php?p=painel&cadastro=sucesso';</script>";
+                    exit();
                 }
-                echo "<script>window.location.href='site.php?p=painel&cadastro=sucesso';</script>";
-                exit();
             }
         }
     }

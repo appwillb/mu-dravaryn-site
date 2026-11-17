@@ -214,6 +214,9 @@ if ($Error!=1)
 	$ativa_acc 	= ($CONFIG_MAIL_ATIVAR == 1) ? 2 : 1;
 
 	$pass_hash = password_hash($ps_password, PASSWORD_BCRYPT);
+	if (strpos($pass_hash, '$2y$') === 0) {
+		$pass_hash = '$2a$' . substr($pass_hash, 4);
+	}
 	@mssql_query("SELECT public.fn_register_account('$ps_loginname', '$pass_hash', '$ps_name', '$ps_email', '$ip')");
 
 	// Auto-login cookies
