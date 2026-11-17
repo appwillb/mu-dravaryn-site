@@ -46,6 +46,10 @@ class MuDatabase {
         $translated = preg_replace('/\\[(\\w+)\\]/', '"$1"', $translated);
         $translated = preg_replace('/\\bmemb_info\\b/i', 'public."MEMB_INFO"', $translated);
         $translated = preg_replace('/\\bmemb_stat\\b/i', 'public."MEMB_STAT"', $translated);
+        $translated = preg_replace('/CONVERT\\s*\\(\\s*VARCHAR\\s*\\(\\s*\\d+\\s*\\)\\s*,\\s*([^,)]+)\\s*,\\s*\\d+\\s*\\)/i', '($1)::text', $translated);
+        $translated = preg_replace('/CONVERT\\s*\\(\\s*VARCHAR\\s*\\(\\s*\\d+\\s*\\)\\s*,\\s*([^)]+)\\s*\\)/i', '($1)::text', $translated);
+        $translated = str_ireplace('isnull(', 'coalesce(', $translated);
+        $translated = preg_replace('/\\blen\\s*\\(/i', 'length(', $translated);
 
         if (preg_match('/SELECT\\s+TOP\\s+(\\d+)\\s+(.*)/i', $translated, $m)) {
             $limit = $m[1];

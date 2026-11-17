@@ -71,9 +71,9 @@ $is_logged = false;
 $user_login = '';
 $user_avatar = 'avatar/Icon-user30.png';
 
-if (isset($_COOKIE["usuario"]) && isset($_COOKIE["senha"]) && !$off) {
+if (isset($_COOKIE["usuario"]) && isset($_COOKIE["senha"])) {
     $user_login = htmlspecialchars($_COOKIE["usuario"]);
-    $sql_dados = @mssql_query("SELECT img from memb_info where memb___id='$user_login'"); 
+    $sql_dados = @mssql_query("SELECT img from memb_info where LOWER(memb___id)=LOWER('$user_login')"); 
     $login_dados = @mssql_fetch_row($sql_dados);
     if (!empty($login_dados[0])) {
         $user_avatar = "avatar/thumb.php?imagem=" . urlencode($login_dados[0]) . "&y=30&x=30&qualidade=100";

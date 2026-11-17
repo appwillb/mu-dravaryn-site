@@ -42,7 +42,4 @@ $CONFIG_TITLE   = "MU Dravaryn - Season 6 Medium Slow";
 $CONFIG_FOOTER  = "MU Dravaryn Season 6 © 2026 - Todos os direitos reservados";
 $CONFIG_NOME_MU = "MU Dravaryn";
 
-if (!isset($NO_TITLE)) {
-    echo "<title>$CONFIG_TITLE</title>";
-}
 ?>

@@ -1,10 +1,12 @@
 <?php
 /**
  * MU Dravaryn - Ultra-Modern Authentication Gateway
- * Validates BCrypt (OpenMU), MD5, and legacy hashes. Zero ugly tables.
+ * Validates BCrypt (OpenMU), MD5, and plaintext. Zero blank pages.
  */
+ob_start();
 session_start();
-header('Content-Type: text/html; charset=utf-8');
+$NO_TITLE = 1;
+
 require_once("inclu/config_index.php");
 
 // 1. Handle Logout
@@ -13,7 +15,10 @@ if (isset($_GET['deslogar'])) {
     setcookie("senha", "", time() - 86400, "/");
     unset($_SESSION['usuario']);
     unset($_SESSION['senha']);
-    header("Location: site.php");
+    if (!headers_sent()) {
+        header("Location: site.php");
+    }
+    echo "<script>window.location.href='site.php';</script>";
     exit();
 }
 
@@ -24,19 +29,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ip  = isset($_SERVER["REMOTE_ADDR"]) ? $_SERVER["REMOTE_ADDR"] : '127.0.0.1';
 
     if (empty($mid) || empty($mpw)) {
-        header("Location: site.php?login_error=empty");
+        if (!headers_sent()) {
+            header("Location: site.php?login_error=empty");
+        }
+        echo "<script>window.location.href='site.php?login_error=empty';</script>";
         exit();
     }
 
     // Query account in MEMB_INFO (or fallback to OpenMU data.Account)
     $safe_mid = addslashes($mid);
-    $sql_user = mssql_query("SELECT memb___id, memb__pwd, bloc_code, mail_chek FROM MEMB_INFO WHERE LOWER(memb___id) = LOWER('$safe_mid')");
-    $user_row = ($sql_user) ? mssql_fetch_assoc($sql_user) : false;
+    $sql_user = @mssql_query("SELECT memb___id, memb__pwd, bloc_code, mail_chek FROM MEMB_INFO WHERE LOWER(memb___id) = LOWER('$safe_mid')");
+    $user_row = ($sql_user) ? @mssql_fetch_assoc($sql_user) : false;
 
-    // If not found in MEMB_INFO, check directly in data.Account
+    // Fallback: check directly in OpenMU data.Account
     if (!$user_row) {
-        $sql_openmu = mssql_query("SELECT \"LoginName\" as memb___id, \"PasswordHash\" as memb__pwd, \"State\" as bloc_code FROM data.\"Account\" WHERE LOWER(\"LoginName\") = LOWER('$safe_mid')");
-        $user_row = ($sql_openmu) ? mssql_fetch_assoc($sql_openmu) : false;
+        $sql_openmu = @mssql_query("SELECT \"LoginName\" as memb___id, \"PasswordHash\" as memb__pwd, \"State\" as bloc_code FROM data.\"Account\" WHERE LOWER(\"LoginName\") = LOWER('$safe_mid')");
+        $user_row = ($sql_openmu) ? @mssql_fetch_assoc($sql_openmu) : false;
         
         // Sync into MEMB_INFO if found in OpenMU
         if ($user_row) {
@@ -65,36 +73,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($authenticated) {
-        // Check if account is banned/blocked
+        // Check if account is blocked
         if (isset($user_row['bloc_code']) && (int)$user_row['bloc_code'] > 0) {
-            header("Location: site.php?login_error=blocked&login_user=" . urlencode($mid));
+            $target = "site.php?login_error=blocked&login_user=" . urlencode($mid);
+            if (!headers_sent()) {
+                header("Location: $target");
+            }
+            echo "<script>window.location.href='$target';</script>";
             exit();
         }
 
-        // Set persistent login cookies (valid for 30 days across all paths)
+        // Set persistent session cookies
         $cookie_user = $user_row['memb___id'];
-        $cookie_pass = md5($mpw); // Stored as MD5 token for cookie security
+        $cookie_pass = md5($user_row['memb__pwd']);
 
         setcookie("usuario", $cookie_user, time() + (86400 * 30), "/");
         setcookie("senha", $cookie_pass, time() + (86400 * 30), "/");
         $_SESSION['usuario'] = $cookie_user;
         $_SESSION['senha']   = $cookie_pass;
 
-        // Redirect to painel if requested or back to site
-        if (isset($_GET['painel'])) {
-            header("Location: painel/index.php");
-        } else {
-            header("Location: site.php");
+        $target = isset($_GET['painel']) ? "painel/index.php" : "site.php";
+        if (!headers_sent()) {
+            header("Location: $target");
         }
+        echo "<script>window.location.href='$target';</script>";
         exit();
     } else {
         // Failed login: redirect back to site.php with error query string
-        header("Location: site.php?login_error=invalid&login_user=" . urlencode($mid));
+        $target = "site.php?login_error=invalid&login_user=" . urlencode($mid);
+        if (!headers_sent()) {
+            header("Location: $target");
+        }
+        echo "<script>window.location.href='$target';</script>";
         exit();
     }
 }
 
 // 3. Fallback for direct GET access: redirect to site.php
-header("Location: site.php");
+if (!headers_sent()) {
+    header("Location: site.php");
+}
+echo "<script>window.location.href='site.php';</script>";
 exit();
 ?>
