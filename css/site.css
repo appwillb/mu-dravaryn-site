@@ -682,3 +682,141 @@ html, body {
   .btn-cta-gold, .btn-cta-blue { width: 100%; justify-content: center; }
   .login-form-modern { margin: 10px 0; flex-wrap: wrap; }
 }
+
+/* ==========================================================================
+   NATIVE SUBPAGES & RESPONSIVE COMPONENT EXTENSIONS
+   ========================================================================== */
+.native-subpage-wrap {
+  padding: 15px 0;
+}
+.section-title-bar {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+.section-title-bar h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #fff;
+  margin: 0;
+  display: inline-block;
+  background: var(--bg-card);
+  padding: 0 25px;
+  position: relative;
+  z-index: 2;
+}
+.section-title-bar h3 span {
+  color: var(--gold-primary);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+.section-title-bar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+  z-index: 1;
+}
+
+/* Modern Form */
+.modern-register-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.modern-register-form .control-label {
+  color: var(--gold-primary);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  padding-top: 12px;
+}
+.input-dark {
+  background: rgba(10, 14, 23, 0.9) !important;
+  border: 1px solid var(--border-gold) !important;
+  color: #fff !important;
+  height: 44px;
+  border-radius: 8px !important;
+  padding: 10px 14px;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+.input-dark:focus {
+  border-color: var(--gold-primary) !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4) !important;
+}
+
+/* Download Cards */
+.download-card {
+  background: rgba(16, 22, 33, 0.9);
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 28px 24px;
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.download-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), var(--gold-glow);
+}
+.download-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--gold-gradient);
+  color: #0b0f17;
+  font-family: var(--font-hud);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.download-card h4 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+.download-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 12px;
+  color: #8c9cb0;
+  margin: 16px 0 22px 0;
+}
+
+/* Modern Info & Ranking Table */
+.modern-info-table {
+  background: rgba(12, 16, 25, 0.8) !important;
+  border: 1px solid var(--border-gold) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  margin-top: 15px;
+}
+.modern-info-table th {
+  background: rgba(212, 175, 55, 0.12) !important;
+  color: var(--gold-primary) !important;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 14px !important;
+  border-bottom: 1px solid var(--border-gold) !important;
+}
+.modern-info-table td {
+  padding: 14px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  font-size: 14px;
+}
+.modern-info-table tr:hover {
+  background: rgba(212, 175, 55, 0.05) !important;
+}
