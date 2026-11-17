@@ -12,19 +12,21 @@ if (!defined('DRAVARYN_PORTAL')) {
 $shop_feedback = '';
 $shop_feedback_type = 'info';
 
-// 1. Fetch user coin balance if logged in
+// 1. Fetch user coin balance and VaultId if logged in
 $user_wcoinc = 0;
 $user_gp = 0;
 $acc_id = null;
+$vault_id = null;
 
 if ($is_logged) {
     $safe_login = addslashes($user_login);
-    $sql_coins = @mssql_query("SELECT a.\"Id\", COALESCE(a.\"WCoinC\", 0) as wcoinc, COALESCE(a.\"GoblinPoints\", 0) as gp 
+    $sql_coins = @mssql_query("SELECT a.\"Id\", a.\"VaultId\", COALESCE(a.\"WCoinC\", 0) as wcoinc, COALESCE(a.\"GoblinPoints\", 0) as gp 
         FROM data.\"Account\" a 
         WHERE LOWER(a.\"LoginName\") = LOWER('$safe_login')");
     $coin_data = ($sql_coins) ? @mssql_fetch_assoc($sql_coins) : null;
     if ($coin_data) {
         $acc_id      = $coin_data['Id'];
+        $vault_id    = $coin_data['VaultId'];
         $user_wcoinc = (int)$coin_data['wcoinc'];
         $user_gp     = (int)$coin_data['gp'];
     }
@@ -425,6 +427,120 @@ $catalog = [
     ]
 ];
 
+// 2.1 Mapping of OpenMU Item Definitions for In-Game Vault Delivery
+$catalog_delivery_items = [
+    // --- SETS ---
+    'set_dragon_knight' => [
+        ['name' => 'Dragon Knight Helm',   'def' => '00000080-0007-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dragon Knight Armor',  'def' => '00000080-0008-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dragon Knight Pants',  'def' => '00000080-0009-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dragon Knight Gloves', 'def' => '00000080-000a-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dragon Knight Boots',  'def' => '00000080-000b-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_venom_mist' => [
+        ['name' => 'Venom Mist Helm',   'def' => '00000080-0007-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Venom Mist Armor',  'def' => '00000080-0008-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Venom Mist Pants',  'def' => '00000080-0009-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Venom Mist Gloves', 'def' => '00000080-000a-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Venom Mist Boots',  'def' => '00000080-000b-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_sylphid_ray' => [
+        ['name' => 'Sylphid Ray Helm',   'def' => '00000080-0007-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Sylphid Ray Armor',  'def' => '00000080-0008-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Sylphid Ray Pants',  'def' => '00000080-0009-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Sylphid Ray Gloves', 'def' => '00000080-000a-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Sylphid Ray Boots',  'def' => '00000080-000b-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_volcano' => [
+        ['name' => 'Volcano Armor',  'def' => '00000080-0008-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Volcano Pants',  'def' => '00000080-0009-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Volcano Gloves', 'def' => '00000080-000a-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Volcano Boots',  'def' => '00000080-000b-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_storm_crow' => [
+        ['name' => 'Storm Crow Armor',  'def' => '00000080-0008-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Storm Crow Pants',  'def' => '00000080-0009-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Storm Crow Gloves', 'def' => '00000080-000a-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Storm Crow Boots',  'def' => '00000080-000b-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_red_wing' => [
+        ['name' => 'Red Wing Helm',   'def' => '00000080-0007-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Wing Armor',  'def' => '00000080-0008-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Wing Pants',  'def' => '00000080-0009-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Wing Gloves', 'def' => '00000080-000a-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Wing Boots',  'def' => '00000080-000b-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_phoenix_soul' => [
+        ['name' => 'Phoenix Soul Helmet', 'def' => '00000080-0007-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Phoenix Soul Armor',  'def' => '00000080-0008-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Phoenix Soul Pants',  'def' => '00000080-0009-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Phoenix Soul Boots',  'def' => '00000080-000b-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+
+    // --- WEAPONS ---
+    'wpn_bone_blade' => [
+        ['name' => 'Bone Blade +13 Full', 'def' => '00000080-0000-0016-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_imperial_sword' => [
+        ['name' => 'Imperial Sword +13 Full', 'def' => '00000080-0000-001c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_grand_viper' => [
+        ['name' => 'Grand Viper Staff +13 Full', 'def' => '00000080-0005-000c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_shining_scepter' => [
+        ['name' => 'Shining Scepter +13 Full', 'def' => '00000080-0002-000f-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_albatross_bow' => [
+        ['name' => 'Albatross Bow +13 Full', 'def' => '00000080-0004-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_dark_reign' => [
+        ['name' => 'Dark Reign Blade +13 Full', 'def' => '00000080-0000-0015-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'shield_dragon' => [
+        ['name' => 'Dragon Shield +13 Full', 'def' => '00000080-0006-000d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true]
+    ],
+
+    // --- WINGS ---
+    'wing_storm_lvl3' => [
+        ['name' => 'Wing of Storm Lvl 3', 'def' => '00000080-000c-0024-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wing_spacetime_lvl3' => [
+        ['name' => 'Wing of Eternal Lvl 3', 'def' => '00000080-000c-0025-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wing_illusion_lvl3' => [
+        ['name' => 'Wing of Illusion Lvl 3', 'def' => '00000080-000c-0026-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wing_ruin_lvl3' => [
+        ['name' => 'Wing of Ruin Lvl 3', 'def' => '00000080-000c-0027-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'cape_emperor_lvl3' => [
+        ['name' => 'Cape of Emperor Lvl 3', 'def' => '00000080-000c-0028-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wing_dragon_lvl2' => [
+        ['name' => 'Dragon Wings Lvl 2', 'def' => '00000080-000c-0005-0000-000000000000', 'lvl' => 11, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 4, 'opt_def' => false]
+    ],
+    'wing_angel_lvl2' => [
+        ['name' => 'Soul Wings Lvl 2', 'def' => '00000080-000c-0004-0000-000000000000', 'lvl' => 11, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 4, 'opt_def' => false]
+    ],
+
+    // --- JEWELS (PACKS) ---
+    'pack_bless_30' => [
+        ['name' => 'Pack 30x Jewel of Bless', 'def' => '00000080-000c-001e-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+    ],
+    'pack_soul_30' => [
+        ['name' => 'Pack 30x Jewel of Soul', 'def' => '00000080-000c-001f-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+    ],
+    'pack_life_30' => [
+        ['name' => 'Pack 30x Jewel of Life', 'def' => '00000080-000c-0088-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+    ],
+    'pack_chaos_30' => [
+        ['name' => 'Pack 30x Jewel of Chaos', 'def' => '00000080-000c-008d-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+    ],
+    'pack_harmony_30' => [
+        ['name' => 'Pack 30x Jewel of Harmony', 'def' => '00000080-000c-008c-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+    ],
+];
+
 // 3. Process Purchase POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
     if (!$is_logged) {
@@ -459,32 +575,159 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
                 $shop_feedback = "Saldo insuficiente! Este item custa $price $coin_label, mas você possui apenas $user_balance $coin_label.";
                 $shop_feedback_type = "warning";
             } else {
-                // Deduct currency
-                if ($pay_type === 'gp') {
-                    @mssql_query("UPDATE data.\"Account\" SET \"GoblinPoints\" = \"GoblinPoints\" - $price WHERE \"Id\" = '$acc_id'");
-                    $user_gp -= $price;
-                } else {
-                    @mssql_query("UPDATE data.\"Account\" SET \"WCoinC\" = \"WCoinC\" - $price WHERE \"Id\" = '$acc_id'");
-                    $user_wcoinc -= $price;
-                }
+                // If it is a physical item, verify delivery items and vault capacity first
+                $delivery_items = isset($catalog_delivery_items[$item_id]) ? $catalog_delivery_items[$item_id] : null;
 
-                // If VIP, grant VIP status
-                if ($found_item['type'] === 'vip') {
-                    $vlvl = (int)$found_item['vip_lvl'];
-                    @mssql_query("UPDATE data.\"Account\" SET \"State\" = 0 WHERE \"Id\" = '$acc_id'");
-                    @mssql_query("UPDATE public.\"MEMB_INFO\" 
-                        SET \"AccountLevel\" = $vlvl,
-                            \"vip\" = $vlvl,
-                            \"AccountExpireDate\" = (NOW() + INTERVAL '30 days'),
-                            \"dias_vip\" = (NOW() + INTERVAL '30 days')
-                        WHERE LOWER(memb___id) = LOWER('$safe_login')");
-                    
-                    $shop_feedback = "Parabéns! <strong>{$found_item['name']}</strong> adquirido com sucesso! Seus 30 dias de VIP já estão ativos.";
-                    $shop_feedback_type = "success";
+                if ($found_item['type'] === 'item' && empty($delivery_items)) {
+                    $shop_feedback = "Este item está temporariamente indisponível para entrega automática no baú.";
+                    $shop_feedback_type = "warning";
+                } elseif ($found_item['type'] === 'item' && empty($vault_id)) {
+                    $shop_feedback = "Erro ao localizar o baú da sua conta. Por favor, logue no jogo pelo menos uma vez para ativar o baú.";
+                    $shop_feedback_type = "danger";
                 } else {
-                    $shop_feedback = "Compra realizada com sucesso! <strong>{$found_item['name']}</strong> foi creditado em sua conta com sucesso!";
-                    $shop_feedback_type = "success";
+                    $vault_slots_assigned = [];
+
+                    if ($found_item['type'] === 'item') {
+                        // Build vault grid (8 cols x 15 rows = 120 slots)
+                        $grid = array_fill(0, 15, array_fill(0, 8, false));
+                        $q_v = @mssql_query("SELECT i.\"ItemSlot\", d.\"Width\", d.\"Height\" 
+                            FROM data.\"Item\" i 
+                            JOIN config.\"ItemDefinition\" d ON i.\"DefinitionId\" = d.\"Id\" 
+                            WHERE i.\"ItemStorageId\" = '$vault_id'");
+                        if ($q_v) {
+                            while ($vr = @mssql_fetch_assoc($q_v)) {
+                                $vs = (int)$vr['ItemSlot'];
+                                $vw = max(1, (int)$vr['Width']);
+                                $vh = max(1, (int)$vr['Height']);
+                                $vr_row = intdiv($vs, 8);
+                                $vr_col = $vs % 8;
+                                for ($dr = 0; $dr < $vh; $dr++) {
+                                    for ($dc = 0; $dc < $vw; $dc++) {
+                                        $rr = $vr_row + $dr;
+                                        $cc = $vr_col + $dc;
+                                        if ($rr < 15 && $cc < 8) {
+                                            $grid[$rr][$cc] = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Try finding free slots for all items in the pack/set
+                        $all_fit = true;
+                        foreach ($delivery_items as $sub_item) {
+                            $iw = isset($sub_item['w']) ? (int)$sub_item['w'] : 1;
+                            $ih = isset($sub_item['h']) ? (int)$sub_item['h'] : 1;
+
+                            $found_slot = -1;
+                            for ($r = 0; $r <= 15 - $ih; $r++) {
+                                for ($c = 0; $c <= 8 - $iw; $c++) {
+                                    $fits = true;
+                                    for ($dr = 0; $dr < $ih; $dr++) {
+                                        for ($dc = 0; $dc < $iw; $dc++) {
+                                            if ($grid[$r + $dr][$c + $dc]) {
+                                                $fits = false;
+                                                break 2;
+                                            }
+                                        }
+                                    }
+                                    if ($fits) {
+                                        $found_slot = $r * 8 + $c;
+                                        for ($dr = 0; $dr < $ih; $dr++) {
+                                            for ($dc = 0; $dc < $iw; $dc++) {
+                                                $grid[$r + $dr][$c + $dc] = true;
+                                            }
+                                        }
+                                        break 2;
+                                    }
+                                }
+                            }
+
+                            if ($found_slot >= 0) {
+                                $vault_slots_assigned[] = [
+                                    'slot' => $found_slot,
+                                    'item' => $sub_item
+                                ];
+                            } else {
+                                $all_fit = false;
+                                break;
+                            }
+                        }
+
+                        if (!$all_fit) {
+                            $shop_feedback = "Seu Baú (Vault) não possui espaço livre suficiente para receber este item! Libere espaço no seu baú dentro do jogo e tente novamente.";
+                            $shop_feedback_type = "warning";
+                            goto end_purchase_flow;
+                        }
+                    }
+
+                    // Deduct currency
+                    if ($pay_type === 'gp') {
+                        @mssql_query("UPDATE data.\"Account\" SET \"GoblinPoints\" = \"GoblinPoints\" - $price WHERE \"Id\" = '$acc_id'");
+                        $user_gp -= $price;
+                    } else {
+                        @mssql_query("UPDATE data.\"Account\" SET \"WCoinC\" = \"WCoinC\" - $price WHERE \"Id\" = '$acc_id'");
+                        $user_wcoinc -= $price;
+                    }
+
+                    // If VIP, grant VIP status
+                    if ($found_item['type'] === 'vip') {
+                        $vlvl = (int)$found_item['vip_lvl'];
+                        @mssql_query("UPDATE data.\"Account\" SET \"State\" = 0 WHERE \"Id\" = '$acc_id'");
+                        @mssql_query("UPDATE public.\"MEMB_INFO\" 
+                            SET \"AccountLevel\" = $vlvl,
+                                \"vip\" = $vlvl,
+                                \"AccountExpireDate\" = (NOW() + INTERVAL '30 days'),
+                                \"dias_vip\" = (NOW() + INTERVAL '30 days')
+                            WHERE LOWER(memb___id) = LOWER('$safe_login')");
+
+                        $shop_feedback = "Parabéns! <strong>{$found_item['name']}</strong> adquirido com sucesso! Seus 30 dias de VIP já estão ativos.";
+                        $shop_feedback_type = "success";
+                    } else {
+                        // Deliver all items into data."Item"
+                        $delivered_count = 0;
+                        foreach ($vault_slots_assigned as $assign) {
+                            $slot_num = (int)$assign['slot'];
+                            $it_sub   = $assign['item'];
+                            $def_id   = $it_sub['def'];
+                            $lvl      = isset($it_sub['lvl']) ? (int)$it_sub['lvl'] : 0;
+                            $dur      = isset($it_sub['dur']) ? (int)$it_sub['dur'] : 255;
+                            $skill    = !empty($it_sub['skill']) ? 'true' : 'false';
+
+                            $item_uuid = sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+                                mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+                                mt_rand(0, 0xffff),
+                                mt_rand(0, 0x0fff) | 0x4000,
+                                mt_rand(0, 0x3fff) | 0x8000,
+                                mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+                            );
+
+                            @mssql_query("INSERT INTO data.\"Item\" 
+                                (\"Id\", \"ItemStorageId\", \"DefinitionId\", \"ItemSlot\", \"Durability\", \"Level\", \"HasSkill\", \"SocketCount\", \"StorePrice\", \"PetExperience\", \"StorePriceCoinType\") 
+                                VALUES ('$item_uuid', '$vault_id', '$def_id', $slot_num, $dur, $lvl, $skill, 0, 0, 0, 0)");
+
+                            // Luck Option Link
+                            if (!empty($it_sub['luck'])) {
+                                @mssql_query("INSERT INTO data.\"ItemOptionLink\" (\"Id\", \"ItemId\", \"ItemOptionId\", \"Level\", \"Index\") 
+                                    VALUES (gen_random_uuid(), '$item_uuid', '00000088-0001-0000-0000-000000000000', 0, 0)");
+                            }
+
+                            // Option Link (+28 or +16)
+                            if (isset($it_sub['opt']) && $it_sub['opt'] > 0) {
+                                $opt_type_uuid = (!empty($it_sub['opt_def'])) ? '00000088-0002-0000-0000-000000000000' : '00000088-0003-0000-0000-000000000000';
+                                $opt_lvl = (int)$it_sub['opt'];
+                                @mssql_query("INSERT INTO data.\"ItemOptionLink\" (\"Id\", \"ItemId\", \"ItemOptionId\", \"Level\", \"Index\") 
+                                    VALUES (gen_random_uuid(), '$item_uuid', '$opt_type_uuid', $opt_lvl, 0)");
+                            }
+
+                            $delivered_count++;
+                        }
+
+                        $shop_feedback = "Parabéns! <strong>{$found_item['name']}</strong> ($delivered_count item(s)) foi entregue diretamente no seu <strong>Baú (Vault)</strong>!<br><small style='color:#52e591;'><i class='fa fa-info-circle'></i> <strong>Atenção:</strong> Se o jogo estiver aberto, <strong>relogue o seu personagem</strong> para que o baú carregue os novos itens!</small>";
+                        $shop_feedback_type = "success";
+                    }
                 }
+                end_purchase_flow: ;
             }
         }
     }
@@ -534,6 +777,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
                 <i class="fa fa-qrcode"></i> RECARREGAR WCOINS (PIX)
             </button>
         </div>
+    </div>
+</div>
+
+<!-- VAULT DELIVERY INFO NOTICE -->
+<div class="shop-delivery-notice" style="background: rgba(14,24,42,0.85); border: 1px solid rgba(82,229,145,0.35); border-radius: 8px; padding: 14px 20px; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+    <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(82,229,145,0.15); border: 1px solid #52e591; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #52e591; flex-shrink: 0;">
+        <i class="fa fa-archive"></i>
+    </div>
+    <div style="flex: 1 1 300px;">
+        <strong style="color: #fff; font-size: 14px;"><i class="fa fa-check-circle" style="color: #52e591;"></i> Entrega Automática Direto no seu Baú (Vault):</strong>
+        <p style="color: #94a3b8; font-size: 12.5px; margin: 3px 0 0; line-height: 1.5;">
+            Todos os itens comprados são inseridos instantaneamente no <strong>Baú</strong> da sua conta. Se você estiver conectado no jogo no momento da compra, basta <strong>relogar seu personagem</strong> (sair da conta e entrar de novo) para que o baú carregue os novos itens do servidor!
+        </p>
     </div>
 </div>
 
