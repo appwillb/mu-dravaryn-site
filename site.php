@@ -84,10 +84,32 @@ if (isset($_COOKIE["usuario"]) && isset($_COOKIE["senha"])) {
 
 // Subpage router (NO IFRAMES!)
 $page = isset($_GET['p']) ? strtolower(trim($_GET['p'])) : 'home';
-$allowed_pages = ['home', 'painel', 'loja', 'shop', 'cadastro', 'download', 'info', 'ranking', 'comandos', 'contato', 'dicas', 'eventos', 'guilds', 'mudar_senha'];
+$allowed_pages = ['home', 'painel', 'loja', 'shop', 'cadastro', 'download', 'info', 'ranking', 'comandos', 'contato', 'suporte', 'dicas', 'eventos', 'guilds', 'mudar_senha'];
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
 }
+
+$subpage_meta = [
+    'painel'      => ['short' => 'Painel', 'title' => 'PAINEL DO <span>JOGADOR</span>', 'desc' => 'Gerencie seus personagens, resets, distribuição de pontos e atributos da conta.'],
+    'loja'        => ['short' => 'WebShop', 'title' => 'LOJA DE ITENS & <span>WEBSHOP</span>', 'desc' => 'Planos VIP, Sets +13 Full, Armas Raras, Asas Level 3, Jóias e Doações PIX.'],
+    'shop'        => ['short' => 'WebShop', 'title' => 'LOJA DE ITENS & <span>WEBSHOP</span>', 'desc' => 'Planos VIP, Sets +13 Full, Armas Raras, Asas Level 3, Jóias e Doações PIX.'],
+    'cadastro'    => ['short' => 'Cadastro', 'title' => 'CRIAR <span>NOVA CONTA</span>', 'desc' => 'Cadastre-se gratuitamente agora e receba 3 Dias VIP para turbinar seu início!'],
+    'download'    => ['short' => 'Download', 'title' => 'DOWNLOAD <span>DO CLIENTE</span>', 'desc' => 'Baixe o instalador oficial completo com som HD e anti-hack integrado.'],
+    'info'        => ['short' => 'Informações', 'title' => 'INFORMAÇÕES <span>DO SERVIDOR</span>', 'desc' => 'Configurações oficiais de experiência, taxas, drops, invasões e regras do jogo.'],
+    'ranking'     => ['short' => 'Rankings', 'title' => 'RANKINGS <span>OFICIAIS</span>', 'desc' => 'Classificação em tempo real sincronizada diretamente com o banco de dados.'],
+    'comandos'    => ['short' => 'Comandos', 'title' => 'COMANDOS <span>IN-GAME</span>', 'desc' => 'Guia completo de todos os comandos disponíveis no servidor MU Dravaryn.'],
+    'contato'     => ['short' => 'Suporte', 'title' => 'SUPORTE & <span>ATENDIMENTO</span>', 'desc' => 'Canais oficiais de atendimento ao jogador: Discord, WhatsApp e Suporte Técnico.'],
+    'suporte'     => ['short' => 'Suporte', 'title' => 'SUPORTE & <span>ATENDIMENTO</span>', 'desc' => 'Canais oficiais de atendimento ao jogador: Discord, WhatsApp e Suporte Técnico.'],
+    'dicas'       => ['short' => 'Dicas', 'title' => 'DICAS PARA <span>INICIANTES</span>', 'desc' => 'Dicas essenciais de evolução rápida, melhores spots e valorização de jóias.'],
+    'eventos'     => ['short' => 'Eventos', 'title' => 'HORÁRIOS DOS <span>EVENTOS</span>', 'desc' => 'Cronograma completo dos eventos automáticos, chefes lendários e Castle Siege.'],
+    'guilds'      => ['short' => 'Guildas', 'title' => 'GUILDAS & <span>ALIANÇAS</span>', 'desc' => 'As guildas mais poderosas e temidas do continente de Dravaryn.'],
+];
+
+$page_meta = isset($subpage_meta[$page]) ? $subpage_meta[$page] : [
+    'short' => strtoupper($page),
+    'title' => strtoupper($page),
+    'desc'  => 'Portal Oficial MU Dravaryn Season 6 Episode 3'
+];
 
 // Handle Registration POST
 $reg_error = '';
@@ -181,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
   <!-- Master Vanguard-Grade Stylesheet -->
-  <link rel="stylesheet" href="css/site.css?v=5.0">
+  <link rel="stylesheet" href="css/site.css?v=6.0">
 </head>
 
 <body>
@@ -220,22 +242,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
           </a>
         </li>
 
-        <li class="dropdown <?=(in_array($page, ['info', 'comandos', 'dicas']))?'active':'';?>">
+        <li class="dropdown <?=(in_array($page, ['info', 'comandos', 'dicas', 'eventos', 'guilds']))?'active':'';?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             O JOGO <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="site.php?p=info"><i class="fa fa-info-circle text-gold"></i> Informações do Servidor</a></li>
-            <li><a href="site.php?p=comandos"><i class="fa fa-terminal text-gold"></i> Comandos do Jogo</a></li>
+            <li><a href="site.php?p=comandos"><i class="fa fa-terminal text-gold"></i> Comandos In-Game</a></li>
             <li><a href="site.php?p=dicas"><i class="fa fa-lightbulb-o text-gold"></i> Dicas para Iniciantes</a></li>
+            <li><a href="site.php?p=eventos"><i class="fa fa-clock-o text-gold"></i> Horários dos Eventos</a></li>
+            <li><a href="site.php?p=guilds"><i class="fa fa-shield text-gold"></i> Guildas & Alianças</a></li>
           </ul>
         </li>
 
         <li class="<?=$page=='download'?'active':'';?>"><a href="site.php?p=download"><i class="fa fa-download text-gold"></i> DOWNLOAD</a></li>
         <li class="<?=$page=='cadastro'?'active':'';?>"><a href="site.php?p=cadastro"><i class="fa fa-user-plus text-gold"></i> CADASTRO</a></li>
         <li class="<?=$page=='ranking'?'active':'';?>"><a href="site.php?p=ranking"><i class="fa fa-trophy text-gold"></i> RANKINGS</a></li>
-        <li class="<?=$page=='eventos'?'active':'';?>"><a href="site.php?p=eventos"><i class="fa fa-clock-o text-gold"></i> EVENTOS</a></li>
-        <li class="<?=$page=='contato'?'active':'';?>"><a href="site.php?p=contato"><i class="fa fa-envelope-o text-gold"></i> SUPORTE</a></li>
+        <li class="<?=(in_array($page, ['contato', 'suporte']))?'active':'';?>"><a href="site.php?p=contato"><i class="fa fa-life-ring text-gold"></i> SUPORTE</a></li>
       </ul>
 
       <div class="nav navbar-nav navbar-right nav-auth-actions">
@@ -309,6 +332,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
     </div>
   </div>
 </div>
+
+<?php if ($page == 'home'): ?>
 
 <!-- MONUMENTAL HERO SHOWCASE (VANGUARD ARTWORK) -->
 <header class="vanguard-hero">
@@ -423,6 +448,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
     </div>
   </div>
 </section>
+
+<?php else: ?>
+
+<!-- SUBPAGE SLEEK HERO BANNER -->
+<header class="subpage-hero-banner">
+  <div class="container">
+    <div class="subpage-breadcrumb">
+      <a href="site.php"><i class="fa fa-home"></i> INÍCIO</a>
+      <span class="sep">/</span>
+      <span class="current"><?=$page_meta['short'];?></span>
+    </div>
+    <h1 class="subpage-title"><?=$page_meta['title'];?></h1>
+    <p class="subpage-desc"><?=$page_meta['desc'];?></p>
+  </div>
+</header>
+
+<?php endif; ?>
 
 <!-- MAIN CONTENT AREA -->
 <main class="main-body-container">
@@ -771,51 +813,587 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
         </div>
       </section>
 
+    <?php elseif ($page == 'painel'): ?>
+
+      <!-- PAINEL DO JOGADOR NATIVO -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <?php include("painel_jogador.php"); ?>
+      </section>
+
+    <?php elseif ($page == 'loja' || $page == 'shop'): ?>
+
+      <!-- WEBSHOP NATIVO -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <?php include("shop_loja.php"); ?>
+      </section>
+
     <?php elseif ($page == 'ranking'): ?>
 
+      <?php
+        $rank_type = isset($_GET['tipo']) ? strtolower(trim($_GET['tipo'])) : 'resets';
+        $rank_class = isset($_GET['classe']) ? (int)$_GET['classe'] : -1;
+
+        $where_clauses = [];
+        if ($rank_class >= 0) {
+            switch ($rank_class) {
+                case 0:  $where_clauses[] = '"Class" IN (0, 1, 2, 3)'; break;
+                case 16: $where_clauses[] = '"Class" IN (16, 17, 18)'; break;
+                case 32: $where_clauses[] = '"Class" IN (32, 33, 34)'; break;
+                case 48: $where_clauses[] = '"Class" IN (48, 50)'; break;
+                case 64: $where_clauses[] = '"Class" IN (64, 66)'; break;
+                case 80: $where_clauses[] = '"Class" IN (80, 81, 82)'; break;
+                case 96: $where_clauses[] = '"Class" IN (96, 98)'; break;
+            }
+        }
+
+        $order_by = '"ResetCount" DESC, "cLevel" DESC';
+        if ($rank_type === 'level') {
+            $order_by = '"cLevel" DESC, "ResetCount" DESC';
+        } elseif ($rank_type === 'mresets') {
+            $order_by = '"MasterResets" DESC, "ResetCount" DESC, "cLevel" DESC';
+        }
+
+        $where_sql = !empty($where_clauses) ? 'WHERE ' . implode(' AND ', $where_clauses) : '';
+        $full_rank_query = "SELECT \"Name\", \"cLevel\", \"ResetCount\", \"Class\", COALESCE(\"MasterResets\", 0) as mresets FROM public.character $where_sql ORDER BY $order_by LIMIT 50";
+        $rank_exec = @mssql_query($full_rank_query);
+        $rank_list = [];
+        if ($rank_exec) {
+            while ($row = @mssql_fetch_assoc($rank_exec)) {
+                $rank_list[] = $row;
+            }
+        }
+        if (empty($rank_list)) {
+            $rank_list = $top_characters;
+        }
+      ?>
+
       <!-- RANKING NATIVO COMPLETO -->
-      <section class="subpage-container">
+      <section class="subpage-container" style="padding: 20px 0 60px;">
         <div class="subpage-glass-box">
           <div class="section-vanguard-header">
-            <h3><i class="fa fa-trophy text-gold"></i> RANKINGS <span>OFICIAIS</span></h3>
-            <p>Melhores jogadores e heróis de MU Dravaryn</p>
+            <h3><i class="fa fa-trophy text-gold"></i> CLASSIFICAÇÃO <span>OFICIAL DE HERÓIS</span></h3>
+            <p>Dados ao vivo sincronizados diretamente com o banco de dados oficial OpenMU</p>
           </div>
 
-          <div class="table-responsive" style="margin-top:20px;">
+          <!-- Ranking Filter Tabs -->
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;margin:25px 0;padding-bottom:20px;border-bottom:1px solid rgba(212,175,55,0.25);">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <a href="site.php?p=ranking&tipo=resets<?=$rank_class>=0?'&classe='.$rank_class:'';?>" class="btn <?=$rank_type=='resets'?'btn-cta-gold':'btn-nav-login';?>" style="padding:8px 16px;font-size:12px;">
+                <i class="fa fa-star"></i> TOP RESETS
+              </a>
+              <a href="site.php?p=ranking&tipo=mresets<?=$rank_class>=0?'&classe='.$rank_class:'';?>" class="btn <?=$rank_type=='mresets'?'btn-cta-gold':'btn-nav-login';?>" style="padding:8px 16px;font-size:12px;">
+                <i class="fa fa-bolt"></i> MASTER RESETS
+              </a>
+              <a href="site.php?p=ranking&tipo=level<?=$rank_class>=0?'&classe='.$rank_class:'';?>" class="btn <?=$rank_type=='level'?'btn-cta-gold':'btn-nav-login';?>" style="padding:8px 16px;font-size:12px;">
+                <i class="fa fa-arrow-up"></i> TOP NÍVEL
+              </a>
+              <a href="site.php?p=ranking&tipo=diario" class="btn <?=$rank_type=='diario'?'btn-cta-gold':'btn-nav-login';?>" style="padding:8px 16px;font-size:12px;">
+                <i class="fa fa-clock-o"></i> TOP DIÁRIO
+              </a>
+              <a href="site.php?p=ranking&tipo=semanal" class="btn <?=$rank_type=='semanal'?'btn-cta-gold':'btn-nav-login';?>" style="padding:8px 16px;font-size:12px;">
+                <i class="fa fa-calendar"></i> TOP SEMANAL
+              </a>
+            </div>
+
+            <form action="site.php" method="get" style="display:flex;align-items:center;gap:8px;">
+              <input type="hidden" name="p" value="ranking">
+              <input type="hidden" name="tipo" value="<?=$rank_type;?>">
+              <select name="classe" class="form-control luxury-input" onchange="this.form.submit()" style="height:38px;padding:6px 12px;font-size:12px;width:180px;">
+                <option value="-1">Todas as Classes</option>
+                <option value="0"  <?=$rank_class===0?'selected':'';?>>Dark Wizard / GM</option>
+                <option value="16" <?=$rank_class===16?'selected':'';?>>Dark Knight / BM</option>
+                <option value="32" <?=$rank_class===32?'selected':'';?>>Fairy Elf / High Elf</option>
+                <option value="48" <?=$rank_class===48?'selected':'';?>>Magic Gladiator / DM</option>
+                <option value="64" <?=$rank_class===64?'selected':'';?>>Dark Lord / LE</option>
+                <option value="80" <?=$rank_class===80?'selected':'';?>>Summoner / Dimension</option>
+                <option value="96" <?=$rank_class===96?'selected':'';?>>Rage Fighter / Fist</option>
+              </select>
+            </form>
+          </div>
+
+          <!-- Table -->
+          <div class="table-responsive">
             <table class="vanguard-table">
               <thead>
                 <tr>
-                  <th style="width:40px;">#</th>
+                  <th style="width:50px;">POS</th>
                   <th>PERSONAGEM</th>
                   <th>CLASSE</th>
                   <th style="text-align:center;">NÍVEL</th>
                   <th style="text-align:center;">RESETS</th>
+                  <th style="text-align:center;">M. RESETS</th>
                 </tr>
               </thead>
               <tbody>
                 <?php 
-                $rank = 1;
-                foreach ($top_characters as $c): 
-                  $badge_class = $rank == 1 ? 'rank-badge-1' : ($rank == 2 ? 'rank-badge-2' : ($rank == 3 ? 'rank-badge-3' : ''));
-                  $class_name  = get_mu_class_name(isset($c['Class']) ? $c['Class'] : 0);
+                $pos = 1;
+                foreach ($rank_list as $row): 
+                  $badge_cls = $pos == 1 ? 'rank-badge-1' : ($pos == 2 ? 'rank-badge-2' : ($pos == 3 ? 'rank-badge-3' : ''));
+                  $c_name = get_mu_class_name(isset($row['Class']) ? $row['Class'] : 0);
+                  $mr = isset($row['mresets']) ? $row['mresets'] : (isset($row['MasterResets']) ? $row['MasterResets'] : 0);
                 ?>
                   <tr>
                     <td>
-                      <?php if ($badge_class): ?>
-                        <span class="<?=$badge_class;?>"><?=$rank;?></span>
+                      <?php if ($badge_cls): ?>
+                        <span class="<?=$badge_cls;?>"><?=$pos;?></span>
                       <?php else: ?>
-                        <span style="color:#7d8c9e;font-weight:700;"><?=$rank;?></span>
+                        <span style="color:#7d8c9e;font-weight:700;"><?=$pos;?></span>
                       <?php endif; ?>
                     </td>
-                    <td><strong style="color:#fff;font-size:15px;"><?=$c['Name'];?></strong></td>
-                    <td><span class="class-badge"><?=$class_name;?></span></td>
-                    <td style="text-align:center;font-weight:700;color:var(--gold-light);"><?=$c['cLevel'];?></td>
-                    <td style="text-align:center;font-weight:800;color:#52e591;"><?=$c['ResetCount'];?></td>
+                    <td>
+                      <strong style="color:#fff;font-size:15px;"><?=$row['Name'];?></strong>
+                    </td>
+                    <td>
+                      <span class="class-badge"><?=$c_name;?></span>
+                    </td>
+                    <td style="text-align:center;font-weight:700;color:var(--gold-light);">
+                      <?=$row['cLevel'];?>
+                    </td>
+                    <td style="text-align:center;font-weight:800;color:#52e591;">
+                      <?=$row['ResetCount'];?>
+                    </td>
+                    <td style="text-align:center;font-weight:700;color:#38bdf8;">
+                      <?=$mr;?>
+                    </td>
                   </tr>
                 <?php 
-                  $rank++;
+                  $pos++;
                 endforeach; 
                 ?>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+    <?php elseif ($page == 'comandos'): ?>
+
+      <!-- COMANDOS NATIVOS -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-terminal text-gold"></i> COMANDOS <span>IN-GAME</span></h3>
+            <p>Lista oficial de comandos disponíveis dentro do servidor MU Dravaryn</p>
+          </div>
+
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-6 col-sm-12" style="margin-bottom: 25px;">
+              <div style="background: rgba(10, 20, 35, 0.75); border: 1px solid var(--border-gold); border-radius: 10px; padding: 22px;">
+                <h4 style="font-family: var(--font-heading); color: #fff; margin: 0 0 15px; border-bottom: 1px solid rgba(212,175,55,0.25); padding-bottom: 10px;">
+                  <i class="fa fa-bolt text-gold"></i> EVOLUÇÃO & RESETS
+                </h4>
+                <table class="table" style="color: #cbd5e1; font-size: 13.5px; margin: 0;">
+                  <tr>
+                    <td style="width: 140px;"><code style="background:rgba(212,175,55,0.15);color:var(--gold-light);font-size:13px;padding:3px 8px;border:1px solid rgba(212,175,55,0.3);border-radius:4px;">/reset</code></td>
+                    <td>Reseta o personagem no Level 400. Pontos e status mantidos conforme regra do servidor.</td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(212,175,55,0.15);color:var(--gold-light);font-size:13px;padding:3px 8px;border:1px solid rgba(212,175,55,0.3);border-radius:4px;">/reset auto</code></td>
+                    <td>Ativa/desativa o reset automático contínuo sempre que atingir o nível 400.</td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(212,175,55,0.15);color:var(--gold-light);font-size:13px;padding:3px 8px;border:1px solid rgba(212,175,55,0.3);border-radius:4px;">/mreset</code></td>
+                    <td>Master Reset oficial (Requer 300 Resets). Bonifica a conta com WCoins e status nobres.</td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(212,175,55,0.15);color:var(--gold-light);font-size:13px;padding:3px 8px;border:1px solid rgba(212,175,55,0.3);border-radius:4px;">/post &lt;msg&gt;</code></td>
+                    <td>Envia mensagem global no chat de todo o servidor (Visível a todos os jogadores).</td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(212,175,55,0.15);color:var(--gold-light);font-size:13px;padding:3px 8px;border:1px solid rgba(212,175,55,0.3);border-radius:4px;">/limparpk</code></td>
+                    <td>Limpa o status de PK (Assassino) do personagem instantaneamente.</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12" style="margin-bottom: 25px;">
+              <div style="background: rgba(10, 20, 35, 0.75); border: 1px solid var(--border-gold); border-radius: 10px; padding: 22px;">
+                <h4 style="font-family: var(--font-heading); color: #fff; margin: 0 0 15px; border-bottom: 1px solid rgba(212,175,55,0.25); padding-bottom: 10px;">
+                  <i class="fa fa-plus-circle text-gold"></i> ADICIONAR ATRIBUTOS
+                </h4>
+                <table class="table" style="color: #cbd5e1; font-size: 13.5px; margin: 0;">
+                  <tr>
+                    <td style="width: 140px;"><code style="background:rgba(82,229,145,0.15);color:#52e591;font-size:13px;padding:3px 8px;border:1px solid rgba(82,229,145,0.3);border-radius:4px;">/f &lt;pontos&gt;</code></td>
+                    <td>Adiciona pontos em Força (Strength). Ex: <code>/f 500</code></td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(82,229,145,0.15);color:#52e591;font-size:13px;padding:3px 8px;border:1px solid rgba(82,229,145,0.3);border-radius:4px;">/a &lt;pontos&gt;</code></td>
+                    <td>Adiciona pontos em Agilidade (Agility). Ex: <code>/a 500</code></td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(82,229,145,0.15);color:#52e591;font-size:13px;padding:3px 8px;border:1px solid rgba(82,229,145,0.3);border-radius:4px;">/v &lt;pontos&gt;</code></td>
+                    <td>Adiciona pontos em Vitalidade (Vitality). Ex: <code>/v 500</code></td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(82,229,145,0.15);color:#52e591;font-size:13px;padding:3px 8px;border:1px solid rgba(82,229,145,0.3);border-radius:4px;">/e &lt;pontos&gt;</code></td>
+                    <td>Adiciona pontos em Energia (Energy). Ex: <code>/e 500</code></td>
+                  </tr>
+                  <tr>
+                    <td><code style="background:rgba(82,229,145,0.15);color:#52e591;font-size:13px;padding:3px 8px;border:1px solid rgba(82,229,145,0.3);border-radius:4px;">/c &lt;pontos&gt;</code></td>
+                    <td>Adiciona pontos em Comando (Command - Apenas Dark Lord). Ex: <code>/c 500</code></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(10, 20, 35, 0.75); border: 1px solid var(--border-gold); border-radius: 10px; padding: 22px; margin-top: 10px;">
+            <h4 style="font-family: var(--font-heading); color: #fff; margin: 0 0 15px; border-bottom: 1px solid rgba(212,175,55,0.25); padding-bottom: 10px;">
+              <i class="fa fa-cubes text-gold"></i> UTILITÁRIOS, BAÚS & GUILDAS
+            </h4>
+            <div class="row">
+              <div class="col-md-4 col-sm-6" style="margin-bottom: 15px;">
+                <code style="background:rgba(0,180,255,0.15);color:#38bdf8;font-size:13px;padding:3px 8px;border:1px solid rgba(0,180,255,0.3);border-radius:4px;">/bau &lt;número&gt;</code>
+                <p style="color:#94a3b8;font-size:13px;margin-top:6px;">Alterna entre os baús extras da conta (Ex: <code>/bau 1</code>, <code>/bau 2</code> - Recurso VIP).</p>
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom: 15px;">
+                <code style="background:rgba(0,180,255,0.15);color:#38bdf8;font-size:13px;padding:3px 8px;border:1px solid rgba(0,180,255,0.3);border-radius:4px;">/pack &lt;bless|soul&gt; &lt;10|20|30&gt;</code>
+                <p style="color:#94a3b8;font-size:13px;margin-top:6px;">Compacta jóias avulsas do inventário em pacotes compactados no NPC Lahap.</p>
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom: 15px;">
+                <code style="background:rgba(0,180,255,0.15);color:#38bdf8;font-size:13px;padding:3px 8px;border:1px solid rgba(0,180,255,0.3);border-radius:4px;">/unpack &lt;bless|soul&gt; &lt;10|20|30&gt;</code>
+                <p style="color:#94a3b8;font-size:13px;margin-top:6px;">Descompacta pacotes de jóias de volta para jóias individuais no inventário.</p>
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom: 15px;">
+                <code style="background:rgba(0,180,255,0.15);color:#38bdf8;font-size:13px;padding:3px 8px;border:1px solid rgba(0,180,255,0.3);border-radius:4px;">/war &lt;nome_guild&gt;</code>
+                <p style="color:#94a3b8;font-size:13px;margin-top:6px;">Desafia uma guilda oponente para batalha de Guild War.</p>
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom: 15px;">
+                <code style="background:rgba(0,180,255,0.15);color:#38bdf8;font-size:13px;padding:3px 8px;border:1px solid rgba(0,180,255,0.3);border-radius:4px;">/soccer &lt;nome_guild&gt;</code>
+                <p style="color:#94a3b8;font-size:13px;margin-top:6px;">Inicia partida de Battle Soccer no estádio de Arena contra a guilda rival.</p>
+              </div>
+              <div class="col-md-4 col-sm-6" style="margin-bottom: 15px;">
+                <code style="background:rgba(0,180,255,0.15);color:#38bdf8;font-size:13px;padding:3px 8px;border:1px solid rgba(0,180,255,0.3);border-radius:4px;">/online</code>
+                <p style="color:#94a3b8;font-size:13px;margin-top:6px;">Exibe a quantidade de jogadores conectados em tempo real.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    <?php elseif ($page == 'eventos'): ?>
+
+      <!-- HORÁRIOS DOS EVENTOS NATIVO -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-clock-o text-gold"></i> HORÁRIOS DOS <span>EVENTOS</span></h3>
+            <p>Cronograma oficial e automático de todos os eventos e invasões de MU Dravaryn</p>
+          </div>
+
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="event-card-box">
+                <div class="event-card-header">
+                  <span class="event-badge-time">A CADA 2 HORAS</span>
+                  <h4><i class="fa fa-fort-awesome text-gold"></i> Blood Castle</h4>
+                </div>
+                <p class="event-desc">Atravesse a ponte sangrenta, destrua os portões do castelo e devolva a arma sagrada ao Arcanjo.</p>
+                <div class="event-info-line"><strong>Horários:</strong> 00:00 · 02:00 · 04:00 · 06:00 · 08:00 · 10:00 · 12:00 · 14:00 · 16:00 · 18:00 · 20:00 · 22:00</div>
+                <div class="event-reward-line"><strong>Recompensas:</strong> Chaos Box + Jóias nobres</div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="event-card-box">
+                <div class="event-card-header">
+                  <span class="event-badge-time">A CADA 2 HORAS</span>
+                  <h4><i class="fa fa-fire text-gold"></i> Devil Square</h4>
+                </div>
+                <p class="event-desc">Sobreviva a hordas implacáveis de monstros ferozes e ganhe bônus de experiência acelerada e jóias.</p>
+                <div class="event-info-line"><strong>Horários:</strong> 01:00 · 03:00 · 05:00 · 07:00 · 09:00 · 11:00 · 13:00 · 15:00 · 17:00 · 19:00 · 21:00 · 23:00</div>
+                <div class="event-reward-line"><strong>Recompensas:</strong> EXP Máxima + Drop de Jóias</div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="event-card-box">
+                <div class="event-card-header">
+                  <span class="event-badge-time">A CADA 4 HORAS</span>
+                  <h4><i class="fa fa-shield text-gold"></i> Chaos Castle</h4>
+                </div>
+                <p class="event-desc">Arena de sobrevivência total sem distinção de aliados ou guildas. O último sobrevivente leva a glória.</p>
+                <div class="event-info-line"><strong>Horários:</strong> 01:00 · 05:00 · 09:00 · 13:00 · 17:00 · 21:00</div>
+                <div class="event-reward-line"><strong>Recompensas:</strong> Itens Ancient originais + Jóias</div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="event-card-box">
+                <div class="event-card-header">
+                  <span class="event-badge-time">A CADA 2 HORAS</span>
+                  <h4><i class="fa fa-diamond text-gold"></i> Golden Invasion</h4>
+                </div>
+                <p class="event-desc">Invasões de monstros dourados (Golden Dragon, Titan, Lizard King, Tantalos) em Lorencia, Noria, Devias e Tarkan.</p>
+                <div class="event-info-line"><strong>Horários:</strong> A cada 2 horas pares (00:00, 02:00, ...)</div>
+                <div class="event-reward-line"><strong>Recompensas:</strong> Box of Kundun +1 a +5</div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="event-card-box">
+                <div class="event-card-header">
+                  <span class="event-badge-time">A CADA 3 HORAS</span>
+                  <h4><i class="fa fa-magic text-gold"></i> White Wizard</h4>
+                </div>
+                <p class="event-desc">O temido Mago Branco e seu exército de Destruction Orcs marcham sobre os continentes iniciais.</p>
+                <div class="event-info-line"><strong>Horários:</strong> 02:15 · 05:15 · 08:15 · 11:15 · 14:15 · 17:15 · 20:15 · 23:15</div>
+                <div class="event-reward-line"><strong>Recompensas:</strong> Wizard's Ring (+10% Dano) + Jóias</div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="event-card-box" style="border-color: rgba(212,175,55,0.7); background: linear-gradient(145deg, rgba(30,20,10,0.95), rgba(15,10,5,0.95));">
+                <div class="event-card-header">
+                  <span class="event-badge-time" style="background:#d4af37;color:#000;">DOMINGO 20H00</span>
+                  <h4><i class="fa fa-crown text-gold"></i> Castle Siege</h4>
+                </div>
+                <p class="event-desc">A maior e mais épica guerra de alianças pelo domínio da fortaleza de Valley of Loren e da sagrada Land of Trials.</p>
+                <div class="event-info-line"><strong>Horário:</strong> Todos os Domingos às 20h00 (Brasília)</div>
+                <div class="event-reward-line"><strong>Recompensas:</strong> Land of Trials + Impostos do Servidor</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    <?php elseif ($page == 'dicas'): ?>
+
+      <!-- DICAS NATIVAS -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-lightbulb-o text-gold"></i> DICAS & GUIAS <span>PARA INICIANTES</span></h3>
+            <p>Acelere sua evolução e domine os segredos do continente de Dravaryn</p>
+          </div>
+
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-6 col-sm-12" style="margin-bottom: 25px;">
+              <div style="background: rgba(10,20,35,0.75); border: 1px solid var(--border-gold); border-radius: 10px; padding: 22px;">
+                <h4 style="font-family: var(--font-heading); color: #fff; margin: 0 0 12px;"><i class="fa fa-map-marker text-gold"></i> ROTA RECOMENDADA DE SPOTS</h4>
+                <p style="color: #cbd5e1; font-size: 13.5px; line-height: 1.7;">
+                  Nosso servidor conta com <strong>1.399 spots balanceados</strong>. Siga este roteiro para subir de nível com máxima eficiência:
+                </p>
+                <ul style="color: #94a3b8; font-size: 13px; line-height: 1.8; padding-left: 20px;">
+                  <li><strong class="text-gold">Nível 1 a 100:</strong> Lorencia / Noria (Aranhas e Golems) ou Elbeland.</li>
+                  <li><strong class="text-gold">Nível 100 a 180:</strong> Devias 3, LostTower 1 e LostTower 7 (Shadows & Death Knights).</li>
+                  <li><strong class="text-gold">Nível 180 a 250:</strong> Atlans 2/3 e Tarkan 1 (Mutants & Iron Wheel).</li>
+                  <li><strong class="text-gold">Nível 250 a 330:</strong> Tarkan 2 (Zaikan), Aida 1 e Aida 2 (Hell Maine).</li>
+                  <li><strong class="text-gold">Nível 330 a 400:</strong> Kanturu Relics, Karutan 1 e 2, Swamp of Peace.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12" style="margin-bottom: 25px;">
+              <div style="background: rgba(10,20,35,0.75); border: 1px solid var(--border-gold); border-radius: 10px; padding: 22px;">
+                <h4 style="font-family: var(--font-heading); color: #fff; margin: 0 0 12px;"><i class="fa fa-diamond text-gold"></i> ECONOMIA & JOALHERIA</h4>
+                <p style="color: #cbd5e1; font-size: 13.5px; line-height: 1.7;">
+                  Em MU Dravaryn a economia é <strong>100% valorizada</strong>:
+                </p>
+                <ul style="color: #94a3b8; font-size: 13px; line-height: 1.8; padding-left: 20px;">
+                  <li><strong class="text-gold">Bug Bless OFF:</strong> Jóias não são vendidas em NPC. Colete cada Bless, Soul e Chaos com sabedoria!</li>
+                  <li><strong class="text-gold">Party com Bônus:</strong> Upar em grupo (Party com diferentes classes) concede bônus de EXP extra para todos.</li>
+                  <li><strong class="text-gold">Chaos Machine:</strong> Use Jewel of Chaos e itens com Luck para aumentar as chances de sucesso de refino.</li>
+                  <li><strong class="text-gold">Participe de Blood Castle:</strong> Excelente fonte de jóias e Chaos Boxes para negociar com outros jogadores.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    <?php elseif ($page == 'contato' || $page == 'suporte'): ?>
+
+      <!-- SUPORTE & ATENDIMENTO NATIVO -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-life-ring text-gold"></i> CENTRAL DE <span>SUPORTE & ATENDIMENTO</span></h3>
+            <p>Precisa de ajuda, dúvidas sobre doações ou suporte técnico? Estamos à disposição!</p>
+          </div>
+
+          <div class="row" style="margin-top: 30px;">
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="support-channel-card">
+                <div class="channel-icon" style="background: rgba(88, 101, 242, 0.15); border-color: rgba(88, 101, 242, 0.4); color: #5865f2;">
+                  <i class="fa fa-comments"></i>
+                </div>
+                <h4>DISCORD OFICIAL</h4>
+                <p>Tire dúvidas, abra tickets com a moderação, confira notícias em tempo real e interaja com os outros jogadores.</p>
+                <a href="https://discord.gg" target="_blank" class="btn btn-discord btn-block">
+                  <i class="fa fa-external-link"></i> ENTRAR NO DISCORD
+                </a>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6" style="margin-bottom: 20px;">
+              <div class="support-channel-card">
+                <div class="channel-icon" style="background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.4); color: #25d366;">
+                  <i class="fa fa-whatsapp"></i>
+                </div>
+                <h4>WHATSAPP ADMINISTRAÇÃO</h4>
+                <p>Atendimento direto para doações, ativação instantânea de pacotes VIP / WCoins e recuperação de contas.</p>
+                <a href="https://wa.me/" target="_blank" class="btn btn-whatsapp btn-block">
+                  <i class="fa fa-whatsapp"></i> FALAR NO WHATSAPP
+                </a>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12" style="margin-bottom: 20px;">
+              <div class="support-channel-card">
+                <div class="channel-icon" style="background: rgba(212, 175, 55, 0.15); border-color: rgba(212, 175, 55, 0.4); color: var(--gold-light);">
+                  <i class="fa fa-envelope-o"></i>
+                </div>
+                <h4>E-MAIL DE CONTATO</h4>
+                <p>Para contatos institucionais, parcerias com influenciadores, denúncias formais e assuntos administrativos.</p>
+                <a href="mailto:suporte@mudravaryn.com.br" class="btn btn-nav-login btn-block" style="text-align:center;justify-content:center;padding:12px;">
+                  <i class="fa fa-envelope"></i> suporte@mudravaryn.com.br
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-info" style="background: rgba(14, 28, 48, 0.85); border: 1px solid rgba(212, 175, 55, 0.35); color: #cbd5e1; border-radius: 8px; margin: 25px 0 35px; padding: 18px 22px;">
+            <h5 style="color: var(--gold-light); font-weight: 700; margin: 0 0 8px 0; font-family: var(--font-heading); letter-spacing: 1px;">
+              <i class="fa fa-shield"></i> DIRETRIZES DE SEGURANÇA AO JOGADOR
+            </h5>
+            <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.7;">
+              <li>A equipe <strong>MU Dravaryn NUNCA solicita sua senha</strong> pessoal de jogo ou painel.</li>
+              <li>Nunca informe seus dados para terceiros ou em links suspeitos que prometam itens gratuitos.</li>
+              <li>Transações financeiras devem ser realizadas exclusivamente pelos canais oficiais descritos neste site.</li>
+            </ul>
+          </div>
+
+          <div style="background: rgba(10, 18, 30, 0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 30px; max-width: 800px; margin: 0 auto;">
+            <h4 style="font-family: var(--font-heading); color: #fff; margin: 0 0 20px; text-align: center;">
+              <i class="fa fa-send text-gold"></i> ENVIE UMA MENSAGEM DIRETA À STAFF
+            </h4>
+
+            <?php if (isset($_POST['msg_enviada'])): ?>
+              <div class="alert alert-success" style="background: rgba(34,197,94,0.2); border: 1px solid #22c55e; color: #fff; font-size: 14px;">
+                <i class="fa fa-check-circle"></i> Sua mensagem foi enviada com sucesso! Responderemos no e-mail informado em até 24 horas.
+              </div>
+            <?php endif; ?>
+
+            <form action="site.php?p=contato" method="post">
+              <input type="hidden" name="msg_enviada" value="1">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="control-label text-gold">Seu Nome / Personagem:</label>
+                  <input type="text" name="nome" class="form-control luxury-input" placeholder="Ex: GuerreiroDravaryn" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="control-label text-gold">Seu Login / Conta:</label>
+                  <input type="text" name="login" class="form-control luxury-input" placeholder="Ex: login123" value="<?=$user_login;?>">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="control-label text-gold">Seu E-mail para Resposta:</label>
+                  <input type="email" name="email" class="form-control luxury-input" placeholder="seu-email@dominio.com" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="control-label text-gold">Assunto:</label>
+                  <select name="assunto" class="form-control luxury-input" style="height:46px;">
+                    <option value="Dúvida Geral">Dúvida Geral do Jogo</option>
+                    <option value="Doação / VIP / WCoins">Doação / VIP / WCoins</option>
+                    <option value="Problema Técnico">Problema Técnico / Conexão</option>
+                    <option value="Recuperação de Conta">Recuperação de Conta</option>
+                    <option value="Denúncia de Jogador">Denúncia de Jogador</option>
+                    <option value="Outro">Outro Assunto</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label text-gold">Mensagem detalhada:</label>
+                <textarea name="mensagem" class="form-control luxury-input" rows="5" placeholder="Descreva sua solicitação com o máximo de detalhes possível..." required style="height:auto;"></textarea>
+              </div>
+              <div style="text-align:center;margin-top:20px;">
+                <button type="submit" class="btn btn-cta-gold" style="padding: 12px 35px; font-size: 14px; border: none; cursor: pointer;">
+                  <i class="fa fa-paper-plane"></i> ENVIAR MENSAGEM
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+    <?php elseif ($page == 'guilds'): ?>
+
+      <?php
+        $guilds_res = @mssql_query("SELECT g.\"G_Name\", g.\"G_Master\", g.\"G_Score\", (SELECT COUNT(*) FROM data.\"GuildMember\" gm WHERE gm.\"GuildId\" = g.\"Id\") as total_membros FROM data.\"Guild\" g ORDER BY g.\"G_Score\" DESC, total_membros DESC LIMIT 20");
+        $guilds_list = [];
+        if ($guilds_res) {
+            while ($grow = @mssql_fetch_assoc($guilds_res)) {
+                $guilds_list[] = $grow;
+            }
+        }
+      ?>
+
+      <!-- GUILDAS NATIVO -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <div class="subpage-glass-box">
+          <div class="section-vanguard-header">
+            <h3><i class="fa fa-shield text-gold"></i> GUILDAS & <span>ALIANÇAS</span></h3>
+            <p>As guildas mais respeitadas e influentes em disputa pelo continente de Dravaryn</p>
+          </div>
+
+          <div class="table-responsive" style="margin-top:25px;">
+            <table class="vanguard-table">
+              <thead>
+                <tr>
+                  <th style="width:50px;">POS</th>
+                  <th>NOME DA GUILDA</th>
+                  <th>GUILD MASTER</th>
+                  <th style="text-align:center;">MEMBROS</th>
+                  <th style="text-align:center;">PONTUAÇÃO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php if (empty($guilds_list)): ?>
+                  <tr>
+                    <td colspan="5" style="text-align:center;padding:30px;color:#94a3b8;">
+                      Nenhuma guilda cadastrada no momento. Crie sua guilda in-game no NPC de Davias ou Lorencia!
+                    </td>
+                  </tr>
+                <?php else: ?>
+                  <?php 
+                  $gpos = 1;
+                  foreach ($guilds_list as $g): 
+                    $gbadge = $gpos == 1 ? 'rank-badge-1' : ($gpos == 2 ? 'rank-badge-2' : ($gpos == 3 ? 'rank-badge-3' : ''));
+                  ?>
+                    <tr>
+                      <td>
+                        <?php if ($gbadge): ?>
+                          <span class="<?=$gbadge;?>"><?=$gpos;?></span>
+                        <?php else: ?>
+                          <span style="color:#7d8c9e;font-weight:700;"><?=$gpos;?></span>
+                        <?php endif; ?>
+                      </td>
+                      <td>
+                        <strong style="color:var(--gold-light);font-size:15px;letter-spacing:1px;"><?=$g['G_Name'];?></strong>
+                      </td>
+                      <td>
+                        <span style="color:#fff;font-weight:600;"><i class="fa fa-crown text-gold"></i> <?=$g['G_Master'];?></span>
+                      </td>
+                      <td style="text-align:center;font-weight:700;color:#38bdf8;">
+                        <?=$g['total_membros'];?>
+                      </td>
+                      <td style="text-align:center;font-weight:800;color:#52e591;">
+                        <?=$g['G_Score'];?>
+                      </td>
+                    </tr>
+                  <?php 
+                    $gpos++;
+                  endforeach; 
+                  ?>
+                <?php endif; ?>
               </tbody>
             </table>
           </div>
@@ -824,32 +1402,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
 
     <?php else: ?>
 
-      <!-- SUBPÁGINA GENÉRICA OU PAINEL / LOJA -->
-      <section class="subpage-container">
-        <div class="subpage-glass-box">
-          <?php if ($page === 'painel'): ?>
-            <div class="section-vanguard-header">
-              <h3><i class="fa fa-dashboard text-gold"></i> PAINEL DO JOGADOR</h3>
-            </div>
-            <?php include("painel_jogador.php"); ?>
-          <?php elseif ($page === 'loja' || $page === 'shop'): ?>
-            <div class="section-vanguard-header">
-              <h3><i class="fa fa-shopping-cart text-gold"></i> WEBSHOP OFICIAL</h3>
-            </div>
-            <?php include("shop_loja.php"); ?>
-          <?php else: ?>
-            <div class="section-vanguard-header">
-              <h3><i class="fa fa-file-text-o text-gold"></i> <?=strtoupper($page);?></h3>
-            </div>
-            <?php 
-              $subfile = $page . ".php";
-              if (file_exists($subfile) && $subfile != 'site.php') {
-                  include($subfile);
-              } else {
-                  echo "<p style='color:#cbd5e1;'>Conteúdo em carregamento...</p>";
-              }
-            ?>
-          <?php endif; ?>
+      <!-- SUBPÁGINA GENÉRICA -->
+      <section class="subpage-container" style="padding: 20px 0 60px;">
+        <div class="subpage-glass-box text-center">
+          <h3 style="color:#fff;font-family:var(--font-heading);"><i class="fa fa-info-circle text-gold"></i> PÁGINA NÃO ENCONTRADA</h3>
+          <p style="color:#94a3b8;margin:15px auto 25px;max-width:500px;">A página solicitada não existe ou está temporariamente indisponível.</p>
+          <a href="site.php" class="btn btn-cta-gold"><i class="fa fa-home"></i> VOLTAR AO INÍCIO</a>
         </div>
       </section>
 

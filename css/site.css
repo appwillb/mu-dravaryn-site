@@ -76,27 +76,47 @@ a:hover, a:focus {
    TOP STICKY LUXURY NAVBAR
    ========================================================================== */
 .modern-navbar {
-  background: rgba(5, 11, 20, 0.95) !important;
+  background: rgba(5, 11, 20, 0.96) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-gold) !important;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
-  min-height: 72px;
+  min-height: 70px;
   margin-bottom: 0;
   z-index: 1000;
   transition: all 0.3s ease;
 }
 
 .modern-navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 72px;
+  width: 96% !important;
+  max-width: 1540px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  min-height: 70px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
 
 .modern-navbar .navbar-header {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+.modern-navbar .navbar-collapse {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex: 1 1 auto !important;
+  margin-left: 20px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
 }
 
 .brand-wrapper {
@@ -105,6 +125,7 @@ a:hover, a:focus {
   gap: 12px;
   padding: 8px 0;
   text-decoration: none !important;
+  flex-shrink: 0;
 }
 
 .brand-logo-img {
@@ -124,11 +145,12 @@ a:hover, a:focus {
 
 .brand-name {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   letter-spacing: 2px;
   color: #fff;
   line-height: 1.1;
+  white-space: nowrap;
 }
 .brand-name span {
   color: var(--gold-primary);
@@ -141,27 +163,34 @@ a:hover, a:focus {
   letter-spacing: 2px;
   color: #7d8c9e;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* Nav Links */
 .nav-links-center {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  display: flex !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
 }
 
 .nav-links-center > li > a {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px !important;
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.8px;
   color: #cbd5e1 !important;
-  padding: 26px 14px !important;
+  padding: 24px 9px !important;
   text-transform: uppercase;
   position: relative;
   transition: all 0.25s ease;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
 }
 
 .nav-links-center > li > a:hover,
@@ -220,9 +249,13 @@ a:hover, a:focus {
 
 /* Auth Buttons in Navbar */
 .nav-auth-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .btn-nav-login {
@@ -230,15 +263,16 @@ a:hover, a:focus {
   border: 1px solid var(--border-gold);
   color: var(--gold-light);
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11.5px !important;
   font-weight: 700;
-  letter-spacing: 1px;
-  padding: 8px 18px;
+  letter-spacing: 0.8px;
+  padding: 7px 14px !important;
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap !important;
   transition: all 0.25s ease;
 }
 .btn-nav-login:hover {
@@ -253,12 +287,19 @@ a:hover, a:focus {
   border: none;
   color: #050b14 !important;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11.5px !important;
   font-weight: 800;
-  letter-spacing: 1px;
-  padding: 8px 20px;
+  letter-spacing: 0.8px;
+  padding: 7px 16px !important;
   border-radius: 6px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+  transition: all 0.25s ease;
+}
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1044,3 +1085,254 @@ a:hover, a:focus {
   color: #fff !important;
   border-radius: 6px 6px 0 0;
 }
+
+/* ==========================================================================
+   SUBPAGE SLEEK HERO BANNER
+   ========================================================================== */
+.subpage-hero-banner {
+  margin-top: 70px;
+  background: linear-gradient(180deg, rgba(8, 15, 27, 0.98) 0%, rgba(5, 11, 20, 0.94) 100%), url('../img/bg_vanguard.jpg') center/cover no-repeat;
+  border-bottom: 1px solid var(--border-gold);
+  padding: 35px 0 25px 0;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+.subpage-breadcrumb {
+  font-family: var(--font-hud);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #7d8c9e;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.subpage-breadcrumb a {
+  color: var(--gold-light);
+  text-decoration: none;
+}
+.subpage-breadcrumb a:hover {
+  color: #fff;
+}
+.subpage-breadcrumb .sep {
+  margin: 0 8px;
+  color: rgba(212, 175, 55, 0.5);
+}
+.subpage-breadcrumb .current {
+  color: #fff;
+  font-weight: 700;
+}
+.subpage-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 6px 0;
+  letter-spacing: 2px;
+}
+.subpage-title span {
+  color: var(--gold-primary);
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+.subpage-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+/* ==========================================================================
+   SUPPORT CHANNEL CARDS & DIRECT MESSAGES
+   ========================================================================== */
+.support-channel-card {
+  background: rgba(10, 20, 35, 0.8);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  padding: 25px 20px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+.support-channel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+  border-color: var(--gold-primary);
+}
+.channel-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin: 0 auto 15px;
+}
+.support-channel-card h4 {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 16px;
+  margin: 0 0 10px;
+  letter-spacing: 1px;
+}
+.support-channel-card p {
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.btn-discord {
+  background: #5865f2;
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+.btn-discord:hover {
+  background: #4752c4;
+  color: #fff !important;
+  box-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
+}
+.btn-whatsapp {
+  background: #25d366;
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+.btn-whatsapp:hover {
+  background: #1eb956;
+  color: #fff !important;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+}
+
+/* ==========================================================================
+   EVENT CARD BOXES
+   ========================================================================== */
+.event-card-box {
+  background: rgba(10, 20, 35, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  padding: 22px;
+  height: 100%;
+  transition: all 0.25s ease;
+}
+.event-card-box:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+.event-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.event-card-header h4 {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 17px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.event-badge-time {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+.event-desc {
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.event-info-line, .event-reward-line {
+  font-size: 12.5px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.event-info-line strong, .event-reward-line strong {
+  color: var(--gold-light);
+}
+
+/* ==========================================================================
+   ADVANCED RESPONSIVE NAVBAR ADAPTATION
+   ========================================================================== */
+@media (min-width: 992px) {
+  .modern-navbar .navbar-collapse {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    margin-left: 15px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 1366px) and (min-width: 992px) {
+  .brand-name {
+    font-size: 17px !important;
+  }
+  .brand-sub {
+    font-size: 9px !important;
+  }
+  .brand-logo-img {
+    height: 38px !important;
+  }
+  .nav-links-center > li > a {
+    padding: 24px 7px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+  }
+  .btn-nav-login {
+    padding: 6px 11px !important;
+    font-size: 11px !important;
+  }
+  .btn-nav-register {
+    padding: 6px 13px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 1120px) and (min-width: 992px) {
+  .brand-text-wrap {
+    display: none !important;
+  }
+  .nav-links-center > li > a {
+    padding: 24px 5px !important;
+    font-size: 10.5px !important;
+  }
+}
+
