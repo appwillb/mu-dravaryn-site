@@ -44,6 +44,8 @@ class MuDatabase {
         $translated = str_ireplace('dbo.', 'public.', $translated);
         $translated = str_ireplace('[dbo].', 'public.', $translated);
         $translated = preg_replace('/\\[(\\w+)\\]/', '"$1"', $translated);
+        $translated = preg_replace('/\\bmemb_info\\b/i', 'public."MEMB_INFO"', $translated);
+        $translated = preg_replace('/\\bmemb_stat\\b/i', 'public."MEMB_STAT"', $translated);
 
         if (preg_match('/SELECT\\s+TOP\\s+(\\d+)\\s+(.*)/i', $translated, $m)) {
             $limit = $m[1];

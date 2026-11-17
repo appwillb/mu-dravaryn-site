@@ -8,7 +8,7 @@ $acr2         = isset($dados_server[1]) ? (int)$dados_server[1] : 142;
 $acr3         = isset($dados_server[2]) ? (int)$dados_server[2] : 77;
 
 if ((isset($_COOKIE["usuario"])) && (isset($_COOKIE["senha"])) && !$off) {
-    $sql_dados = mssql_query("SELECT img from public."MEMB_INFO" where memb___id='$login'"); 
+    $sql_dados = @mssql_query("SELECT img from memb_info where memb___id='$login'"); 
     $login_dados = @mssql_fetch_row($sql_dados);
     if (!empty($login_dados[0])) {
         $avatar = "avatar/thumb.php?imagem=" . urlencode($login_dados[0]) . "&y=30&x=30&qualidade=100";
