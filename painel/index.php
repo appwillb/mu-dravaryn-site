@@ -70,10 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// If unauthenticated, redirect to site.php with login modal triggered
+// If unauthenticated, redirect to site.php?p=painel
 if (!headers_sent()) {
-    header("Location: ../site.php?login_error=invalid");
+    header("Location: ../site.php?p=painel");
 }
-echo "<script>window.location.href='../site.php?login_error=invalid';</script>";
+echo "<script>window.location.href='../site.php?p=painel';</script>";
 exit();
 ?>

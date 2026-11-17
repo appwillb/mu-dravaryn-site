@@ -3,16 +3,16 @@ require("config.php");
 require("cookie.php");
 
 if ($_POST['atualiza']) {
-$mail_check= mssql_num_rows(mssql_query("Select memb___id FROM MEMB_INFO WHERE memb___id='$login' and memb__pwd = '$psw' and mail_ok=1"));
+$mail_check= mssql_num_rows(mssql_query("Select memb___id FROM MEMB_INFO WHERE memb___id='$login'  and mail_ok=1"));
 
 $mail1 = $_POST['mail1'];
 $mail2 = $_POST['mail2'];
 
 if       (empty($mail1) or empty($mail2))       { echo "<center><br><br><font color=orange size=3>Campos em branco </font><br><BR>"; }
-else if  ($mail1 <> $mail2)                     { echo "<center><br><bR><font color=orange size=3>E-mail diferente do e-mail de confirmação!</font><br><BR>"; } 
-else if  ($mail_check > 0)                      { echo "<center><br><bR><font color=orange size=3>O E-mail dessa conta já foi atualizado!</font><br><BR>"; } 
+else if  ($mail1 <> $mail2)                     { echo "<center><br><bR><font color=orange size=3>E-mail diferente do e-mail de confirmao!</font><br><BR>"; } 
+else if  ($mail_check > 0)                      { echo "<center><br><bR><font color=orange size=3>O E-mail dessa conta j foi atualizado!</font><br><BR>"; } 
 
-else { $query = mssql_query( "Update memb_info set mail_addr='$mail1', mail_ok=1 where memb___id='$login' and memb__pwd = '$psw'" ); 
+else { $query = mssql_query( "Update memb_info set mail_addr='$mail1', mail_ok=1 where memb___id='$login' " ); 
 $die = "1";
 
 }
@@ -24,17 +24,17 @@ echo "
 <br><Br>
 <center><font color=orange size=4>Atualizar e-mail de cadastro:</font><br><br>
 
-Pedimos a todos que coloquem um e-mail de cadastro válido em sua conta,
-<br> não devolveremos mais senhas para pessoas que não estão com seu e-mail de cadastro em dia.
+Pedimos a todos que coloquem um e-mail de cadastro vlido em sua conta,
+<br> no devolveremos mais senhas para pessoas que no esto com seu e-mail de cadastro em dia.
 
 <br><BR>O novo sistema do MK devolve a senha por e-mail automaticamente,
-<br> se você perder a senha você poderá recuperar no mesmo momento em que perdeu ou esqueceu.
+<br> se voc perder a senha voc poder recuperar no mesmo momento em que perdeu ou esqueceu.
 
-<br><br>Vendas de contas não são proibidas mais não nos responsabilizamos se você perder a conta.
+<br><br>Vendas de contas no so proibidas mais no nos responsabilizamos se voc perder a conta.
 
-<br><br><font color=orange>Não aceitaremos reclamações posteriores.</font>
+<br><br><font color=orange>No aceitaremos reclamaes posteriores.</font>
 
-<br><bR>Seu e-mail de cadastro atual é: <font color=orange>$mail</font>
+<br><bR>Seu e-mail de cadastro atual : <font color=orange>$mail</font>
 
 <br><bR>Se o e-mail estiver correto apenas digite o mesmo novamente.</font>
 

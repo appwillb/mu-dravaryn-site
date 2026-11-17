@@ -1,28 +1,29 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+define('DRAVARYN_PORTAL', true);
 require_once("inclu/config_index.php");
 
 // Helper function to resolve OpenMU class codes
 function get_mu_class_name($class_id) {
     switch ((int)$class_id) {
         case 0: return 'Dark Wizard';
-        case 1: return 'Soul Master';
-        case 2: return 'Grand Master';
-        case 16: return 'Dark Knight';
-        case 17: return 'Blade Knight';
-        case 18: return 'Blade Master';
-        case 32: return 'Fairy Elf';
-        case 33: return 'Muse Elf';
-        case 34: return 'High Elf';
-        case 48: return 'Magic Gladiator';
-        case 50: return 'Duel Master';
-        case 64: return 'Dark Lord';
-        case 66: return 'Lord Emperor';
-        case 80: return 'Summoner';
-        case 81: return 'Bloody Summoner';
-        case 82: return 'Dimension Master';
-        case 96: return 'Rage Fighter';
-        case 98: return 'Fist Master';
+        case 1: case 2: return (int)$class_id === 3 ? 'Grand Master' : 'Soul Master';
+        case 3: return 'Grand Master';
+        case 4: case 16: return 'Dark Knight';
+        case 6: case 17: return 'Blade Knight';
+        case 7: case 18: return 'Blade Master';
+        case 8: case 32: return 'Fairy Elf';
+        case 10: case 33: return 'Muse Elf';
+        case 11: case 34: return 'High Elf';
+        case 12: case 48: return 'Magic Gladiator';
+        case 13: case 50: return 'Duel Master';
+        case 16: case 64: return 'Dark Lord';
+        case 17: case 66: return 'Lord Emperor';
+        case 20: case 80: return 'Summoner';
+        case 22: case 81: return 'Bloody Summoner';
+        case 23: case 82: return 'Dimension Master';
+        case 24: case 96: return 'Rage Fighter';
+        case 25: case 98: return 'Fist Master';
         default: return 'Guerreiro';
     }
 }
@@ -83,7 +84,7 @@ if (isset($_COOKIE["usuario"]) && isset($_COOKIE["senha"])) {
 
 // Subpage router (NO IFRAMES!)
 $page = isset($_GET['p']) ? strtolower(trim($_GET['p'])) : 'home';
-$allowed_pages = ['home', 'cadastro', 'download', 'info', 'ranking', 'comandos', 'contato', 'dicas', 'eventos', 'guilds', 'mudar_senha'];
+$allowed_pages = ['home', 'painel', 'loja', 'shop', 'cadastro', 'download', 'info', 'ranking', 'comandos', 'contato', 'dicas', 'eventos', 'guilds', 'mudar_senha'];
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
 }
@@ -140,6 +141,16 @@ if (!in_array($page, $allowed_pages)) {
     <div class="collapse navbar-collapse" id="dravaryn-nav">
       <ul class="nav navbar-nav nav-links-center">
         <li class="<?=$page=='home'?'active':'';?>"><a href="site.php">INÍCIO</a></li>
+        <li class="<?=$page=='painel'?'active':'';?>">
+          <a href="<?=$is_logged?'site.php?p=painel':'#';?>" <?=$is_logged?'':'data-toggle="modal" data-target="#loginModal"';?> style="color:var(--gold-light); font-weight:700;">
+            <i class="fa fa-dashboard text-gold"></i> PAINEL
+          </a>
+        </li>
+        <li class="<?=(in_array($page, ['loja', 'shop']))?'active':'';?>">
+          <a href="site.php?p=loja" style="color:#52e591; font-weight:700;">
+            <i class="fa fa-shopping-cart" style="color:#52e591;"></i> WEBSHOP
+          </a>
+        </li>
 
         <li class="dropdown <?=(in_array($page, ['info', 'comandos', 'dicas']))?'active':'';?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -167,9 +178,12 @@ if (!in_array($page, $allowed_pages)) {
               <span class="user-pill-name"><?=$user_login;?></span>
               <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="painel/index.php" target="_blank"><i class="fa fa-dashboard text-gold"></i> Painel do Jogador</a></li>
-              <li><a href="site.php?p=mudar_senha"><i class="fa fa-key text-gold"></i> Alterar Senha</a></li>
+            <ul class="dropdown-menu dropdown-menu-right luxury-dropdown">
+              <li class="dropdown-header text-gold font-cinzel"><i class="fa fa-user-circle"></i> Conta: <?=strtoupper($user_login);?></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="site.php?p=painel"><i class="fa fa-dashboard text-gold"></i> Painel do Jogador</a></li>
+              <li><a href="site.php?p=loja"><i class="fa fa-shopping-cart text-gold"></i> Loja de Itens / WebShop</a></li>
+              <li><a href="painel/index.php" target="_blank"><i class="fa fa-external-link text-gold"></i> Painel Clássico</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="logar.php?deslogar=ok" class="text-danger"><i class="fa fa-sign-out"></i> Desconectar</a></li>
             </ul>
@@ -264,6 +278,22 @@ if (!in_array($page, $allowed_pages)) {
         <div>
           <span>BAIXAR CLIENTE HD</span>
           <span class="btn-cta-sub">Instalador Completo • 1.2 GB</span>
+        </div>
+      </a>
+
+      <a href="<?=$is_logged?'site.php?p=painel':'#';?>" <?=$is_logged?'':'data-toggle="modal" data-target="#loginModal"';?> class="btn-cta-gold" style="background: linear-gradient(135deg, rgba(20,29,51,0.95) 0%, rgba(30,41,59,0.95) 100%); border-color: rgba(212,175,55,0.7);">
+        <i class="fa fa-dashboard fa-lg text-gold"></i>
+        <div>
+          <span class="text-gold">PAINEL DO JOGADOR</span>
+          <span class="btn-cta-sub">Resets, Pontos & Chars</span>
+        </div>
+      </a>
+
+      <a href="site.php?p=loja" class="btn-cta-blue" style="background: linear-gradient(135deg, rgba(16,24,40,0.95) 0%, rgba(20,83,45,0.8) 100%); border-color: rgba(82,229,145,0.7);">
+        <i class="fa fa-shopping-cart fa-lg" style="color:#52e591;"></i>
+        <div>
+          <span style="color:#52e591;">LOJA DE ITENS</span>
+          <span class="btn-cta-sub">VIP, Asas, Armas & Jóias</span>
         </div>
       </a>
     </div>
@@ -719,20 +749,32 @@ if (!in_array($page, $allowed_pages)) {
 
     <?php else: ?>
 
-      <!-- SUBPÁGINA GENÉRICA -->
+      <!-- SUBPÁGINA GENÉRICA OU PAINEL / LOJA -->
       <section class="subpage-container">
         <div class="subpage-glass-box">
-          <div class="section-vanguard-header">
-            <h3><i class="fa fa-file-text-o text-gold"></i> <?=strtoupper($page);?></h3>
-          </div>
-          <?php 
-            $subfile = $page . ".php";
-            if (file_exists($subfile) && $subfile != 'site.php') {
-                include($subfile);
-            } else {
-                echo "<p style='color:#cbd5e1;'>Conteúdo em carregamento...</p>";
-            }
-          ?>
+          <?php if ($page === 'painel'): ?>
+            <div class="section-vanguard-header">
+              <h3><i class="fa fa-dashboard text-gold"></i> PAINEL DO JOGADOR</h3>
+            </div>
+            <?php include("painel_jogador.php"); ?>
+          <?php elseif ($page === 'loja' || $page === 'shop'): ?>
+            <div class="section-vanguard-header">
+              <h3><i class="fa fa-shopping-cart text-gold"></i> WEBSHOP OFICIAL</h3>
+            </div>
+            <?php include("shop_loja.php"); ?>
+          <?php else: ?>
+            <div class="section-vanguard-header">
+              <h3><i class="fa fa-file-text-o text-gold"></i> <?=strtoupper($page);?></h3>
+            </div>
+            <?php 
+              $subfile = $page . ".php";
+              if (file_exists($subfile) && $subfile != 'site.php') {
+                  include($subfile);
+              } else {
+                  echo "<p style='color:#cbd5e1;'>Conteúdo em carregamento...</p>";
+              }
+            ?>
+          <?php endif; ?>
         </div>
       </section>
 

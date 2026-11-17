@@ -1014,3 +1014,33 @@ a:hover, a:focus {
     justify-content: center;
   }
 }
+
+
+/* --- Vanguard Player Panel & WebShop Enhancements --- */
+.character-card-vanguard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.7) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.shop-item-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.8) !important;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25) !important;
+}
+
+.shop-tabs > li.active > a,
+.shop-tabs > li.active > a:focus,
+.shop-tabs > li.active > a:hover {
+  background: rgba(212, 175, 55, 0.2) !important;
+  border: 1px solid rgba(212, 175, 55, 0.6) !important;
+  color: #ffd700 !important;
+  border-radius: 6px 6px 0 0;
+}
+
+.shop-tabs > li > a:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  border-radius: 6px 6px 0 0;
+}

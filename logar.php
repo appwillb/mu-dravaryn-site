@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['usuario'] = $cookie_user;
         $_SESSION['senha']   = $cookie_pass;
 
-        $target = isset($_GET['painel']) ? "painel/index.php" : "site.php";
+        $target = "site.php?p=painel";
         if (!headers_sent()) {
             header("Location: $target");
         }
