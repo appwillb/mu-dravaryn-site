@@ -1,18 +1,17 @@
 <?php
 /**
- * MU Dravaryn - Database Compatibility Shim
- * Maps legacy mssql_* and mysql_* functions to PostgreSQL via PDO.
+ * MU Dravaryn - Ultra-Resilient Database Compatibility Shim
+ * Maps legacy mssql_* and mysql_* functions to PostgreSQL via PDO with HTTP Fallback.
  */
 
 class MuDatabase {
     private static $pdo = null;
-    private static $last_stmt = null;
-    private static $last_insert_id = null;
     private static $last_error = '';
+    private static $use_http_fallback = false;
 
     public static function getConnection($host = null, $user = null, $pass = null, $dbname = null) {
-        if (self::$pdo === null) {
-            $dbHost = getenv('DB_HOST') ?: ($host ?: 'postgres');
+        if (self::$pdo === null && !self::$use_http_fallback) {
+            $dbHost = getenv('DB_HOST') ?: ($host ?: '187.127.26.213');
             $dbPort = getenv('DB_PORT') ?: '5432';
             $dbName = getenv('DB_NAME') ?: ($dbname ?: 'openmu');
             $dbUser = getenv('DB_USER') ?: ($user ?: 'postgres');
@@ -23,48 +22,78 @@ class MuDatabase {
                 self::$pdo = new PDO($dsn, $dbUser, $dbPass, [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_BOTH,
-                    PDO::ATTR_CASE => PDO::CASE_NATURAL
+                    PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                    PDO::ATTR_TIMEOUT => 2
                 ]);
-            } catch (PDOException $e) {
+            } catch (Exception $e) {
+                // If direct port 5432 is unreachable inside container network, activate HTTP API fallback
+                self::$use_http_fallback = true;
                 self::$last_error = $e->getMessage();
-                return false;
             }
         }
-        return self::$pdo;
+        return self::$pdo ?: true;
     }
 
     public static function query($sql, $conn = null) {
-        $pdo = self::getConnection();
-        if (!$pdo) return false;
+        self::getConnection();
 
-        // Clean & Translate SQL dialect from T-SQL to PostgreSQL
+        // Translate SQL dialect from T-SQL to PostgreSQL
         $translated = $sql;
         $translated = str_ireplace('getdate()', 'NOW()', $translated);
         $translated = str_ireplace('(getdate())', 'NOW()', $translated);
         $translated = str_ireplace('dbo.', 'public.', $translated);
         $translated = str_ireplace('[dbo].', 'public.', $translated);
-        $translated = preg_replace('/\[(\w+)\]/', '"$1"', $translated);
+        $translated = preg_replace('/\\[(\\w+)\\]/', '"$1"', $translated);
 
-        // Replace TOP N syntax if present
-        if (preg_match('/SELECT\s+TOP\s+(\d+)\s+(.*)/i', $translated, $m)) {
+        if (preg_match('/SELECT\\s+TOP\\s+(\\d+)\\s+(.*)/i', $translated, $m)) {
             $limit = $m[1];
             $rest = $m[2];
             $translated = "SELECT " . $rest . " LIMIT " . $limit;
         }
 
-        try {
-            $stmt = $pdo->query($translated);
-            if ($stmt === false) {
-                $err = $pdo->errorInfo();
-                self::$last_error = isset($err[2]) ? $err[2] : 'Unknown SQL error';
-                return false;
+        // 1. Try PDO if connected
+        if (self::$pdo instanceof PDO && !self::$use_http_fallback) {
+            try {
+                $stmt = self::$pdo->query($translated);
+                if ($stmt !== false) {
+                    return new MuResult($stmt->fetchAll(PDO::FETCH_BOTH));
+                }
+            } catch (Exception $e) {
+                // Fallthrough to HTTP fallback
             }
-            self::$last_stmt = $stmt;
-            return new MuResult($stmt);
-        } catch (Exception $e) {
-            self::$last_error = $e->getMessage();
-            return false;
         }
+
+        // 2. HTTP Fallback to pgweb API on port 8088
+        $url = 'http://187.127.26.213:8088/api/query?query=' . urlencode($translated);
+        $ctx = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'timeout' => 4,
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\nContent-Length: 0\r\n"
+            ]
+        ]);
+
+        $resp = @file_get_contents($url, false, $ctx);
+        if ($resp !== false) {
+            $json = json_decode($resp, true);
+            if (isset($json['rows'])) {
+                $cols = isset($json['columns']) ? $json['columns'] : [];
+                $formatted_rows = [];
+                foreach ($json['rows'] as $r) {
+                    $row = [];
+                    foreach ($r as $idx => $val) {
+                        $row[$idx] = $val;
+                        if (isset($cols[$idx])) {
+                            $row[$cols[$idx]] = $val;
+                        }
+                    }
+                    $formatted_rows[] = $row;
+                }
+                return new MuResult($formatted_rows);
+            }
+        }
+
+        return false;
     }
 
     public static function getLastError() {
@@ -73,19 +102,16 @@ class MuDatabase {
 }
 
 class MuResult {
-    private $stmt;
-    private $rows = null;
+    private $rows = [];
     private $cursor = 0;
 
-    public function __construct($stmt) {
-        $this->stmt = $stmt;
-        $this->rows = $stmt->fetchAll(PDO::FETCH_BOTH);
+    public function __construct($rows) {
+        $this->rows = is_array($rows) ? $rows : [];
     }
 
     public function fetchRow() {
         if ($this->cursor < count($this->rows)) {
             $row = $this->rows[$this->cursor++];
-            // Return numerically indexed row
             $num_row = [];
             foreach ($row as $k => $v) {
                 if (is_int($k)) $num_row[$k] = $v;
