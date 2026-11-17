@@ -197,9 +197,20 @@ if (!in_array($page, $allowed_pages)) {
       </div>
       <form action="logar.php" method="post">
         <div class="modal-body">
+          <?php if (isset($_GET['login_error'])): ?>
+            <div class="alert alert-danger" style="background:rgba(239,85,119,0.2);border:1px solid #ef5577;color:#fff;border-radius:6px;padding:10px 14px;margin-bottom:15px;font-size:13px;">
+              <i class="fa fa-exclamation-triangle"></i>
+              <?php if ($_GET['login_error'] == 'blocked'): ?>
+                Esta conta está bloqueada pela administração!
+              <?php else: ?>
+                Usuário ou senha incorretos! Verifique seus dados.
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+
           <div class="form-group">
             <label class="control-label text-gold">Login / Conta:</label>
-            <input type="text" name="login" class="form-control luxury-input" placeholder="Digite seu usuário" required>
+            <input type="text" name="login" class="form-control luxury-input" placeholder="Digite seu usuário" value="<?=isset($_GET['login_user']) ? htmlspecialchars($_GET['login_user']) : '';?>" required>
           </div>
           <div class="form-group">
             <label class="control-label text-gold">Senha:</label>
@@ -746,6 +757,14 @@ if (!in_array($page, $allowed_pages)) {
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+<?php if (isset($_GET['login_error']) || isset($_GET['login'])): ?>
+<script>
+  $(document).ready(function() {
+    $('#loginModal').modal('show');
+  });
+</script>
+<?php endif; ?>
 
 </body>
 </html>
