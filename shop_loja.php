@@ -2,6 +2,7 @@
 /**
  * MU Dravaryn - Official Modern WebShop (Loja de Itens do Jogo)
  * Direct database integration with OpenMU PostgreSQL
+ * Complete Expanded Catalog: Classic Sets, S6 Sets, Archangel Weapons, Fenrirs, Wings & 3D Render Showcase
  */
 
 if (!defined('DRAVARYN_PORTAL')) {
@@ -80,6 +81,86 @@ $catalog = [
         'title' => 'Sets de Armadura Completos (+13 Full)',
         'icon'  => 'fa-shield',
         'items' => [
+            // --- SETS CLÁSSICOS LENDÁRIOS ---
+            [
+                'id'       => 'set_great_dragon',
+                'name'     => 'Set Great Dragon (+13 Full)',
+                'desc'     => 'O set mais clássico e temido de Blade Knight • Helm, Armor, Pants, Gloves e Boots.',
+                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-shield',
+                'badge'    => 'BK Clássico'
+            ],
+            [
+                'id'       => 'set_dark_phoenix',
+                'name'     => 'Set Dark Phoenix (+13 Full)',
+                'desc'     => 'Set lendário de chamas sombrias para Blade Knight • Proteção e imponência máxima.',
+                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%'],
+                'price_wc' => 5500,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-shield',
+                'badge'    => 'BK Lendário'
+            ],
+            [
+                'id'       => 'set_dark_soul',
+                'name'     => 'Set Dark Soul (+13 Full)',
+                'desc'     => 'O icônico set cósmico azul do Soul Master • Máxima amplificação de poder arcano.',
+                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Mana +4%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-magic',
+                'badge'    => 'SM Clássico'
+            ],
+            [
+                'id'       => 'set_grand_soul',
+                'name'     => 'Set Grand Soul (+13 Full)',
+                'desc'     => 'Armadura celestial prateada de Soul Master • Tradição e equilíbrio místico.',
+                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-magic',
+                'badge'    => 'SM Tradição'
+            ],
+            [
+                'id'       => 'set_red_spirit',
+                'name'     => 'Set Red Spirit (+13 Full)',
+                'desc'     => 'O set vermelho alado supremo da Muse Elf • Agilidade, esquiva e beleza inigualável.',
+                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Esquiva e Buffs +4%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-leaf',
+                'badge'    => 'ME Clássica'
+            ],
+            [
+                'id'       => 'set_hurricane',
+                'name'     => 'Set Hurricane (+13 Full)',
+                'desc'     => 'Set das tempestades para Magic Gladiator • Armor, Pants, Gloves e Boots Full.',
+                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Poder Físico e Mágico'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-bolt',
+                'badge'    => 'MG Clássico'
+            ],
+            [
+                'id'       => 'set_dark_master',
+                'name'     => 'Set Dark Master (+13 Full)',
+                'desc'     => 'O manto imperial do Lord Emperor • Soberania absoluta e poder das trevas.',
+                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Liderança e Bônus Pet'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-crown',
+                'badge'    => 'DL Clássico'
+            ],
+
+            // --- SETS SEASON 6 MODERNOS ---
             [
                 'id'       => 'set_dragon_knight',
                 'name'     => 'Set Dragon Knight (+13 Full)',
@@ -99,7 +180,7 @@ $catalog = [
                 'price_wc' => 6000,
                 'price_gp' => 0,
                 'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
+                'icon_fa'  => 'fa-magic',
                 'badge'    => 'Grand Master'
             ],
             [
@@ -110,7 +191,7 @@ $catalog = [
                 'price_wc' => 6000,
                 'price_gp' => 0,
                 'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
+                'icon_fa'  => 'fa-leaf',
                 'badge'    => 'High Elf'
             ],
             [
@@ -121,7 +202,7 @@ $catalog = [
                 'price_wc' => 6000,
                 'price_gp' => 0,
                 'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
+                'icon_fa'  => 'fa-fire',
                 'badge'    => 'Duel Master'
             ],
             [
@@ -132,7 +213,7 @@ $catalog = [
                 'price_wc' => 5500,
                 'price_gp' => 0,
                 'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
+                'icon_fa'  => 'fa-crown',
                 'badge'    => 'Lord Emperor'
             ],
             [
@@ -143,7 +224,7 @@ $catalog = [
                 'price_wc' => 6000,
                 'price_gp' => 0,
                 'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
+                'icon_fa'  => 'fa-tint',
                 'badge'    => 'Dimension Master'
             ],
             [
@@ -154,15 +235,106 @@ $catalog = [
                 'price_wc' => 6000,
                 'price_gp' => 0,
                 'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
+                'icon_fa'  => 'fa-hand-rock-o',
                 'badge'    => 'Fist Master'
             ]
         ]
     ],
     'weapons' => [
-        'title' => 'Armas Lendárias & Escudos (+13 Full)',
+        'title' => 'Armas Lendárias & Archangel (+13 Full)',
         'icon'  => 'fa-crosshairs',
         'items' => [
+            // --- ARMAS ARCHANGEL SAGRADAS ---
+            [
+                'id'       => 'wpn_archangel_sword',
+                'name'     => 'Divine Sword of Archangel +13 Full',
+                'desc'     => 'A lendária espada sagrada do Arcanjo • Luz divina, poder absoluto e velocidade.',
+                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Aumento de Velocidade +7', 'Dano Crítico Divino'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-shield',
+                'badge'    => 'Arcanjo Sagrado'
+            ],
+            [
+                'id'       => 'wpn_archangel_staff',
+                'name'     => 'Divine Staff of Archangel +13 Full',
+                'desc'     => 'O cajado celestial do Arcanjo • Amplificação pura de feitiços arcanos.',
+                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Mágico Excelente +10%', 'Velocidade de Conjuração +7', 'Poder Sagrado'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-magic',
+                'badge'    => 'Arcanjo Sagrado'
+            ],
+            [
+                'id'       => 'wpn_archangel_crossbow',
+                'name'     => 'Divine Crossbow of Archangel +13 Full',
+                'desc'     => 'A balestra divina do Arcanjo • Disparos perfurantes com alcance supremo.',
+                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Velocidade de Ataque +7', 'Flechas Iluminadas'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-crosshairs',
+                'badge'    => 'Arcanjo Sagrado'
+            ],
+            [
+                'id'       => 'wpn_archangel_scepter',
+                'name'     => 'Divine Scepter of Archangel +13 Full',
+                'desc'     => 'O cetro da graça divina para Lord Emperor • Comando celestial supremo.',
+                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Bônus de Ataque dos Pets', 'Liderança Sagrada'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-gavel',
+                'badge'    => 'Arcanjo Sagrado'
+            ],
+
+            // --- ARMAS LENDÁRIAS CLÁSSICAS & S6 ---
+            [
+                'id'       => 'wpn_kundun_staff',
+                'name'     => 'Staff of Kundun +13 Full',
+                'desc'     => 'O cajado negro forjado nas trevas de Kundun • Poder mágico destrutivo.',
+                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Mágico Excelente +10%', 'Aumento de Dano Mágico +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3800,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-magic',
+                'badge'    => 'Grand Master'
+            ],
+            [
+                'id'       => 'wpn_knight_blade',
+                'name'     => 'Knight Blade +13 Full',
+                'desc'     => 'A poderosa espada de duas mãos do Blade Knight clássico.',
+                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Taxa de Acerto +10%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-shield',
+                'badge'    => 'Blade Knight'
+            ],
+            [
+                'id'       => 'wpn_daybreak',
+                'name'     => 'Daybreak +13 Full',
+                'desc'     => 'A lâmina da alvorada dourada • Lâmina nobre com corte afiado e brilho solar.',
+                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Velocidade de Ataque +7', 'Dano Crítico +2%'],
+                'price_wc' => 3800,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-sun-o',
+                'badge'    => 'Blade Master'
+            ],
+            [
+                'id'       => 'wpn_rune_bastard',
+                'name'     => 'Rune Bastard Sword +13 Full',
+                'desc'     => 'Espada bastarda rúnica milenar • Equilíbrio perfeito entre força e peso.',
+                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade +7'],
+                'price_wc' => 3800,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-bolt',
+                'badge'    => 'BM / MG'
+            ],
             [
                 'id'       => 'wpn_bone_blade',
                 'name'     => 'Bone Blade +13 Full',
@@ -239,6 +411,89 @@ $catalog = [
                 'type'     => 'item',
                 'icon_fa'  => 'fa-shield',
                 'badge'    => 'Escudo'
+            ]
+        ]
+    ],
+    'pets' => [
+        'title' => 'Montarias & Pets Lendários',
+        'icon'  => 'fa-paw',
+        'items' => [
+            [
+                'id'       => 'pet_fenrir_gold',
+                'name'     => 'Horn of Fenrir Dourado (Gold Fenrir)',
+                'desc'     => 'O lendário Lobo Dourado • A montaria mais rara e cobiçada de todo o MU Online.',
+                'options'  => ['Velocidade Máxima de Movimento', 'Aumento de Dano Absoluto', 'Resistência a Atordoamento', 'Imponência Dourada'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-paw',
+                'badge'    => 'Montaria Mítica'
+            ],
+            [
+                'id'       => 'pet_fenrir_black',
+                'name'     => 'Horn of Fenrir Preto (Destruction)',
+                'desc'     => 'Fenrir da Destruição • Focado em perfurar armaduras e aniquilar oponentes em PvP.',
+                'options'  => ['Aumento de Dano Final +10%', 'Aumento de Taxa de Ataque', 'Habilidade Especial Plasma Storm', 'Aceleração de Montaria'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-paw',
+                'badge'    => 'PvP Ataque'
+            ],
+            [
+                'id'       => 'pet_fenrir_blue',
+                'name'     => 'Horn of Fenrir Azul (Protection)',
+                'desc'     => 'Fenrir da Proteção • Barreira blindada com máxima redução de dano sofrido.',
+                'options'  => ['Absorção de Dano +10%', 'Defesa Reforçada em Batalhas', 'Habilidade Especial Plasma Storm', 'Aceleração de Montaria'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-paw',
+                'badge'    => 'PvP Defesa'
+            ],
+            [
+                'id'       => 'pet_fenrir_red',
+                'name'     => 'Horn of Fenrir Vermelho',
+                'desc'     => 'O clássico Lobo de Fogo • Montaria veloz e feroz com ataque de tempestade.',
+                'options'  => ['Velocidade de Deslocamento Rápida', 'Habilidade Especial Plasma Storm', 'Aumento de Dano em Monstros', 'Resistência Física'],
+                'price_wc' => 3000,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-paw',
+                'badge'    => 'Montaria'
+            ],
+            [
+                'id'       => 'pet_dinorant',
+                'name'     => 'Horn of Dinorant (+15 Voador)',
+                'desc'     => 'Montaria alada clássica • Permite planar por Icarus e disparar esferas de fogo.',
+                'options'  => ['Voo Livre (Acesso a Icarus)', 'Absorção de Dano +15%', 'Ataque de Fogo à Distância', 'Durabilidade 255'],
+                'price_wc' => 1200,
+                'price_gp' => 2000,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-plane',
+                'badge'    => 'Voador'
+            ],
+            [
+                'id'       => 'pet_dark_horse',
+                'name'     => 'Dark Horse Level 50 (Cavalo do DL)',
+                'desc'     => 'O temido Corcel das Sombras exclusivo para Dark Lord • Nível 50 Máximo.',
+                'options'  => ['Nível 50 Full Poder', 'Habilidade Especial Earthshake', 'Absorção de Impacto Superior', 'Defesa por Comando'],
+                'price_wc' => 2500,
+                'price_gp' => 3500,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-shield',
+                'badge'    => 'Dark Lord'
+            ],
+            [
+                'id'       => 'pet_dark_raven',
+                'name'     => 'Dark Raven Level 50 (Corvo do DL)',
+                'desc'     => 'O Corvo de Ataque Imperial exclusivo para Dark Lord • Nível 50 Máximo.',
+                'options'  => ['Nível 50 Full Dano', 'Ataque Automático e Focado', 'Dano Rápido Contínuo', 'Bônus de Liderança'],
+                'price_wc' => 2000,
+                'price_gp' => 3000,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-feather-alt',
+                'badge'    => 'Dark Lord'
             ]
         ]
     ],
@@ -326,9 +581,20 @@ $catalog = [
         ]
     ],
     'jewels' => [
-        'title' => 'Pacotes de Jóias & Refino',
+        'title' => 'Jóias & Acessórios Ancient',
         'icon'  => 'fa-gem',
         'items' => [
+            [
+                'id'       => 'kit_ancient_rings',
+                'name'     => 'Kit Acessórios Ancient (+13 Full)',
+                'desc'     => 'Kit Completo: Ring of Ice + Ring of Poison + Pendant of Lighting Full +13.',
+                'options'  => ['3 Acessórios Sagrados', 'Absorção Máxima de Dano + Vida', 'Resistência a Gelo, Veneno e Raio', 'Recuperação Automática de HP'],
+                'price_wc' => 2800,
+                'price_gp' => 0,
+                'type'     => 'item',
+                'icon_fa'  => 'fa-circle-o',
+                'badge'    => 'Kit 3x Ancient'
+            ],
             [
                 'id'       => 'pack_bless_30',
                 'name'     => 'Pack 30x Jewel of Bless',
@@ -429,7 +695,57 @@ $catalog = [
 
 // 2.1 Mapping of OpenMU Item Definitions for In-Game Vault Delivery
 $catalog_delivery_items = [
-    // --- SETS ---
+    // --- SETS CLÁSSICOS ---
+    'set_great_dragon' => [
+        ['name' => 'Great Dragon Helm',   'def' => '00000080-0007-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Great Dragon Armor',  'def' => '00000080-0008-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Great Dragon Pants',  'def' => '00000080-0009-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Great Dragon Gloves', 'def' => '00000080-000a-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Great Dragon Boots',  'def' => '00000080-000b-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_dark_phoenix' => [
+        ['name' => 'Dark Phoenix Helm',   'def' => '00000080-0007-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Phoenix Armor',  'def' => '00000080-0008-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Phoenix Pants',  'def' => '00000080-0009-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Phoenix Gloves', 'def' => '00000080-000a-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Phoenix Boots',  'def' => '00000080-000b-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_dark_soul' => [
+        ['name' => 'Dark Soul Helm',   'def' => '00000080-0007-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Soul Armor',  'def' => '00000080-0008-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Soul Pants',  'def' => '00000080-0009-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Soul Gloves', 'def' => '00000080-000a-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Soul Boots',  'def' => '00000080-000b-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_grand_soul' => [
+        ['name' => 'Grand Soul Helm',   'def' => '00000080-0007-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Grand Soul Armor',  'def' => '00000080-0008-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Grand Soul Pants',  'def' => '00000080-0009-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Grand Soul Gloves', 'def' => '00000080-000a-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Grand Soul Boots',  'def' => '00000080-000b-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_red_spirit' => [
+        ['name' => 'Red Spirit Helm',   'def' => '00000080-0007-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Spirit Armor',  'def' => '00000080-0008-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Spirit Pants',  'def' => '00000080-0009-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Spirit Gloves', 'def' => '00000080-000a-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Red Spirit Boots',  'def' => '00000080-000b-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_hurricane' => [
+        ['name' => 'Hurricane Armor',  'def' => '00000080-0008-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Hurricane Pants',  'def' => '00000080-0009-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Hurricane Gloves', 'def' => '00000080-000a-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Hurricane Boots',  'def' => '00000080-000b-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+    'set_dark_master' => [
+        ['name' => 'Dark Master Helm',   'def' => '00000080-0007-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Master Armor',  'def' => '00000080-0008-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Master Pants',  'def' => '00000080-0009-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Master Gloves', 'def' => '00000080-000a-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Dark Master Boots',  'def' => '00000080-000b-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    ],
+
+    // --- SETS SEASON 6 ---
     'set_dragon_knight' => [
         ['name' => 'Dragon Knight Helm',   'def' => '00000080-0007-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
         ['name' => 'Dragon Knight Armor',  'def' => '00000080-0008-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
@@ -477,7 +793,33 @@ $catalog_delivery_items = [
         ['name' => 'Phoenix Soul Boots',  'def' => '00000080-000b-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
     ],
 
-    // --- WEAPONS ---
+    // --- ARMAS ARCHANGEL ---
+    'wpn_archangel_sword' => [
+        ['name' => 'Divine Sword of Archangel +13 Full', 'def' => '00000080-0000-0013-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_archangel_staff' => [
+        ['name' => 'Divine Staff of Archangel +13 Full', 'def' => '00000080-0005-000a-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_archangel_crossbow' => [
+        ['name' => 'Divine Crossbow of Archangel +13 Full', 'def' => '00000080-0004-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_archangel_scepter' => [
+        ['name' => 'Divine Scepter of Archangel +13 Full', 'def' => '00000080-0002-000d-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+
+    // --- ARMAS LENDÁRIAS ---
+    'wpn_kundun_staff' => [
+        ['name' => 'Staff of Kundun +13 Full', 'def' => '00000080-0005-000b-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_knight_blade' => [
+        ['name' => 'Knight Blade +13 Full', 'def' => '00000080-0000-0014-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_daybreak' => [
+        ['name' => 'Daybreak +13 Full', 'def' => '00000080-0000-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
+    'wpn_rune_bastard' => [
+        ['name' => 'Rune Bastard Sword +13 Full', 'def' => '00000080-0000-001c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    ],
     'wpn_bone_blade' => [
         ['name' => 'Bone Blade +13 Full', 'def' => '00000080-0000-0016-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
     ],
@@ -500,7 +842,30 @@ $catalog_delivery_items = [
         ['name' => 'Dragon Shield +13 Full', 'def' => '00000080-0006-000d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true]
     ],
 
-    // --- WINGS ---
+    // --- MONTARIAS & PETS ---
+    'pet_fenrir_gold' => [
+        ['name' => 'Horn of Fenrir Gold', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+    ],
+    'pet_fenrir_black' => [
+        ['name' => 'Horn of Fenrir Black', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+    ],
+    'pet_fenrir_blue' => [
+        ['name' => 'Horn of Fenrir Blue', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+    ],
+    'pet_fenrir_red' => [
+        ['name' => 'Horn of Fenrir Red', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+    ],
+    'pet_dinorant' => [
+        ['name' => 'Horn of Dinorant +15', 'def' => '00000080-000d-0003-0000-000000000000', 'lvl' => 15, 'w' => 1, 'h' => 1, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+    ],
+    'pet_dark_horse' => [
+        ['name' => 'Dark Horse Lvl 50', 'def' => '00000080-000d-0004-0000-000000000000', 'lvl' => 50, 'w' => 1, 'h' => 1, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+    ],
+    'pet_dark_raven' => [
+        ['name' => 'Dark Raven Lvl 50', 'def' => '00000080-000d-0005-0000-000000000000', 'lvl' => 50, 'w' => 1, 'h' => 1, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+    ],
+
+    // --- ASAS & CAPAS ---
     'wing_storm_lvl3' => [
         ['name' => 'Wing of Storm Lvl 3', 'def' => '00000080-000c-0024-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
     ],
@@ -523,7 +888,12 @@ $catalog_delivery_items = [
         ['name' => 'Soul Wings Lvl 2', 'def' => '00000080-000c-0004-0000-000000000000', 'lvl' => 11, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 4, 'opt_def' => false]
     ],
 
-    // --- JEWELS (PACKS) ---
+    // --- JÓIAS & ACESSÓRIOS ---
+    'kit_ancient_rings' => [
+        ['name' => 'Ring of Ice +13',        'def' => '00000080-000d-0008-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Ring of Poison +13',     'def' => '00000080-000d-0009-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        ['name' => 'Pendant of Lighting +13','def' => '00000080-000d-000c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false],
+    ],
     'pack_bless_30' => [
         ['name' => 'Pack 30x Jewel of Bless', 'def' => '00000080-000c-001e-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
     ],
@@ -599,29 +969,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
                                 $vs = (int)$vr['ItemSlot'];
                                 $vw = max(1, (int)$vr['Width']);
                                 $vh = max(1, (int)$vr['Height']);
-                                $vr_row = intdiv($vs, 8);
+                                $vr_row = (int)($vs / 8);
                                 $vr_col = $vs % 8;
-                                for ($dr = 0; $dr < $vh; $dr++) {
-                                    for ($dc = 0; $dc < $vw; $dc++) {
-                                        $rr = $vr_row + $dr;
-                                        $cc = $vr_col + $dc;
-                                        if ($rr < 15 && $cc < 8) {
-                                            $grid[$rr][$cc] = true;
-                                        }
+                                for ($r = 0; $r < $vh && ($vr_row + $r) < 15; $r++) {
+                                    for ($c = 0; $c < $vw && ($vr_col + $c) < 8; $c++) {
+                                        $grid[$vr_row + $r][$vr_col + $c] = true;
                                     }
                                 }
                             }
                         }
 
-                        // Try finding free slots for all items in the pack/set
+                        // Check fit for each item in the package
                         $all_fit = true;
                         foreach ($delivery_items as $sub_item) {
-                            $iw = isset($sub_item['w']) ? (int)$sub_item['w'] : 1;
-                            $ih = isset($sub_item['h']) ? (int)$sub_item['h'] : 1;
-
+                            $iw = max(1, (int)$sub_item['w']);
+                            $ih = max(1, (int)$sub_item['h']);
                             $found_slot = -1;
-                            for ($r = 0; $r <= 15 - $ih; $r++) {
-                                for ($c = 0; $c <= 8 - $iw; $c++) {
+
+                            for ($r = 0; $r <= (15 - $ih); $r++) {
+                                for ($c = 0; $c <= (8 - $iw); $c++) {
                                     $fits = true;
                                     for ($dr = 0; $dr < $ih; $dr++) {
                                         for ($dc = 0; $dc < $iw; $dc++) {
@@ -734,6 +1100,110 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
 }
 ?>
 
+<style>
+/* Modern 3D Item Showcase & Glowing Pedestals */
+.shop-item-card {
+    background: rgba(15,23,42,0.88);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+.shop-item-card:hover {
+    border-color: rgba(212,175,55,0.85);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212,175,55,0.28), 0 0 25px rgba(0,0,0,0.85);
+}
+.item-3d-stage {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 65%, rgba(212,175,55,0.18) 0%, rgba(15,23,42,0.85) 65%, rgba(10,15,30,0.98) 100%);
+    border: 1px solid rgba(212,175,55,0.28);
+    border-radius: 8px;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+.item-3d-glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,175,55,0.28) 0%, transparent 70%);
+    filter: blur(14px);
+    animation: itemPulseGlow 3s ease-in-out infinite alternate;
+}
+.item-3d-pedestal {
+    position: absolute;
+    bottom: 10px;
+    width: 120px;
+    height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(212,175,55,0.4) 0%, rgba(212,175,55,0.1) 60%, transparent 80%);
+    border: 1px solid rgba(212,175,55,0.55);
+    box-shadow: 0 0 16px rgba(212,175,55,0.4), inset 0 0 8px rgba(212,175,55,0.3);
+    transform: perspective(200px) rotateX(40deg);
+}
+.item-3d-render {
+    max-height: 125px;
+    max-width: 145px;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.9)) drop-shadow(0 0 10px rgba(212,175,55,0.38));
+    transition: transform 0.35s ease, filter 0.35s ease;
+    animation: itemHoverFloat 3.5s ease-in-out infinite;
+}
+.shop-item-card:hover .item-3d-render {
+    transform: scale(1.1) translateY(-6px);
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.95)) drop-shadow(0 0 20px rgba(212,175,55,0.7));
+}
+.item-3d-fallback {
+    z-index: 2;
+    font-size: 50px;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(212,175,55,0.7);
+}
+.item-tier-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(15,23,42,0.92);
+    border: 1px solid rgba(212,175,55,0.65);
+    color: #ffd700;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    z-index: 3;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.item-stars {
+    color: #ffd700;
+    font-size: 10px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+@keyframes itemHoverFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(1deg); }
+}
+@keyframes itemPulseGlow {
+    0% { opacity: 0.5; transform: scale(0.9); }
+    100% { opacity: 1.0; transform: scale(1.15); }
+}
+</style>
+
 <!-- FEEDBACK ALERTS -->
 <?php if (!empty($shop_feedback)): ?>
 <div class="alert alert-<?=$shop_feedback_type;?> alert-dismissible" role="alert" style="background: rgba(15,23,42,0.95); border-color: <?=$shop_feedback_type=='success'?'#52e591':($shop_feedback_type=='danger'?'#ef4444':'#f59e0b');?>; color:#fff; font-size:15px; margin-bottom:25px;">
@@ -743,14 +1213,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
 </div>
 <?php endif; ?>
 
-<!-- SHOP WALLET HUD -->
-<div class="shop-wallet-hud" style="background: linear-gradient(135deg, rgba(16,24,40,0.95) 0%, rgba(20,29,51,0.95) 100%); border: 1px solid rgba(212,175,55,0.4); border-radius: 10px; padding: 25px; margin-bottom: 30px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-    <div class="row" style="display:flex; flex-wrap:wrap; align-items:center;">
+<!-- SHOP HEADER & BALANCE -->
+<div class="shop-header-card" style="background: rgba(15,23,42,0.9); border: 1px solid rgba(212,175,55,0.4); border-radius: 8px; padding: 20px 25px; margin-bottom: 25px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+    <div class="row" style="display:flex; align-items:center; flex-wrap:wrap;">
         <div class="col-md-5 col-sm-12" style="margin-bottom:15px;">
             <h3 class="font-cinzel text-gold" style="margin:0 0 5px 0; font-size:24px; font-weight:800;">
                 <i class="fa fa-shopping-bag"></i> LOJA DE ITENS & VANTAGENS
             </h3>
-            <p style="color:#94a3b8; font-size:13px; margin:0;">Planos VIP, Sets Completos +13, Armas Lendárias, Asas e Jóias para o seu personagem.</p>
+            <p style="color:#94a3b8; font-size:13px; margin:0;">Sets Clássicos e Season 6, Armas do Archangel, Fenrirs, Asas e Jóias para seu personagem.</p>
         </div>
 
         <div class="col-md-4 col-sm-12" style="margin-bottom:15px;">
@@ -818,28 +1288,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
     <div class="row">
         <?php foreach ($cat['items'] as $item): ?>
         <div class="col-md-4 col-sm-6" style="margin-bottom:25px;">
-            <div class="shop-item-card" style="background: rgba(15,23,42,0.85); border: 1px solid rgba(212,175,55,0.3); border-radius: 8px; padding: 20px; display:flex; flex-direction:column; justify-content:space-between; height:100%; transition: all 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+            <div class="shop-item-card">
                 <div>
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <span class="badge" style="background:rgba(212,175,55,0.2); border:1px solid rgba(212,175,55,0.5); color:#ffd700; font-size:11px; padding:4px 8px;">
-                            <?=$item['badge'];?>
-                        </span>
-                        <i class="fa <?=$item['icon_fa'];?> text-gold" style="font-size:22px;"></i>
+                    <!-- 3D ITEM SHOWCASE STAGE -->
+                    <div class="item-3d-stage">
+                        <div class="item-3d-glow"></div>
+                        <div class="item-3d-pedestal"></div>
+                        <img src="img/items/<?=$item['id'];?>.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" class="item-3d-render" alt="<?=$item['name'];?>">
+                        <div class="item-3d-fallback" style="display:none;">
+                            <i class="fa <?=$item['icon_fa'];?>"></i>
+                        </div>
+                        <span class="item-tier-badge"><?=$item['badge'];?></span>
                     </div>
 
-                    <h4 class="font-cinzel text-gold" style="margin:0 0 8px 0; font-size:18px; font-weight:800; min-height:45px; line-height:1.3;">
+                    <div class="item-stars">
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    </div>
+
+                    <h4 class="font-cinzel text-gold" style="margin:0 0 8px 0; font-size:17px; font-weight:800; min-height:42px; line-height:1.3;">
                         <?=$item['name'];?>
                     </h4>
 
-                    <p style="color:#94a3b8; font-size:12px; margin-bottom:15px; line-height:1.4;">
+                    <p style="color:#94a3b8; font-size:12px; margin-bottom:12px; line-height:1.4;">
                         <?=$item['desc'];?>
                     </p>
 
                     <!-- SPEC OPTIONS LIST -->
                     <?php if (!empty($item['options'])): ?>
-                    <div style="background:rgba(0,0,0,0.35); border-radius:6px; padding:10px 12px; margin-bottom:15px; font-size:11px;">
+                    <div style="background:rgba(0,0,0,0.35); border-radius:6px; padding:8px 12px; margin-bottom:12px; font-size:11px;">
                         <?php foreach ($item['options'] as $opt): ?>
-                            <div style="color:#cbd5e1; margin-bottom:4px; display:flex; align-items:center;">
+                            <div style="color:#cbd5e1; margin-bottom:3px; display:flex; align-items:center;">
                                 <i class="fa fa-check text-gold" style="margin-right:6px; font-size:10px;"></i>
                                 <span><?=$opt;?></span>
                             </div>
@@ -848,7 +1326,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
                     <?php endif; ?>
                 </div>
 
-                <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:15px; margin-top:10px;">
+                <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:12px; margin-top:8px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
                         <span style="font-size:12px; color:#cbd5e1;">Valor:</span>
                         <div>
