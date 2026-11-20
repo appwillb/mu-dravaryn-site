@@ -247,7 +247,7 @@ $sql_chars = @mssql_query("SELECT c.\"Id\", c.\"Name\", c.\"Experience\", c.\"Le
     LEFT JOIN data.\"StatAttribute\" sa_lvl ON c.\"Id\" = sa_lvl.\"CharacterId\" AND sa_lvl.\"DefinitionId\" = '560931ad-0901-4342-b7f4-fd2e2fcc0563'
     LEFT JOIN data.\"StatAttribute\" sa_rst ON c.\"Id\" = sa_rst.\"CharacterId\" AND sa_rst.\"DefinitionId\" = '89a891a7-f9f9-4ab5-af36-12056e53a5f7'
     WHERE c.\"AccountId\" = '$acc_id' 
-    ORDER BY c.\"Experience\" DESC");
+    ORDER BY resets DESC, clevel DESC, c.\"Experience\" DESC");
 
 $characters = [];
 if ($sql_chars) {
