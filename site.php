@@ -267,6 +267,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
         <li class="<?=$page=='download'?'active':'';?>"><a href="site.php?p=download"><i class="fa fa-download text-gold"></i> DOWNLOAD</a></li>
         <li class="<?=$page=='cadastro'?'active':'';?>"><a href="site.php?p=cadastro"><i class="fa fa-user-plus text-gold"></i> CADASTRO</a></li>
         <li class="<?=$page=='ranking'?'active':'';?>"><a href="site.php?p=ranking"><i class="fa fa-trophy text-gold"></i> RANKINGS</a></li>
+        <li class="<?=$page=='jogar'?'active':'';?>"><a href="site.php?p=jogar" style="color:#34d399; font-weight:700;"><i class="fa fa-gamepad"></i> JOGAR WEB</a></li>
         <li class="<?=(in_array($page, ['contato', 'suporte']))?'active':'';?>"><a href="site.php?p=contato"><i class="fa fa-life-ring text-gold"></i> SUPORTE</a></li>
       </ul>
 
@@ -369,6 +370,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
 
     <!-- CTAs -->
     <div class="hero-cta-wrapper">
+      <a href="site.php?p=jogar" class="btn-cta-gold" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); border-color: #34d399; box-shadow: 0 0 25px rgba(16,185,129,0.45);">
+        <i class="fa fa-gamepad fa-lg" style="color:#fff;"></i>
+        <div>
+          <span style="color:#fff;">JOGAR NO NAVEGADOR</span>
+          <span class="btn-cta-sub" style="color:#d1fae5;">Sem Download • Web 3D</span>
+        </div>
+      </a>
+
       <a href="site.php?p=cadastro" class="btn-cta-gold">
         <i class="fa fa-user-plus fa-lg"></i>
         <div>
@@ -820,6 +829,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_register'])) {
                 <tr><th class="text-gold">Chaos Castle:</th><td>A cada 4 horas com itens Ancient</td></tr>
               </table>
             </div>
+          </div>
+        </div>
+      </section>
+
+    <?php elseif ($page == 'jogar' || $page == 'web' || $page == 'play'): ?>
+
+      <!-- JOGO NO NAVEGADOR NATIVO -->
+      <section class="subpage-container" style="padding: 10px 0 60px;">
+        <div class="subpage-glass-box" style="padding: 20px;">
+          <div class="section-vanguard-header text-center" style="margin-bottom: 15px;">
+            <h3><i class="fa fa-gamepad text-gold"></i> DRAVARYN <span>NO NAVEGADOR (WEB 3D)</span></h3>
+            <p>Jogue agora direto pelo navegador sem download nem instalação! Controles: <strong>WASD</strong> para mover, <strong>Z</strong> para atacar, <strong>1-4</strong> habilidades.</p>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px; flex-wrap:wrap; gap:10px;">
+            <div style="font-size:12px; color:#94a3b8;">
+              <i class="fa fa-info-circle text-gold"></i> Dica: Pressione <strong>F11</strong> no teclado ou clique no botão ao lado para jogar em tela cheia!
+            </div>
+            <a href="jogar/index.html" target="_blank" class="btn btn-cta-gold" style="padding: 8px 20px; font-size: 13px; background: linear-gradient(135deg, #10b981, #059669); border-color: #34d399;">
+              <i class="fa fa-arrows-alt"></i> ABRIR EM TELA CHEIA (NOVA ABA)
+            </a>
+          </div>
+
+          <div style="position: relative; width: 100%; height: 750px; max-height: 85vh; background: #000; border: 2px solid rgba(212,175,55,0.4); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+            <iframe src="jogar/index.html" style="width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen; pointer-lock"></iframe>
           </div>
         </div>
       </section>
