@@ -89,8 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['panel_action'])) {
     $char_name = isset($_POST['char_name']) ? trim(addslashes($_POST['char_name'])) : '';
 
     // Verify character ownership
-    $char_query = @mssql_query("SELECT c.\"Id\", c.\"Name\", c.\"Experience\", c.\"LevelUpPoints\", c.\"PlayerKillCount\", c.\"State\", c.\"Resets\", c.\"MasterResets\" 
+    $char_query = @mssql_query("SELECT c.\"Id\", c.\"Name\", c.\"Experience\", c.\"LevelUpPoints\", c.\"PlayerKillCount\", c.\"State\", c.\"Resets\", c.\"MasterResets\", COALESCE(sa_lvl.\"Value\"::integer, 1) as clevel 
         FROM data.\"Character\" c 
+        LEFT JOIN data.\"StatAttribute\" sa_lvl ON c.\"Id\" = sa_lvl.\"CharacterId\" AND sa_lvl.\"DefinitionId\" = '560931ad-0901-4342-b7f4-fd2e2fcc0563'
         WHERE c.\"AccountId\" = '$acc_id' AND c.\"Name\" = '$char_name'");
     $char_row = ($char_query) ? @mssql_fetch_assoc($char_query) : null;
 
@@ -128,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['panel_action'])) {
     } elseif ($char_row) {
         $char_id = $char_row['Id'];
         $exp     = (float)$char_row['Experience'];
-        $level   = (int)(1 + min(399, floor(pow($exp / 250000.0, 0.4))));
+        $level   = (isset($char_row['clevel']) && (int)$char_row['clevel'] > 0) ? (int)$char_row['clevel'] : (int)(1 + min(399, floor(pow($exp / 250000.0, 0.4))));
 
         if ($action === 'reset_char') {
             $req_level = $is_vip ? 300 : 350;
@@ -239,10 +240,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['panel_action'])) {
 }
 
 // 3. Query All Characters for this Account
-$sql_chars = @mssql_query("SELECT c.\"Id\", c.\"Name\", c.\"Experience\", c.\"LevelUpPoints\", c.\"PlayerKillCount\", c.\"State\", c.\"PositionX\", c.\"PositionY\", COALESCE(c.\"Resets\", 0) as resets, COALESCE(c.\"MasterResets\", 0) as mresets, cc.\"Number\" as class_num, cc.\"Name\" as class_raw_name, m.\"Name\" as map_raw_name 
+$sql_chars = @mssql_query("SELECT c.\"Id\", c.\"Name\", c.\"Experience\", c.\"LevelUpPoints\", c.\"PlayerKillCount\", c.\"State\", c.\"PositionX\", c.\"PositionY\", COALESCE(sa_rst.\"Value\"::integer, c.\"Resets\", 0) as resets, COALESCE(c.\"MasterResets\", 0) as mresets, cc.\"Number\" as class_num, cc.\"Name\" as class_raw_name, m.\"Name\" as map_raw_name, COALESCE(sa_lvl.\"Value\"::integer, 1) as clevel 
     FROM data.\"Character\" c 
     LEFT JOIN config.\"CharacterClass\" cc ON c.\"CharacterClassId\" = cc.\"Id\" 
     LEFT JOIN config.\"GameMapDefinition\" m ON c.\"CurrentMapId\" = m.\"Id\" 
+    LEFT JOIN data.\"StatAttribute\" sa_lvl ON c.\"Id\" = sa_lvl.\"CharacterId\" AND sa_lvl.\"DefinitionId\" = '560931ad-0901-4342-b7f4-fd2e2fcc0563'
+    LEFT JOIN data.\"StatAttribute\" sa_rst ON c.\"Id\" = sa_rst.\"CharacterId\" AND sa_rst.\"DefinitionId\" = '89a891a7-f9f9-4ab5-af36-12056e53a5f7'
     WHERE c.\"AccountId\" = '$acc_id' 
     ORDER BY c.\"Experience\" DESC");
 
@@ -334,7 +337,7 @@ if ($sql_chars) {
         $char_id   = $c['Id'];
         $cname     = $c['Name'];
         $exp       = (float)$c['Experience'];
-        $clevel    = (int)(1 + min(399, floor(pow($exp / 250000.0, 0.4))));
+        $clevel    = (isset($c['clevel']) && (int)$c['clevel'] > 0) ? (int)$c['clevel'] : (int)(1 + min(399, floor(pow($exp / 250000.0, 0.4))));
         $resets    = (int)$c['resets'];
         $mresets   = (int)$c['mresets'];
         $pk_count  = (int)$c['PlayerKillCount'];
