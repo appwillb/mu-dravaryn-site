@@ -427,8 +427,8 @@ if ($sql_chars) {
                 </form>
 
                 <!-- DISTRIBUTE POINTS MODAL TRIGGER -->
-                <button type="button" class="btn btn-primary btn-sm" style="flex:1; min-width:120px; font-weight:700;" data-toggle="modal" data-target="#distModal_<?=md5($cname);?>">
-                    <i class="fa fa-plus-circle"></i> PONTOS (<?=$free_pts;?>)
+                <button type="button" class="btn btn-primary btn-sm" style="flex:1; min-width:140px; font-weight:700; background: linear-gradient(135deg, #1d4ed8, #2563eb); border-color: #3b82f6;" data-toggle="modal" data-target="#distModal_<?=md5($cname);?>">
+                    <i class="fa fa-plus-circle"></i> DISTRIBUIR PONTOS
                 </button>
 
                 <!-- CLEAR PK -->
@@ -467,27 +467,50 @@ if ($sql_chars) {
                     <div class="modal-body">
                         <input type="hidden" name="panel_action" value="distribute_points">
                         <input type="hidden" name="char_name" value="<?=$cname;?>">
-                        <p style="font-size:12px; color:#94a3b8;">Pontos Livres Disponíveis: <strong style="color:#52e591; font-size:14px;"><?=$free_pts;?></strong></p>
+                        <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:10px; margin-bottom:15px; font-size:12px;">
+                            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                                <span style="color:#94a3b8;">Pontos Livres Disponíveis:</span>
+                                <strong style="color:#52e591; font-size:14px;"><?=number_format($free_pts, 0, ',', '.');?></strong>
+                            </div>
+                            <div style="font-size:11px; color:#cbd5e1; margin-top:6px; border-top:1px solid rgba(255,255,255,0.08); padding-top:6px;">
+                                Digite abaixo quantos pontos deseja somar em cada atributo.
+                            </div>
+                        </div>
                         
-                        <div class="form-group">
-                            <label style="font-size:12px; color:#ffd700;">Força (Strength):</label>
+                        <div class="form-group" style="margin-bottom:12px;">
+                            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                                <label style="color:#ffd700; margin:0;"><i class="fa fa-shield"></i> Força (Strength):</label>
+                                <span style="color:#94a3b8;">Atual: <strong style="color:#fff;"><?=$st_str;?></strong></span>
+                            </div>
                             <input type="number" name="add_str" class="form-control luxury-input" min="0" max="<?=$free_pts;?>" value="0">
                         </div>
-                        <div class="form-group">
-                            <label style="font-size:12px; color:#ffd700;">Agilidade (Agility):</label>
+                        <div class="form-group" style="margin-bottom:12px;">
+                            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                                <label style="color:#ffd700; margin:0;"><i class="fa fa-bolt"></i> Agilidade (Agility):</label>
+                                <span style="color:#94a3b8;">Atual: <strong style="color:#fff;"><?=$st_agi;?></strong></span>
+                            </div>
                             <input type="number" name="add_agi" class="form-control luxury-input" min="0" max="<?=$free_pts;?>" value="0">
                         </div>
-                        <div class="form-group">
-                            <label style="font-size:12px; color:#ffd700;">Vitalidade (Vitality):</label>
+                        <div class="form-group" style="margin-bottom:12px;">
+                            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                                <label style="color:#ffd700; margin:0;"><i class="fa fa-heart"></i> Vitalidade (Vitality):</label>
+                                <span style="color:#94a3b8;">Atual: <strong style="color:#fff;"><?=$st_vit;?></strong></span>
+                            </div>
                             <input type="number" name="add_vit" class="form-control luxury-input" min="0" max="<?=$free_pts;?>" value="0">
                         </div>
-                        <div class="form-group">
-                            <label style="font-size:12px; color:#ffd700;">Energia (Energy):</label>
+                        <div class="form-group" style="margin-bottom:12px;">
+                            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                                <label style="color:#ffd700; margin:0;"><i class="fa fa-magic"></i> Energia (Energy):</label>
+                                <span style="color:#94a3b8;">Atual: <strong style="color:#fff;"><?=$st_ene;?></strong></span>
+                            </div>
                             <input type="number" name="add_ene" class="form-control luxury-input" min="0" max="<?=$free_pts;?>" value="0">
                         </div>
                         <?php if (in_array($class_num, [16, 17])): ?>
-                        <div class="form-group">
-                            <label style="font-size:12px; color:#ffd700;">Comando (Leadership):</label>
+                        <div class="form-group" style="margin-bottom:12px;">
+                            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                                <label style="color:#ffd700; margin:0;"><i class="fa fa-crown"></i> Comando (Leadership):</label>
+                                <span style="color:#94a3b8;">Atual: <strong style="color:#fff;"><?=$st_cmd;?></strong></span>
+                            </div>
                             <input type="number" name="add_cmd" class="form-control luxury-input" min="0" max="<?=$free_pts;?>" value="0">
                         </div>
                         <?php else: ?>
