@@ -35,659 +35,2492 @@ if ($is_logged) {
 
 // 2. Comprehensive Item Catalog Definition
 $catalog = [
-    'vip' => [
-        'title' => 'Planos VIP & Privilégios',
-        'icon'  => 'fa-diamond',
-        'items' => [
-            [
-                'id'       => 'vip_bronze',
-                'name'     => 'Plano VIP Bronze (30 Dias)',
-                'desc'     => '+30% EXP Geral • +10% Drop • Reset Lv. 380 • Pontos: 400/reset',
-                'options'  => ['+30% Bônus de Experiência', '+10% Taxa de Drop & Jóias', 'Reset no Nível 380', '400 Pontos por Reset'],
-                'price_wc' => 1500,
-                'price_gp' => 0,
-                'type'     => 'vip',
-                'vip_lvl'  => 1,
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'Iniciante'
-            ],
-            [
-                'id'       => 'vip_prata',
-                'name'     => 'Plano VIP Prata (30 Dias)',
-                'desc'     => '+50% EXP Geral • +20% Drop • Reset Lv. 350 • Pontos: 450/reset • Comandos Exclusivos',
-                'options'  => ['+50% Bônus de Experiência', '+20% Taxa de Drop & Jóias', 'Reset no Nível 350', '450 Pontos por Reset', 'Comandos Especiais no Chat'],
-                'price_wc' => 3000,
-                'price_gp' => 0,
-                'type'     => 'vip',
-                'vip_lvl'  => 2,
-                'icon_fa'  => 'fa-star',
-                'badge'    => 'Mais Popular'
-            ],
-            [
-                'id'       => 'vip_ouro',
-                'name'     => 'Plano VIP Ouro (30 Dias)',
-                'desc'     => '+100% EXP Geral • +35% Drop • Reset Lv. 300 • Pontos: 500/reset • Sala VIP Exclusiva',
-                'options'  => ['+100% Bônus de Experiência', '+35% Taxa de Drop & Jóias', 'Reset no Nível 300', '500 Pontos por Reset', 'Acesso à Sala VIP com Spots Raros'],
-                'price_wc' => 5000,
-                'price_gp' => 0,
-                'type'     => 'vip',
-                'vip_lvl'  => 3,
-                'icon_fa'  => 'fa-trophy',
-                'badge'    => 'Máxima Vantagem'
-            ],
-        ]
-    ],
     'sets' => [
-        'title' => 'Sets de Armadura Completos (+13 Full)',
-        'icon'  => 'fa-shield',
+        'title' => 'Sets de Armadura (+13 Full)',
+        'icon' => 'fa-shield',
         'items' => [
-            // --- SETS CLÁSSICOS LENDÁRIOS ---
             [
-                'id'       => 'set_great_dragon',
-                'name'     => 'Set Great Dragon (+13 Full)',
-                'desc'     => 'O set mais clássico e temido de Blade Knight • Helm, Armor, Pants, Gloves e Boots.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'id' => 'set_bronze',
+                'name' => 'Set Bronze (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_dragon',
+                'name' => 'Set Dragon (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_pad',
+                'name' => 'Set Pad (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_legendary',
+                'name' => 'Set Legendary (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_bone',
+                'name' => 'Set Bone (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_leather',
+                'name' => 'Set Leather (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_scale',
+                'name' => 'Set Scale (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_sphinx',
+                'name' => 'Set Sphinx (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_brass',
+                'name' => 'Set Brass (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_plate',
+                'name' => 'Set Plate (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_vine',
+                'name' => 'Set Vine (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_silk',
+                'name' => 'Set Silk (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_wind',
+                'name' => 'Set Wind (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_spirit',
+                'name' => 'Set Spirit (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_guardian',
+                'name' => 'Set Guardian (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_storm_crow',
+                'name' => 'Set Storm Crow (+13 Full)',
+                'desc' => 'Set Completo para Magic Gladiator • Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'MG',
+                'class_filter' => 'mg',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_black_dragon',
+                'name' => 'Set Black Dragon (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_dark_phoenix',
+                'name' => 'Set Dark Phoenix (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
                 'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'BK Clássico'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_dark_phoenix',
-                'name'     => 'Set Dark Phoenix (+13 Full)',
-                'desc'     => 'Set lendário de chamas sombrias para Blade Knight • Proteção e imponência máxima.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%'],
-                'price_wc' => 5500,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'BK Lendário'
-            ],
-            [
-                'id'       => 'set_dark_soul',
-                'name'     => 'Set Dark Soul (+13 Full)',
-                'desc'     => 'O icônico set cósmico azul do Soul Master • Máxima amplificação de poder arcano.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Mana +4%'],
+                'id' => 'set_grand_soul',
+                'name' => 'Set Grand Soul (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
                 'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-magic',
-                'badge'    => 'SM Clássico'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_grand_soul',
-                'name'     => 'Set Grand Soul (+13 Full)',
-                'desc'     => 'Armadura celestial prateada de Soul Master • Tradição e equilíbrio místico.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%'],
-                'price_wc' => 4500,
+                'id' => 'set_divine',
+                'name' => 'Set Divine (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-magic',
-                'badge'    => 'SM Tradição'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_red_spirit',
-                'name'     => 'Set Red Spirit (+13 Full)',
-                'desc'     => 'O set vermelho alado supremo da Muse Elf • Agilidade, esquiva e beleza inigualável.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Esquiva e Buffs +4%'],
+                'id' => 'set_thunder_hawk',
+                'name' => 'Set Thunder Hawk (+13 Full)',
+                'desc' => 'Set Completo para Magic Gladiator • Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'MG',
+                'class_filter' => 'mg',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_great_dragon',
+                'name' => 'Set Great Dragon (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
                 'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-leaf',
-                'badge'    => 'ME Clássica'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_hurricane',
-                'name'     => 'Set Hurricane (+13 Full)',
-                'desc'     => 'Set das tempestades para Magic Gladiator • Armor, Pants, Gloves e Boots Full.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Poder Físico e Mágico'],
+                'id' => 'set_dark_soul',
+                'name' => 'Set Dark Soul (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
                 'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-bolt',
-                'badge'    => 'MG Clássico'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_dark_master',
-                'name'     => 'Set Dark Master (+13 Full)',
-                'desc'     => 'O manto imperial do Lord Emperor • Soberania absoluta e poder das trevas.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Liderança e Bônus Pet'],
+                'id' => 'set_hurricane',
+                'name' => 'Set Hurricane (+13 Full)',
+                'desc' => 'Set Completo para Magic Gladiator • Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'MG',
+                'class_filter' => 'mg',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_red_spirit',
+                'name' => 'Set Red Spirit (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
                 'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-crown',
-                'badge'    => 'DL Clássico'
-            ],
-
-            // --- SETS SEASON 6 MODERNOS ---
-            [
-                'id'       => 'set_dragon_knight',
-                'name'     => 'Set Dragon Knight (+13 Full)',
-                'desc'     => 'Set Completo (Helm, Armor, Pants, Gloves, Boots) para Blade Master.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
-                'price_wc' => 6000,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'Blade Master'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_venom_mist',
-                'name'     => 'Set Venom Mist (+13 Full)',
-                'desc'     => 'Set Completo (Helm, Armor, Pants, Gloves, Boots) para Grand Master.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%'],
-                'price_wc' => 6000,
+                'id' => 'set_light_plate',
+                'name' => 'Set Light Plate (+13 Full)',
+                'desc' => 'Set Completo para Dark Lord • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-magic',
-                'badge'    => 'Grand Master'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'DL',
+                'class_filter' => 'dl',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_sylphid_ray',
-                'name'     => 'Set Sylphid Ray (+13 Full)',
-                'desc'     => 'Set Completo (Helm, Armor, Pants, Gloves, Boots) para High Elf.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%'],
-                'price_wc' => 6000,
+                'id' => 'set_adamantine',
+                'name' => 'Set Adamantine (+13 Full)',
+                'desc' => 'Set Completo para Dark Lord • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-leaf',
-                'badge'    => 'High Elf'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'DL',
+                'class_filter' => 'dl',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_volcano',
-                'name'     => 'Set Volcano (+13 Full)',
-                'desc'     => 'Set Completo (Armor, Pants, Gloves, Boots) para Duel Master.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
-                'price_wc' => 6000,
+                'id' => 'set_dark_steel',
+                'name' => 'Set Dark Steel (+13 Full)',
+                'desc' => 'Set Completo para Dark Lord • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-fire',
-                'badge'    => 'Duel Master'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'DL',
+                'class_filter' => 'dl',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_storm_crow',
-                'name'     => 'Set Storm Crow (+13 Full)',
-                'desc'     => 'Set Completo (Helm, Armor, Pants, Gloves, Boots) para Lord Emperor.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Liderança + Bônus Pet'],
-                'price_wc' => 5500,
+                'id' => 'set_dark_master',
+                'name' => 'Set Dark Master (+13 Full)',
+                'desc' => 'Set Completo para Dark Lord • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-crown',
-                'badge'    => 'Lord Emperor'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'DL',
+                'class_filter' => 'dl',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_red_wing',
-                'name'     => 'Set Red Wing (+13 Full)',
-                'desc'     => 'Set Completo (Helm, Armor, Pants, Gloves, Boots) para Dimension Master.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Aumento de Mana/Vida'],
-                'price_wc' => 6000,
+                'id' => 'set_dragon_knight',
+                'name' => 'Set Dragon Knight (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-tint',
-                'badge'    => 'Dimension Master'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
             ],
             [
-                'id'       => 'set_phoenix_soul',
-                'name'     => 'Set Phoenix Soul (+13 Full)',
-                'desc'     => 'Set Completo (Helm, Armor, Pants, Boots) para Fist Master.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Poder Físico Bruto'],
-                'price_wc' => 6000,
+                'id' => 'set_venom_mist',
+                'name' => 'Set Venom Mist (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-hand-rock-o',
-                'badge'    => 'Fist Master'
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_sylphid_ray',
+                'name' => 'Set Sylphid Ray (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_volcano',
+                'name' => 'Set Volcano (+13 Full)',
+                'desc' => 'Set Completo para Magic Gladiator • Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'MG',
+                'class_filter' => 'mg',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_sunlight',
+                'name' => 'Set Sunlight (+13 Full)',
+                'desc' => 'Set Completo para Dark Lord • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'DL',
+                'class_filter' => 'dl',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_ashcrow',
+                'name' => 'Set Ashcrow (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_eclipse',
+                'name' => 'Set Eclipse (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_iris',
+                'name' => 'Set Iris (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_valiant',
+                'name' => 'Set Valiant (+13 Full)',
+                'desc' => 'Set Completo para Magic Gladiator • Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'MG',
+                'class_filter' => 'mg',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_glorious',
+                'name' => 'Set Glorious (+13 Full)',
+                'desc' => 'Set Completo para Dark Lord • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'DL',
+                'class_filter' => 'dl',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_mistery',
+                'name' => 'Set Mistery (+13 Full)',
+                'desc' => 'Set Completo para Summoner • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SUM',
+                'class_filter' => 'sum',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_red_wing',
+                'name' => 'Set Red Wing (+13 Full)',
+                'desc' => 'Set Completo para Summoner • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SUM',
+                'class_filter' => 'sum',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_ancient',
+                'name' => 'Set Ancient (+13 Full)',
+                'desc' => 'Set Completo para Summoner • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SUM',
+                'class_filter' => 'sum',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_black_rose',
+                'name' => 'Set Black Rose (+13 Full)',
+                'desc' => 'Set Completo para Summoner • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SUM',
+                'class_filter' => 'sum',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_aura',
+                'name' => 'Set Aura (+13 Full)',
+                'desc' => 'Set Completo para Summoner • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SUM',
+                'class_filter' => 'sum',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_lilium',
+                'name' => 'Set Lilium (+13 Full)',
+                'desc' => 'Set Completo para Summoner • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SUM',
+                'class_filter' => 'sum',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_titan',
+                'name' => 'Set Titan (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_brave',
+                'name' => 'Set Brave (+13 Full)',
+                'desc' => 'Set Completo para Blade Knight • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'BK',
+                'class_filter' => 'bk',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_destroy',
+                'name' => 'Set Destroy (+13 Full)',
+                'desc' => 'Set Completo para Magic Gladiator • Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'MG',
+                'class_filter' => 'mg',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_phantom',
+                'name' => 'Set Phantom (+13 Full)',
+                'desc' => 'Set Completo para Magic Gladiator • Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'MG',
+                'class_filter' => 'mg',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_seraphim',
+                'name' => 'Set Seraphim (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_faith',
+                'name' => 'Set Faith (+13 Full)',
+                'desc' => 'Set Completo para Muse Elf • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'ELF',
+                'class_filter' => 'elf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_paewang',
+                'name' => 'Set Paewang (+13 Full)',
+                'desc' => 'Set Completo para Dark Lord • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'DL',
+                'class_filter' => 'dl',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_hades',
+                'name' => 'Set Hades (+13 Full)',
+                'desc' => 'Set Completo para Soul Master • Helm, Armor, Pants, Gloves, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'SM',
+                'class_filter' => 'sm',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_sacred',
+                'name' => 'Set Sacred (+13 Full)',
+                'desc' => 'Set Completo para Rage Fighter • Helm, Armor, Pants, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'RF',
+                'class_filter' => 'rf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_storm_hard',
+                'name' => 'Set Storm Hard (+13 Full)',
+                'desc' => 'Set Completo para Rage Fighter • Helm, Armor, Pants, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'RF',
+                'class_filter' => 'rf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_piercing',
+                'name' => 'Set Piercing (+13 Full)',
+                'desc' => 'Set Completo para Rage Fighter • Helm, Armor, Pants, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'RF',
+                'class_filter' => 'rf',
+                'subcat' => 'sets'
+            ],
+            [
+                'id' => 'set_phoenix_soul',
+                'name' => 'Set Phoenix Soul (+13 Full)',
+                'desc' => 'Set Completo para Rage Fighter • Helm, Armor, Pants, Boots.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'RF',
+                'class_filter' => 'rf',
+                'subcat' => 'sets'
             ]
         ]
     ],
     'weapons' => [
-        'title' => 'Armas Lendárias & Archangel (+13 Full)',
-        'icon'  => 'fa-crosshairs',
+        'title' => 'Armas & Escudos (+13 Full)',
+        'icon' => 'fa-crosshairs',
         'items' => [
-            // --- ARMAS ARCHANGEL SAGRADAS ---
             [
-                'id'       => 'wpn_archangel_sword',
-                'name'     => 'Divine Sword of Archangel +13 Full',
-                'desc'     => 'A lendária espada sagrada do Arcanjo • Luz divina, poder absoluto e velocidade.',
-                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Aumento de Velocidade +7', 'Dano Crítico Divino'],
-                'price_wc' => 4500,
+                'id' => 'wpn_kris',
+                'name' => 'Kris +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'Arcanjo Sagrado'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'wpn_archangel_staff',
-                'name'     => 'Divine Staff of Archangel +13 Full',
-                'desc'     => 'O cajado celestial do Arcanjo • Amplificação pura de feitiços arcanos.',
-                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Mágico Excelente +10%', 'Velocidade de Conjuração +7', 'Poder Sagrado'],
-                'price_wc' => 4500,
+                'id' => 'wpn_short_sword',
+                'name' => 'Short Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-magic',
-                'badge'    => 'Arcanjo Sagrado'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'wpn_archangel_crossbow',
-                'name'     => 'Divine Crossbow of Archangel +13 Full',
-                'desc'     => 'A balestra divina do Arcanjo • Disparos perfurantes com alcance supremo.',
-                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Velocidade de Ataque +7', 'Flechas Iluminadas'],
-                'price_wc' => 4500,
+                'id' => 'wpn_rapier',
+                'name' => 'Rapier +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-crosshairs',
-                'badge'    => 'Arcanjo Sagrado'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'wpn_archangel_scepter',
-                'name'     => 'Divine Scepter of Archangel +13 Full',
-                'desc'     => 'O cetro da graça divina para Lord Emperor • Comando celestial supremo.',
-                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Bônus de Ataque dos Pets', 'Liderança Sagrada'],
-                'price_wc' => 4500,
+                'id' => 'wpn_sword_of_assassin',
+                'name' => 'Sword of Assassin +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-gavel',
-                'badge'    => 'Arcanjo Sagrado'
-            ],
-
-            // --- ARMAS LENDÁRIAS CLÁSSICAS & S6 ---
-            [
-                'id'       => 'wpn_kundun_staff',
-                'name'     => 'Staff of Kundun +13 Full',
-                'desc'     => 'O cajado negro forjado nas trevas de Kundun • Poder mágico destrutivo.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Mágico Excelente +10%', 'Aumento de Dano Mágico +2%', 'Velocidade de Ataque +7'],
-                'price_wc' => 3800,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-magic',
-                'badge'    => 'Grand Master'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'wpn_knight_blade',
-                'name'     => 'Knight Blade +13 Full',
-                'desc'     => 'A poderosa espada de duas mãos do Blade Knight clássico.',
-                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Taxa de Acerto +10%'],
+                'id' => 'wpn_blade',
+                'name' => 'Blade +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_gladius',
+                'name' => 'Gladius +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_falchion',
+                'name' => 'Falchion +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_serpent_sword',
+                'name' => 'Serpent Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_sword_of_salamander',
+                'name' => 'Sword of Salamander +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_light_saber',
+                'name' => 'Light Saber +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_legendary_sword',
+                'name' => 'Legendary Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_heliacal_sword',
+                'name' => 'Heliacal Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_double_blade',
+                'name' => 'Double Blade +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_lighting_sword',
+                'name' => 'Lighting Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_giant_sword',
+                'name' => 'Giant Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_sword_of_destruction',
+                'name' => 'Sword of Destruction +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
                 'price_wc' => 3500,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'Blade Knight'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'wpn_daybreak',
-                'name'     => 'Daybreak +13 Full',
-                'desc'     => 'A lâmina da alvorada dourada • Lâmina nobre com corte afiado e brilho solar.',
-                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Velocidade de Ataque +7', 'Dano Crítico +2%'],
-                'price_wc' => 3800,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-sun-o',
-                'badge'    => 'Blade Master'
-            ],
-            [
-                'id'       => 'wpn_rune_bastard',
-                'name'     => 'Rune Bastard Sword +13 Full',
-                'desc'     => 'Espada bastarda rúnica milenar • Equilíbrio perfeito entre força e peso.',
-                'options'  => ['+13 + Sorte + Skill + Adicional 28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade +7'],
-                'price_wc' => 3800,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-bolt',
-                'badge'    => 'BM / MG'
-            ],
-            [
-                'id'       => 'wpn_bone_blade',
-                'name'     => 'Bone Blade +13 Full',
-                'desc'     => 'Espada de uma mão para Blade Master • Taxa de Ataque + Sorte + Dano Crítico.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Taxa de Ataque Excelente'],
-                'price_wc' => 3800,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'Blade Master'
-            ],
-            [
-                'id'       => 'wpn_imperial_sword',
-                'name'     => 'Imperial Sword +13 Full',
-                'desc'     => 'Espada de alta precisão para Blade Master e Magic Gladiator.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Excelente +10%', 'Aumento de Velocidade +7', 'Aumento de Dano +2%'],
+                'id' => 'wpn_dark_breaker',
+                'name' => 'Dark Breaker +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
                 'price_wc' => 4000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'BM / MG'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'wpn_grand_viper',
-                'name'     => 'Grand Viper Staff +13 Full',
-                'desc'     => 'Cajado supremo de duas mãos para Grand Master • Poder Mágico Transcendental.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Mágico Excelente +10%', 'Aumento de Dano Mágico +2%', 'Velocidade de Ataque +7'],
-                'price_wc' => 3800,
+                'id' => 'wpn_thunder_blade',
+                'name' => 'Thunder Blade +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-magic',
-                'badge'    => 'Grand Master'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'wpn_shining_scepter',
-                'name'     => 'Shining Scepter +13 Full',
-                'desc'     => 'Cetro de comando divino para Lord Emperor • Bônus de Dano e Pet Dano.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Excelente +10%', 'Aumento de Pet Dano', 'Aumento de Dano +2%'],
-                'price_wc' => 3800,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-gavel',
-                'badge'    => 'Lord Emperor'
-            ],
-            [
-                'id'       => 'wpn_albatross_bow',
-                'name'     => 'Albatross Bow +13 Full',
-                'desc'     => 'Arco de precisão lendário para High Elf • Velocidade e Dano Máximo.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Excelente +10%', 'Velocidade de Ataque +7', 'Dano Crítico Aumentado'],
-                'price_wc' => 3800,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-crosshairs',
-                'badge'    => 'High Elf'
-            ],
-            [
-                'id'       => 'wpn_dark_reign',
-                'name'     => 'Dark Reign Blade +13 Full',
-                'desc'     => 'Espada rúnica mística exclusiva para Duel Master.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Dano Excelente +10%', 'Dano Mágico + Físico Bônus', 'Aumento de Velocidade +7'],
-                'price_wc' => 3800,
-                'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-bolt',
-                'badge'    => 'Duel Master'
-            ],
-            [
-                'id'       => 'shield_dragon',
-                'name'     => 'Dragon Shield +13 Full',
-                'desc'     => 'Escudo colossal com máxima absorção de impacto.',
-                'options'  => ['+13 + Sorte + Adicional 28', 'Taxa de Sucesso de Defesa +10%', 'Diminuição de Dano 4%', 'Reflete Dano 5%'],
-                'price_wc' => 2500,
-                'price_gp' => 4000,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'Escudo'
-            ]
-        ]
-    ],
-    'pets' => [
-        'title' => 'Montarias & Pets Lendários',
-        'icon'  => 'fa-paw',
-        'items' => [
-            [
-                'id'       => 'pet_fenrir_gold',
-                'name'     => 'Horn of Fenrir Dourado (Gold Fenrir)',
-                'desc'     => 'O lendário Lobo Dourado • A montaria mais rara e cobiçada de todo o MU Online.',
-                'options'  => ['Velocidade Máxima de Movimento', 'Aumento de Dano Absoluto', 'Resistência a Atordoamento', 'Imponência Dourada'],
+                'id' => 'wpn_divine_sword_of_archangel',
+                'name' => 'Divine Sword of Archangel +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
                 'price_wc' => 5000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-paw',
-                'badge'    => 'Montaria Mítica'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'pet_fenrir_black',
-                'name'     => 'Horn of Fenrir Preto (Destruction)',
-                'desc'     => 'Fenrir da Destruição • Focado em perfurar armaduras e aniquilar oponentes em PvP.',
-                'options'  => ['Aumento de Dano Final +10%', 'Aumento de Taxa de Ataque', 'Habilidade Especial Plasma Storm', 'Aceleração de Montaria'],
-                'price_wc' => 4000,
+                'id' => 'wpn_knight_blade',
+                'name' => 'Knight Blade +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4500,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-paw',
-                'badge'    => 'PvP Ataque'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'pet_fenrir_blue',
-                'name'     => 'Horn of Fenrir Azul (Protection)',
-                'desc'     => 'Fenrir da Proteção • Barreira blindada com máxima redução de dano sofrido.',
-                'options'  => ['Absorção de Dano +10%', 'Defesa Reforçada em Batalhas', 'Habilidade Especial Plasma Storm', 'Aceleração de Montaria'],
-                'price_wc' => 4000,
+                'id' => 'wpn_dark_reign_blade',
+                'name' => 'Dark Reign Blade +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4500,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-paw',
-                'badge'    => 'PvP Defesa'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
             ],
             [
-                'id'       => 'pet_fenrir_red',
-                'name'     => 'Horn of Fenrir Vermelho',
-                'desc'     => 'O clássico Lobo de Fogo • Montaria veloz e feroz com ataque de tempestade.',
-                'options'  => ['Velocidade de Deslocamento Rápida', 'Habilidade Especial Plasma Storm', 'Aumento de Dano em Monstros', 'Resistência Física'],
+                'id' => 'wpn_bone_blade',
+                'name' => 'Bone Blade +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_daybreak',
+                'name' => 'Daybreak +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_sword_dancer',
+                'name' => 'Imperial Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_rune_blade',
+                'name' => 'Rune Bastard Sword +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'sword'
+            ],
+            [
+                'id' => 'wpn_crescent_axe',
+                'name' => 'Chaos Dragon Axe +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
                 'price_wc' => 3000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-paw',
-                'badge'    => 'Montaria'
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'axe'
             ],
             [
-                'id'       => 'pet_dinorant',
-                'name'     => 'Horn of Dinorant (+15 Voador)',
-                'desc'     => 'Montaria alada clássica • Permite planar por Icarus e disparar esferas de fogo.',
-                'options'  => ['Voo Livre (Acesso a Icarus)', 'Absorção de Dano +15%', 'Ataque de Fogo à Distância', 'Durabilidade 255'],
-                'price_wc' => 1200,
-                'price_gp' => 2000,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-plane',
-                'badge'    => 'Voador'
-            ],
-            [
-                'id'       => 'pet_dark_horse',
-                'name'     => 'Dark Horse Level 50 (Cavalo do DL)',
-                'desc'     => 'O temido Corcel das Sombras exclusivo para Dark Lord • Nível 50 Máximo.',
-                'options'  => ['Nível 50 Full Poder', 'Habilidade Especial Earthshake', 'Absorção de Impacto Superior', 'Defesa por Comando'],
+                'id' => 'wpn_battle_scepter',
+                'name' => 'Crystal Morning Star +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
                 'price_wc' => 2500,
-                'price_gp' => 3500,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-shield',
-                'badge'    => 'Dark Lord'
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Espada',
+                'class_filter' => 'all',
+                'subcat' => 'mace'
             ],
             [
-                'id'       => 'pet_dark_raven',
-                'name'     => 'Dark Raven Level 50 (Corvo do DL)',
-                'desc'     => 'O Corvo de Ataque Imperial exclusivo para Dark Lord • Nível 50 Máximo.',
-                'options'  => ['Nível 50 Full Dano', 'Ataque Automático e Focado', 'Dano Rápido Contínuo', 'Bônus de Liderança'],
+                'id' => 'wpn_great_lord_scepter',
+                'name' => 'Great Lord Scepter +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cetro',
+                'class_filter' => 'all',
+                'subcat' => 'scepter'
+            ],
+            [
+                'id' => 'wpn_divine_scepter_of_archangel',
+                'name' => 'Divine Scepter of Archangel +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cetro',
+                'class_filter' => 'all',
+                'subcat' => 'scepter'
+            ],
+            [
+                'id' => 'wpn_soleil_scepter',
+                'name' => 'Soleil Scepter +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cetro',
+                'class_filter' => 'all',
+                'subcat' => 'scepter'
+            ],
+            [
+                'id' => 'wpn_shining_scepter',
+                'name' => 'Shining Scepter +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cetro',
+                'class_filter' => 'all',
+                'subcat' => 'scepter'
+            ],
+            [
+                'id' => 'wpn_battle_bow',
+                'name' => 'Elven Bow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_tiger_bow',
+                'name' => 'Battle Bow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_silver_bow',
+                'name' => 'Tiger Bow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
                 'price_wc' => 2000,
-                'price_gp' => 3000,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-feather-alt',
-                'badge'    => 'Dark Lord'
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_chaos_nature_bow',
+                'name' => 'Silver Bow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_bolt',
+                'name' => 'Chaos Nature Bow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_crossbow',
+                'name' => 'Celestial Bow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_golden_crossbow',
+                'name' => 'Aquagold Crossbow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_saint_crossbow',
+                'name' => 'Saint Crossbow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_divine_crossbow_of_archangel',
+                'name' => 'Divine Crossbow of Archangel +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_arrow_viper_bow',
+                'name' => 'Albatross Bow +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Arco',
+                'class_filter' => 'all',
+                'subcat' => 'bow'
+            ],
+            [
+                'id' => 'wpn_skull_staff',
+                'name' => 'Skull Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_angelic_staff',
+                'name' => 'Angelic Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_serpent_staff',
+                'name' => 'Serpent Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_thunder_staff',
+                'name' => 'Thunder Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_gorgon_staff',
+                'name' => 'Gorgon Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_legendary_staff',
+                'name' => 'Legendary Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_staff_of_resurrection',
+                'name' => 'Resurrection Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_chaos_lightning_staff',
+                'name' => 'Chaos Lightning Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_staff_of_destruction',
+                'name' => 'Platina Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_dragon_soul_staff',
+                'name' => 'Staff of Kundun +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_divine_staff_of_archangel',
+                'name' => 'Divine Staff of Archangel +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_staff_of_kundun',
+                'name' => 'Grand Viper Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_grand_viper_staff',
+                'name' => 'Imperial Staff +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-crosshairs',
+                'badge' => 'Cajado',
+                'class_filter' => 'all',
+                'subcat' => 'staff'
+            ],
+            [
+                'id' => 'wpn_small_shield',
+                'name' => 'Small Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_horn_shield',
+                'name' => 'Horn Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_kite_shield',
+                'name' => 'Kite Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_elven_shield',
+                'name' => 'Skull Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 1800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_buckler',
+                'name' => 'Spiked Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_dragon_slayer_shield',
+                'name' => 'Tower Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_skull_shield',
+                'name' => 'Plate Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_spiked_shield',
+                'name' => 'Buckler +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_tower_shield',
+                'name' => 'Serpent Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_plate_shield',
+                'name' => 'Bronze Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 2800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_big_round_shield',
+                'name' => 'Dragon Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_serpent_shield',
+                'name' => 'Legendary Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 3500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_bronze_shield',
+                'name' => 'Grand Soul Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_elemental_shield',
+                'name' => 'Crimson Glory Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
+            ],
+            [
+                'id' => 'wpn_crimson_glory',
+                'name' => 'Salamander Shield +13 Full',
+                'desc' => 'Arma / Escudo Sagrado • Ataque/Defesa Extrema +13 com todas as opções excelentes e Sorte.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +28', 'Dano Excelente +10%', 'Aumento de Dano +2%', 'Velocidade de Ataque +7'],
+                'price_wc' => 4500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Escudo',
+                'class_filter' => 'all',
+                'subcat' => 'shield'
             ]
         ]
     ],
     'wings' => [
-        'title' => 'Asas & Capas (Level 2 e 3)',
-        'icon'  => 'fa-feather-alt',
+        'title' => 'Asas & Capas (+13 Full)',
+        'icon' => 'fa-feather',
         'items' => [
             [
-                'id'       => 'wing_storm_lvl3',
-                'name'     => 'Wings of Storm Level 3 (+13)',
-                'desc'     => 'Asa Level 3 para Blade Master • +13 + Sorte + Adicional + 2 Opções Excelentes.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Recuperação +28', 'Ignora Defesa do Oponente 3%', 'Dano Excelente Aumentado'],
-                'price_wc' => 4500,
+                'id' => 'wing_wings_of_elf',
+                'name' => 'Wings of Elf (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 1 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 20%', 'Aumento de Dano 20%'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-bolt',
-                'badge'    => 'BM Lvl 3'
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 1',
+                'class_filter' => 'all',
+                'subcat' => 'lvl1'
             ],
             [
-                'id'       => 'wing_spacetime_lvl3',
-                'name'     => 'Wings of Eternal / Space-Time (+13)',
-                'desc'     => 'Asa Level 3 para Grand Master • +13 + Sorte + Adicional + 2 Opções Excelentes.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Recuperação +28', 'Ignora Defesa do Oponente 3%', 'Poder Mágico Amplificado'],
-                'price_wc' => 4500,
+                'id' => 'wing_wings_of_heaven',
+                'name' => 'Wings of Heaven (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 1 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 20%', 'Aumento de Dano 20%'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-magic',
-                'badge'    => 'GM Lvl 3'
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 1',
+                'class_filter' => 'all',
+                'subcat' => 'lvl1'
             ],
             [
-                'id'       => 'wing_illusion_lvl3',
-                'name'     => 'Wings of Illusion Level 3 (+13)',
-                'desc'     => 'Asa Level 3 para High Elf • +13 + Sorte + Adicional + 2 Opções Excelentes.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Recuperação +28', 'Ignora Defesa do Oponente 3%', 'Aumento de Velocidade de Disparo'],
-                'price_wc' => 4500,
+                'id' => 'wing_wings_of_satan',
+                'name' => 'Wings of Satan (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 1 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 20%', 'Aumento de Dano 20%'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-leaf',
-                'badge'    => 'HE Lvl 3'
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 1',
+                'class_filter' => 'all',
+                'subcat' => 'lvl1'
             ],
             [
-                'id'       => 'cape_emperor_lvl3',
-                'name'     => 'Cape of Emperor Level 3 (+13)',
-                'desc'     => 'Capa Level 3 para Lord Emperor • +13 + Sorte + Adicional + Liderança Máxima.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Defesa +28', 'Ignora Defesa do Oponente 3%', 'Bônus de Comando & Pet'],
-                'price_wc' => 4500,
+                'id' => 'wing_wings_of_curse',
+                'name' => 'Wings of Curse (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 1 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 20%', 'Aumento de Dano 20%'],
+                'price_wc' => 1000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-crown',
-                'badge'    => 'LE Lvl 3'
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 1',
+                'class_filter' => 'all',
+                'subcat' => 'lvl1'
             ],
             [
-                'id'       => 'wing_ruin_lvl3',
-                'name'     => 'Wings of Downfall / Ruin (+13)',
-                'desc'     => 'Asa Level 3 para Duel Master • +13 + Sorte + Adicional + 2 Opções Excelentes.',
-                'options'  => ['+13 + Sorte (Luck)', 'Adicional de Ataque +28', 'Ignora Defesa do Oponente 3%', 'Dano Híbrido Físico e Mágico'],
-                'price_wc' => 4500,
+                'id' => 'wing_wings_of_spirits',
+                'name' => 'Wings of Spirits (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 2 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 32%', 'Aumento de Dano 32%'],
+                'price_wc' => 2000,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-fire',
-                'badge'    => 'DM Lvl 3'
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 2',
+                'class_filter' => 'all',
+                'subcat' => 'lvl2'
             ],
             [
-                'id'       => 'wing_dragon_lvl2',
-                'name'     => 'Dragon Wings Level 2 (+11)',
-                'desc'     => 'Asa Level 2 para Blade Knight / Magic Gladiator • +11 + Sorte + Adicional.',
-                'options'  => ['+11 + Sorte (Luck)', 'Adicional +16', 'Absorção de Dano 32%', 'Aumento de Dano 32%'],
-                'price_wc' => 1500,
-                'price_gp' => 2500,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-fire',
-                'badge'    => 'Lvl 2 Clássica'
+                'id' => 'wing_wings_of_soul',
+                'name' => 'Wings of Soul (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 2 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 32%', 'Aumento de Dano 32%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 2',
+                'class_filter' => 'all',
+                'subcat' => 'lvl2'
             ],
             [
-                'id'       => 'wing_angel_lvl2',
-                'name'     => 'Soul Wings Level 2 (+11)',
-                'desc'     => 'Asa Level 2 para Soul Master / Magic Gladiator • +11 + Sorte + Adicional.',
-                'options'  => ['+11 + Sorte (Luck)', 'Adicional +16', 'Absorção de Dano 32%', 'Aumento de Dano Mágico 32%'],
-                'price_wc' => 1500,
-                'price_gp' => 2500,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-tint',
-                'badge'    => 'Lvl 2 Clássica'
+                'id' => 'wing_wings_of_dragon',
+                'name' => 'Wings of Dragon (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 2 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 32%', 'Aumento de Dano 32%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 2',
+                'class_filter' => 'all',
+                'subcat' => 'lvl2'
+            ],
+            [
+                'id' => 'wing_wings_of_darkness',
+                'name' => 'Wings of Darkness (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 2 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 32%', 'Aumento de Dano 32%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 2',
+                'class_filter' => 'all',
+                'subcat' => 'lvl2'
+            ],
+            [
+                'id' => 'wing_wings_of_despair',
+                'name' => 'Wings of Despair (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 2 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 32%', 'Aumento de Dano 32%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 2',
+                'class_filter' => 'all',
+                'subcat' => 'lvl2'
+            ],
+            [
+                'id' => 'wing_cape_of_fighter',
+                'name' => 'Cape of Fighter (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 2 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 32%', 'Aumento de Dano 32%'],
+                'price_wc' => 2000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 2',
+                'class_filter' => 'all',
+                'subcat' => 'lvl2'
+            ],
+            [
+                'id' => 'wing_wing_of_storm',
+                'name' => 'Wing of Storm (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 3 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 45%', 'Aumento de Dano 45%'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 3',
+                'class_filter' => 'all',
+                'subcat' => 'lvl3'
+            ],
+            [
+                'id' => 'wing_wing_of_eternal',
+                'name' => 'Wing of Eternal (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 3 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 45%', 'Aumento de Dano 45%'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 3',
+                'class_filter' => 'all',
+                'subcat' => 'lvl3'
+            ],
+            [
+                'id' => 'wing_wing_of_illusion',
+                'name' => 'Wing of Illusion (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 3 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 45%', 'Aumento de Dano 45%'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 3',
+                'class_filter' => 'all',
+                'subcat' => 'lvl3'
+            ],
+            [
+                'id' => 'wing_wing_of_ruin',
+                'name' => 'Wing of Ruin (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 3 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 45%', 'Aumento de Dano 45%'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 3',
+                'class_filter' => 'all',
+                'subcat' => 'lvl3'
+            ],
+            [
+                'id' => 'wing_cape_of_emperor',
+                'name' => 'Cape of Emperor (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 3 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 45%', 'Aumento de Dano 45%'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 3',
+                'class_filter' => 'all',
+                'subcat' => 'lvl3'
+            ],
+            [
+                'id' => 'wing_wing_of_dimension',
+                'name' => 'Wing of Dimension (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 3 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 45%', 'Aumento de Dano 45%'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 3',
+                'class_filter' => 'all',
+                'subcat' => 'lvl3'
+            ],
+            [
+                'id' => 'wing_cape_of_overrule',
+                'name' => 'Cape of Overrule (+13 Full)',
+                'desc' => 'Asa / Capa Lendária Level 3 • Amplificação massiva de dano e absorção extrema.',
+                'options' => ['+13 + Sorte (Luck)', 'Adicional +16 / +28', 'Absorção de Dano 45%', 'Aumento de Dano 45%'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-feather',
+                'badge' => 'Asa Lv 3',
+                'class_filter' => 'all',
+                'subcat' => 'lvl3'
             ]
         ]
     ],
-    'jewels' => [
-        'title' => 'Jóias & Acessórios Ancient',
-        'icon'  => 'fa-gem',
+    'accessories' => [
+        'title' => 'Acessórios & Kits Ancient',
+        'icon' => 'fa-circle-o',
         'items' => [
             [
-                'id'       => 'kit_ancient_rings',
-                'name'     => 'Kit Acessórios Ancient (+13 Full)',
-                'desc'     => 'Kit Completo: Ring of Ice + Ring of Poison + Pendant of Lighting Full +13.',
-                'options'  => ['3 Acessórios Sagrados', 'Absorção Máxima de Dano + Vida', 'Resistência a Gelo, Veneno e Raio', 'Recuperação Automática de HP'],
+                'id' => 'kit_ancient_rings',
+                'name' => 'Kit Completo Acessórios Ancient (+13 Full)',
+                'desc' => 'Kit Triplo Sagrado: Ring of Ice + Ring of Poison + Pendant of Lighting Full +13.',
+                'options' => ['3 Acessórios Sagrados', 'Absorção Máxima de Dano + Vida', 'Resistência a Gelo, Veneno e Raio', 'Recuperação Automática de HP'],
                 'price_wc' => 2800,
                 'price_gp' => 0,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-circle-o',
-                'badge'    => 'Kit 3x Ancient'
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Kit 3x Ancient',
+                'class_filter' => 'all',
+                'subcat' => 'kit'
             ],
             [
-                'id'       => 'pack_bless_30',
-                'name'     => 'Pack 30x Jewel of Bless',
-                'desc'     => 'Pacote com 30 Jóias da Benção para aprimorar seus equipamentos até +6.',
-                'options'  => ['30 Unidades Lacradas', '100% de Sucesso até +6', 'Pode ser descompactado no jogo'],
-                'price_wc' => 300,
-                'price_gp' => 500,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-diamond',
-                'badge'    => 'Essencial'
+                'id' => 'acc_ring_of_ice',
+                'name' => 'Ring of Ice (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Anel',
+                'class_filter' => 'all',
+                'subcat' => 'ring'
             ],
             [
-                'id'       => 'pack_soul_30',
-                'name'     => 'Pack 30x Jewel of Soul',
-                'desc'     => 'Pacote com 30 Jóias da Alma para refinar seus itens até +9.',
-                'options'  => ['30 Unidades Lacradas', 'Refinamento avançado até +9', 'Pode ser descompactado no jogo'],
-                'price_wc' => 300,
-                'price_gp' => 500,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-diamond',
-                'badge'    => 'Essencial'
+                'id' => 'acc_ring_of_poison',
+                'name' => 'Ring of Poison (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Anel',
+                'class_filter' => 'all',
+                'subcat' => 'ring'
             ],
             [
-                'id'       => 'pack_chaos_30',
-                'name'     => 'Pack 30x Jewel of Chaos',
-                'desc'     => 'Pacote com 30 Jóias do Caos para combinações e criações na Chaos Machine.',
-                'options'  => ['30 Unidades Lacradas', 'Ingrediente vital na Chaos Machine', 'Criação de Asas e Itens +10 a +13'],
-                'price_wc' => 200,
-                'price_gp' => 350,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-circle-o',
-                'badge'    => 'Refino'
+                'id' => 'acc_wizard_s_ring',
+                'name' => 'Wizard\'s Ring Special',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Anel',
+                'class_filter' => 'all',
+                'subcat' => 'ring'
             ],
             [
-                'id'       => 'pack_life_30',
-                'name'     => 'Pack 30x Jewel of Life',
-                'desc'     => 'Pacote com 30 Jóias da Vida para adicionar opcionais adicionais aos seus itens.',
-                'options'  => ['30 Unidades Lacradas', 'Adiciona e sobe Option até +28', 'Valoriza o mercado de trocas'],
-                'price_wc' => 400,
-                'price_gp' => 600,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-heart',
-                'badge'    => 'Opção Extra'
+                'id' => 'acc_ring_of_fire',
+                'name' => 'Ring of Fire (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Anel',
+                'class_filter' => 'all',
+                'subcat' => 'ring'
             ],
             [
-                'id'       => 'pack_harmony_30',
-                'name'     => 'Pack 30x Jewel of Harmony',
-                'desc'     => 'Pacote com 30 Jóias da Harmonia para inserir opções amarelas especiais.',
-                'options'  => ['30 Unidades', 'Opções amarelas de PVP e PVM', 'Reforça ataque e defesa'],
-                'price_wc' => 600,
-                'price_gp' => 900,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-sun-o',
-                'badge'    => 'PVP High End'
+                'id' => 'acc_ring_of_earth',
+                'name' => 'Ring of Earth (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Anel',
+                'class_filter' => 'all',
+                'subcat' => 'ring'
+            ],
+            [
+                'id' => 'acc_ring_of_wind',
+                'name' => 'Ring of Wind (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Anel',
+                'class_filter' => 'all',
+                'subcat' => 'ring'
+            ],
+            [
+                'id' => 'acc_ring_of_magic',
+                'name' => 'Ring of Magic (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Anel',
+                'class_filter' => 'all',
+                'subcat' => 'ring'
+            ],
+            [
+                'id' => 'acc_pendant_of_lighting',
+                'name' => 'Pendant of Lighting (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Pendente',
+                'class_filter' => 'all',
+                'subcat' => 'pendant'
+            ],
+            [
+                'id' => 'acc_pendant_of_fire',
+                'name' => 'Pendant of Fire (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Pendente',
+                'class_filter' => 'all',
+                'subcat' => 'pendant'
+            ],
+            [
+                'id' => 'acc_pendant_of_ice',
+                'name' => 'Pendant of Ice (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Pendente',
+                'class_filter' => 'all',
+                'subcat' => 'pendant'
+            ],
+            [
+                'id' => 'acc_pendant_of_wind',
+                'name' => 'Pendant of Wind (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Pendente',
+                'class_filter' => 'all',
+                'subcat' => 'pendant'
+            ],
+            [
+                'id' => 'acc_pendant_of_water',
+                'name' => 'Pendant of Water (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Pendente',
+                'class_filter' => 'all',
+                'subcat' => 'pendant'
+            ],
+            [
+                'id' => 'acc_pendant_of_ability',
+                'name' => 'Pendant of Ability (+13 Full)',
+                'desc' => 'Acessório Sagrado +13 • Resistência elemental e amplificação de defesa/vida.',
+                'options' => ['+13 Full', 'Taxa de Esquiva +10%', 'Diminuição de Dano 4%', 'Aumento de Vida +4%', 'Recuperação Automática'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-circle-o',
+                'badge' => 'Pendente',
+                'class_filter' => 'all',
+                'subcat' => 'pendant'
             ]
         ]
     ],
-    'buffs' => [
-        'title' => 'Buffs & Consumíveis',
-        'icon'  => 'fa-flask',
+    'pets' => [
+        'title' => 'Pets & Montarias Lendárias',
+        'icon' => 'fa-paw',
         'items' => [
             [
-                'id'       => 'seal_ascension_7d',
-                'name'     => 'Seal of Ascension (7 Dias)',
-                'desc'     => 'Selo de Ascensão • +50% de Experiência obtida em todos os monstros por 7 dias.',
-                'options'  => ['Duração: 7 Dias Corridos', '+50% Bônus de XP Ativo', 'Cumulativo com VIP'],
-                'price_wc' => 500,
-                'price_gp' => 800,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-bolt',
-                'badge'    => '+50% EXP'
+                'id' => 'pet_fenrir_gold',
+                'name' => 'Horn of Fenrir Gold (+Illusion)',
+                'desc' => 'Fenrir Dourado de Ilusão • A montaria suprema com dano e defesa ampliados.',
+                'options' => ['Montaria Lendária', 'Aumento de Dano +33%', 'Absorção de Dano +33%', 'Velocidade Extrema'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
             ],
             [
-                'id'       => 'seal_wealth_7d',
-                'name'     => 'Seal of Wealth (7 Dias)',
-                'desc'     => 'Selo da Riqueza • +100% de Taxa de Drop e Jóias por 7 dias corridos.',
-                'options'  => ['Duração: 7 Dias Corridos', '+100% de Drop & Jóias', 'Dobro de itens lendários'],
+                'id' => 'pet_fenrir_black',
+                'name' => 'Horn of Fenrir Black (+Destruction)',
+                'desc' => 'Fenrir Preto da Destruição • Focado em causar o máximo de dano em PvP.',
+                'options' => ['Montaria de Ataque', 'Aumento de Dano Final +33%', 'Ataque de Plasma Flamejante'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_fenrir_blue',
+                'name' => 'Horn of Fenrir Blue (+Protect)',
+                'desc' => 'Fenrir Azul da Proteção • Reduz o dano recebido em situações extremas.',
+                'options' => ['Montaria de Defesa', 'Absorção de Dano Final 33%', 'Alta Resistência a Impacto'],
+                'price_wc' => 4000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_fenrir_red',
+                'name' => 'Horn of Fenrir Red (Clássico)',
+                'desc' => 'O clássico lobo de chamas vermelhas de MU Online.',
+                'options' => ['Montaria Clássica', 'Aumento de Dano & Velocidade', 'Skill Plasma Storm'],
+                'price_wc' => 3000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_dinorant',
+                'name' => 'Horn of Dinorant (Com Skill)',
+                'desc' => 'Montaria alada clássica que permite voar e lutar com ataque especial.',
+                'options' => ['Voo Habilitado', 'Absorção de Dano 15%', 'Skill de Ataque Embutida'],
+                'price_wc' => 500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_dark_horse',
+                'name' => 'Dark Horse de Dark Lord (Lv 50)',
+                'desc' => 'O lendário cavalo negro de Dark Lord com a habilidade Earthquake.',
+                'options' => ['Exclusivo Dark Lord', 'Skill Earthquake (Pisotão em Área)', 'Aumento de Defesa & Velocidade'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_dark_raven',
+                'name' => 'Dark Raven de Dark Lord (Lv 50)',
+                'desc' => 'Corvo de combate sagrado de Dark Lord com ataque automático.',
+                'options' => ['Exclusivo Dark Lord', 'Ataque Aéreo Automático', 'Comandos de Combate'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_panda',
+                'name' => 'Pet Panda Sagrado (30 Dias)',
+                'desc' => 'Panda fofinho que aumenta +50% a experiência ganha e coleta zen.',
+                'options' => ['+50% Bônus de EXP', 'Coleta Zen Automática', 'Defesa +50'],
+                'price_wc' => 800,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_demon',
+                'name' => 'Pet Demon (+40% Dano)',
+                'desc' => 'Demônio sagrado que amplia o poder ofensivo em combate.',
+                'options' => ['+40% de Dano Físico/Mágico', '+10 Velocidade de Ataque'],
+                'price_wc' => 1000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ],
+            [
+                'id' => 'pet_spirit_guardian',
+                'name' => 'Spirit of Guardian (+30% Defesa)',
+                'desc' => 'Anjo guardião avançado que absorve grandes impactos.',
+                'options' => ['Absorção de Dano 30%', '+500 de Vida Máxima'],
+                'price_wc' => 1000,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-paw',
+                'badge' => 'Pet / Montaria',
+                'class_filter' => 'all',
+                'subcat' => 'pets'
+            ]
+        ]
+    ],
+    'jewels_boxes' => [
+        'title' => 'Jóias, Boxes & Upgrades',
+        'icon' => 'fa-gem',
+        'items' => [
+            [
+                'id' => 'pack_bless_30',
+                'name' => 'Pack 30x Jewel of Bless',
+                'desc' => 'Pacote com 30 Jóias da Benção para refinar itens até +6 sem falha.',
+                'options' => ['Quantidade: 30x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 300,
+                'price_gp' => 500,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Jóias',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'pack_soul_30',
+                'name' => 'Pack 30x Jewel of Soul',
+                'desc' => 'Pacote com 30 Jóias da Alma para refinar itens até +9.',
+                'options' => ['Quantidade: 30x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 300,
+                'price_gp' => 500,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Jóias',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'pack_chaos_30',
+                'name' => 'Pack 30x Jewel of Chaos',
+                'desc' => 'Pacote com 30 Jóias do Caos para combinações na Chaos Machine.',
+                'options' => ['Quantidade: 30x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 250,
+                'price_gp' => 400,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Jóias',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'pack_life_30',
+                'name' => 'Pack 30x Jewel of Life',
+                'desc' => 'Pacote com 30 Jóias da Vida para adicionar opcionais até +28.',
+                'options' => ['Quantidade: 30x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 400,
+                'price_gp' => 600,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Jóias',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'pack_creation_30',
+                'name' => 'Pack 30x Jewel of Creation',
+                'desc' => 'Pacote com 30 Jóias da Criação para criar frutas e sementes.',
+                'options' => ['Quantidade: 30x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 400,
+                'price_gp' => 600,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Jóias',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'pack_harmony_30',
+                'name' => 'Pack 30x Jewel of Harmony',
+                'desc' => 'Pacote com 30 Jóias da Harmonia para inserir opções amarelas de PvP.',
+                'options' => ['Quantidade: 30x', '100% Original', 'Entrega Imediata no Baú'],
                 'price_wc' => 600,
                 'price_gp' => 900,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-money',
-                'badge'    => '+100% DROP'
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Jóias',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
             ],
             [
-                'id'       => 'cherry_blossom_wine',
-                'name'     => 'Vinho Flor de Cerejeira (10x)',
-                'desc'     => 'Consumível especial que confere +700 de Vida Máxima por 1 hora por garrafa.',
-                'options'  => ['Pacote com 10 Garrafas', '+700 de Vida (HP) por Garrafa', 'Duração: 1 Hora cada'],
+                'id' => 'pack_guardian_30',
+                'name' => 'Pack 30x Jewel of Guardian',
+                'desc' => 'Pacote com 30 Jóias do Guardião para restaurações e Castle Siege.',
+                'options' => ['Quantidade: 30x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 500,
+                'price_gp' => 800,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Jóias',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'box_kundun_1',
+                'name' => 'Pack 5x Box of Kundun +1',
+                'desc' => 'Caixas de Kundun +1 • Drops de itens básicos excelentes e jóias.',
+                'options' => ['Quantidade: 5x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 150,
+                'price_gp' => 200,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Box Kundun',
+                'class_filter' => 'all',
+                'subcat' => 'boxes'
+            ],
+            [
+                'id' => 'box_kundun_2',
+                'name' => 'Pack 5x Box of Kundun +2',
+                'desc' => 'Caixas de Kundun +2 • Drops de armas e armaduras intermediárias excelentes.',
+                'options' => ['Quantidade: 5x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 250,
+                'price_gp' => 350,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Box Kundun',
+                'class_filter' => 'all',
+                'subcat' => 'boxes'
+            ],
+            [
+                'id' => 'box_kundun_3',
+                'name' => 'Pack 5x Box of Kundun +3',
+                'desc' => 'Caixas de Kundun +3 • Drops de sets clássicos (Dragon, Legendary, Guardian).',
+                'options' => ['Quantidade: 5x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 400,
+                'price_gp' => 600,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Box Kundun',
+                'class_filter' => 'all',
+                'subcat' => 'boxes'
+            ],
+            [
+                'id' => 'box_kundun_4',
+                'name' => 'Pack 5x Box of Kundun +4',
+                'desc' => 'Caixas de Kundun +4 • Drops de armaduras e armas avançadas excelentes.',
+                'options' => ['Quantidade: 5x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 600,
+                'price_gp' => 900,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Box Kundun',
+                'class_filter' => 'all',
+                'subcat' => 'boxes'
+            ],
+            [
+                'id' => 'box_kundun_5',
+                'name' => 'Pack 5x Box of Kundun +5',
+                'desc' => 'Caixas de Kundun +5 • Drops dos equipamentos mais raros e cobiçados do jogo!',
+                'options' => ['Quantidade: 5x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 900,
+                'price_gp' => 1400,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Box Kundun',
+                'class_filter' => 'all',
+                'subcat' => 'boxes'
+            ],
+            [
+                'id' => 'mat_feather_condor',
+                'name' => 'Feather of Condor (Pena Sagrada)',
+                'desc' => 'Pena de Condor necessária para a criação das Asas Level 3 na Chaos Machine.',
+                'options' => ['Quantidade: 1x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 1200,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Material 3rd',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'mat_flame_condor',
+                'name' => 'Flame of Condor (Chama Sagrada)',
+                'desc' => 'Chama de Condor raríssima para a criação das Asas Level 3.',
+                'options' => ['Quantidade: 1x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Material 3rd',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ],
+            [
+                'id' => 'mat_lochs_feather',
+                'name' => 'Loch\'s Feather (Pena de Ícaro)',
+                'desc' => 'Pena azul lendária para a criação de Asas Level 2 e Dinorant.',
+                'options' => ['Quantidade: 1x', '100% Original', 'Entrega Imediata no Baú'],
+                'price_wc' => 400,
+                'price_gp' => 600,
+                'type' => 'item',
+                'icon_fa' => 'fa-gem',
+                'badge' => 'Material 3rd',
+                'class_filter' => 'all',
+                'subcat' => 'jewels'
+            ]
+        ]
+    ],
+    'vip' => [
+        'title' => 'Planos VIP & Privilégios',
+        'icon' => 'fa-diamond',
+        'items' => [
+            [
+                'id' => 'vip_bronze',
+                'name' => 'Plano VIP Bronze (30 Dias)',
+                'desc' => '+30% EXP Geral • +10% Drop • Reset Lv. 380 • Pontos: 400/reset',
+                'options' => ['+30% Bônus de Experiência', '+10% Taxa de Drop & Jóias', 'Reset no Nível 380', '400 Pontos por Reset'],
+                'price_wc' => 1500,
+                'price_gp' => 0,
+                'type' => 'vip',
+                'vip_lvl' => 1,
+                'icon_fa' => 'fa-shield',
+                'badge' => 'Iniciante',
+                'class_filter' => 'all',
+                'subcat' => 'vip'
+            ],
+            [
+                'id' => 'vip_prata',
+                'name' => 'Plano VIP Prata (30 Dias)',
+                'desc' => '+50% EXP Geral • +20% Drop • Reset Lv. 350 • Pontos: 450/reset • Comandos Exclusivos',
+                'options' => ['+50% Bônus de Experiência', '+20% Taxa de Drop & Jóias', 'Reset no Nível 350', '450 Pontos por Reset', 'Comandos Especiais no Chat'],
+                'price_wc' => 3000,
+                'price_gp' => 0,
+                'type' => 'vip',
+                'vip_lvl' => 2,
+                'icon_fa' => 'fa-star',
+                'badge' => 'Mais Popular',
+                'class_filter' => 'all',
+                'subcat' => 'vip'
+            ],
+            [
+                'id' => 'vip_ouro',
+                'name' => 'Plano VIP Ouro (30 Dias)',
+                'desc' => '+100% EXP Geral • +35% Drop • Reset Lv. 300 • Pontos: 500/reset • Sala VIP Exclusiva',
+                'options' => ['+100% Bônus de Experiência', '+35% Taxa de Drop & Jóias', 'Reset no Nível 300', '500 Pontos por Reset', 'Acesso à Sala VIP com Spots Raros'],
+                'price_wc' => 5000,
+                'price_gp' => 0,
+                'type' => 'vip',
+                'vip_lvl' => 3,
+                'icon_fa' => 'fa-trophy',
+                'badge' => 'Máxima Vantagem',
+                'class_filter' => 'all',
+                'subcat' => 'vip'
+            ],
+            [
+                'id' => 'seal_ascension_7d',
+                'name' => 'Seal of Ascension (7 Dias)',
+                'desc' => 'Selo de Ascensão • +50% de Experiência obtida em todos os monstros por 7 dias.',
+                'options' => ['Duração: 7 Dias Corridos', '+50% Bônus de XP Ativo', 'Cumulativo com VIP'],
+                'price_wc' => 500,
+                'price_gp' => 800,
+                'type' => 'item',
+                'icon_fa' => 'fa-bolt',
+                'badge' => '+50% EXP',
+                'class_filter' => 'all',
+                'subcat' => 'buffs'
+            ],
+            [
+                'id' => 'seal_wealth_7d',
+                'name' => 'Seal of Wealth (7 Dias)',
+                'desc' => 'Selo da Riqueza • +100% de Taxa de Drop e Jóias por 7 dias corridos.',
+                'options' => ['Duração: 7 Dias Corridos', '+100% de Drop & Jóias', 'Dobro de itens lendários'],
+                'price_wc' => 600,
+                'price_gp' => 900,
+                'type' => 'item',
+                'icon_fa' => 'fa-money',
+                'badge' => '+100% DROP',
+                'class_filter' => 'all',
+                'subcat' => 'buffs'
+            ],
+            [
+                'id' => 'cherry_blossom_wine',
+                'name' => 'Vinho Flor de Cerejeira (10x)',
+                'desc' => 'Consumível especial que confere +700 de Vida Máxima por 1 hora por garrafa.',
+                'options' => ['Pacote com 10 Garrafas', '+700 de Vida (HP) por Garrafa', 'Duração: 1 Hora cada'],
                 'price_wc' => 200,
                 'price_gp' => 300,
-                'type'     => 'item',
-                'icon_fa'  => 'fa-glass',
-                'badge'    => 'Buff PvP'
+                'type' => 'item',
+                'icon_fa' => 'fa-glass',
+                'badge' => 'Buff PvP',
+                'class_filter' => 'all',
+                'subcat' => 'buffs'
             ]
         ]
     ]
@@ -695,220 +2528,7900 @@ $catalog = [
 
 // 2.1 Mapping of OpenMU Item Definitions for In-Game Vault Delivery
 $catalog_delivery_items = [
-    // --- SETS CLÁSSICOS ---
-    'set_great_dragon' => [
-        ['name' => 'Great Dragon Helm',   'def' => '00000080-0007-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Great Dragon Armor',  'def' => '00000080-0008-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Great Dragon Pants',  'def' => '00000080-0009-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Great Dragon Gloves', 'def' => '00000080-000a-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Great Dragon Boots',  'def' => '00000080-000b-0015-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_bronze' => [
+        [
+            'name' => 'Bronze Helm',
+            'def' => '00000080-0007-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bronze Armor',
+            'def' => '00000080-0008-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bronze Pants',
+            'def' => '00000080-0009-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bronze Gloves',
+            'def' => '00000080-000a-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bronze Boots',
+            'def' => '00000080-000b-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_dark_phoenix' => [
-        ['name' => 'Dark Phoenix Helm',   'def' => '00000080-0007-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Phoenix Armor',  'def' => '00000080-0008-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Phoenix Pants',  'def' => '00000080-0009-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Phoenix Gloves', 'def' => '00000080-000a-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Phoenix Boots',  'def' => '00000080-000b-0011-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_dragon' => [
+        [
+            'name' => 'Dragon Helm',
+            'def' => '00000080-0007-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Armor',
+            'def' => '00000080-0008-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Pants',
+            'def' => '00000080-0009-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Gloves',
+            'def' => '00000080-000a-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Boots',
+            'def' => '00000080-000b-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_dark_soul' => [
-        ['name' => 'Dark Soul Helm',   'def' => '00000080-0007-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Soul Armor',  'def' => '00000080-0008-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Soul Pants',  'def' => '00000080-0009-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Soul Gloves', 'def' => '00000080-000a-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Soul Boots',  'def' => '00000080-000b-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_pad' => [
+        [
+            'name' => 'Pad Helm',
+            'def' => '00000080-0007-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Pad Armor',
+            'def' => '00000080-0008-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Pad Pants',
+            'def' => '00000080-0009-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Pad Gloves',
+            'def' => '00000080-000a-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Pad Boots',
+            'def' => '00000080-000b-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_grand_soul' => [
-        ['name' => 'Grand Soul Helm',   'def' => '00000080-0007-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Grand Soul Armor',  'def' => '00000080-0008-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Grand Soul Pants',  'def' => '00000080-0009-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Grand Soul Gloves', 'def' => '00000080-000a-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Grand Soul Boots',  'def' => '00000080-000b-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_legendary' => [
+        [
+            'name' => 'Legendary Helm',
+            'def' => '00000080-0007-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Legendary Armor',
+            'def' => '00000080-0008-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Legendary Pants',
+            'def' => '00000080-0009-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Legendary Gloves',
+            'def' => '00000080-000a-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Legendary Boots',
+            'def' => '00000080-000b-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_red_spirit' => [
-        ['name' => 'Red Spirit Helm',   'def' => '00000080-0007-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Spirit Armor',  'def' => '00000080-0008-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Spirit Pants',  'def' => '00000080-0009-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Spirit Gloves', 'def' => '00000080-000a-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Spirit Boots',  'def' => '00000080-000b-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_bone' => [
+        [
+            'name' => 'Bone Helm',
+            'def' => '00000080-0007-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bone Armor',
+            'def' => '00000080-0008-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bone Pants',
+            'def' => '00000080-0009-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bone Gloves',
+            'def' => '00000080-000a-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Bone Boots',
+            'def' => '00000080-000b-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_hurricane' => [
-        ['name' => 'Hurricane Armor',  'def' => '00000080-0008-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Hurricane Pants',  'def' => '00000080-0009-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Hurricane Gloves', 'def' => '00000080-000a-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Hurricane Boots',  'def' => '00000080-000b-0017-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_leather' => [
+        [
+            'name' => 'Leather Helm',
+            'def' => '00000080-0007-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Leather Armor',
+            'def' => '00000080-0008-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Leather Pants',
+            'def' => '00000080-0009-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Leather Gloves',
+            'def' => '00000080-000a-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Leather Boots',
+            'def' => '00000080-000b-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_dark_master' => [
-        ['name' => 'Dark Master Helm',   'def' => '00000080-0007-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Master Armor',  'def' => '00000080-0008-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Master Pants',  'def' => '00000080-0009-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Master Gloves', 'def' => '00000080-000a-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dark Master Boots',  'def' => '00000080-000b-001c-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_scale' => [
+        [
+            'name' => 'Scale Helm',
+            'def' => '00000080-0007-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Scale Armor',
+            'def' => '00000080-0008-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Scale Pants',
+            'def' => '00000080-0009-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Scale Gloves',
+            'def' => '00000080-000a-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Scale Boots',
+            'def' => '00000080-000b-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-
-    // --- SETS SEASON 6 ---
-    'set_dragon_knight' => [
-        ['name' => 'Dragon Knight Helm',   'def' => '00000080-0007-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dragon Knight Armor',  'def' => '00000080-0008-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dragon Knight Pants',  'def' => '00000080-0009-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dragon Knight Gloves', 'def' => '00000080-000a-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Dragon Knight Boots',  'def' => '00000080-000b-001d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_sphinx' => [
+        [
+            'name' => 'Sphinx Helm',
+            'def' => '00000080-0007-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sphinx Armor',
+            'def' => '00000080-0008-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sphinx Pants',
+            'def' => '00000080-0009-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sphinx Gloves',
+            'def' => '00000080-000a-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sphinx Boots',
+            'def' => '00000080-000b-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_venom_mist' => [
-        ['name' => 'Venom Mist Helm',   'def' => '00000080-0007-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Venom Mist Armor',  'def' => '00000080-0008-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Venom Mist Pants',  'def' => '00000080-0009-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Venom Mist Gloves', 'def' => '00000080-000a-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Venom Mist Boots',  'def' => '00000080-000b-001e-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_brass' => [
+        [
+            'name' => 'Brass Helm',
+            'def' => '00000080-0007-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brass Armor',
+            'def' => '00000080-0008-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brass Pants',
+            'def' => '00000080-0009-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brass Gloves',
+            'def' => '00000080-000a-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brass Boots',
+            'def' => '00000080-000b-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_sylphid_ray' => [
-        ['name' => 'Sylphid Ray Helm',   'def' => '00000080-0007-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Sylphid Ray Armor',  'def' => '00000080-0008-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Sylphid Ray Pants',  'def' => '00000080-0009-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Sylphid Ray Gloves', 'def' => '00000080-000a-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Sylphid Ray Boots',  'def' => '00000080-000b-001f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_plate' => [
+        [
+            'name' => 'Plate Helm',
+            'def' => '00000080-0007-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Plate Armor',
+            'def' => '00000080-0008-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Plate Pants',
+            'def' => '00000080-0009-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Plate Gloves',
+            'def' => '00000080-000a-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Plate Boots',
+            'def' => '00000080-000b-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-    'set_volcano' => [
-        ['name' => 'Volcano Armor',  'def' => '00000080-0008-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Volcano Pants',  'def' => '00000080-0009-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Volcano Gloves', 'def' => '00000080-000a-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Volcano Boots',  'def' => '00000080-000b-0020-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+    'set_vine' => [
+        [
+            'name' => 'Vine Helm',
+            'def' => '00000080-0007-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Vine Armor',
+            'def' => '00000080-0008-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Vine Pants',
+            'def' => '00000080-0009-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Vine Gloves',
+            'def' => '00000080-000a-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Vine Boots',
+            'def' => '00000080-000b-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_silk' => [
+        [
+            'name' => 'Silk Helm',
+            'def' => '00000080-0007-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Silk Armor',
+            'def' => '00000080-0008-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Silk Pants',
+            'def' => '00000080-0009-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Silk Gloves',
+            'def' => '00000080-000a-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Silk Boots',
+            'def' => '00000080-000b-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_wind' => [
+        [
+            'name' => 'Wind Helm',
+            'def' => '00000080-0007-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Wind Armor',
+            'def' => '00000080-0008-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Wind Pants',
+            'def' => '00000080-0009-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Wind Gloves',
+            'def' => '00000080-000a-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Wind Boots',
+            'def' => '00000080-000b-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_spirit' => [
+        [
+            'name' => 'Spirit Helm',
+            'def' => '00000080-0007-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Spirit Armor',
+            'def' => '00000080-0008-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Spirit Pants',
+            'def' => '00000080-0009-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Spirit Gloves',
+            'def' => '00000080-000a-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Spirit Boots',
+            'def' => '00000080-000b-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_guardian' => [
+        [
+            'name' => 'Guardian Helm',
+            'def' => '00000080-0007-000e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Guardian Armor',
+            'def' => '00000080-0008-000e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Guardian Pants',
+            'def' => '00000080-0009-000e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Guardian Gloves',
+            'def' => '00000080-000a-000e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Guardian Boots',
+            'def' => '00000080-000b-000e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
     'set_storm_crow' => [
-        ['name' => 'Storm Crow Armor',  'def' => '00000080-0008-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Storm Crow Pants',  'def' => '00000080-0009-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Storm Crow Gloves', 'def' => '00000080-000a-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Storm Crow Boots',  'def' => '00000080-000b-000f-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        [
+            'name' => 'Storm Crow Armor',
+            'def' => '00000080-0008-000f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Storm Crow Pants',
+            'def' => '00000080-0009-000f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Storm Crow Gloves',
+            'def' => '00000080-000a-000f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Storm Crow Boots',
+            'def' => '00000080-000b-000f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_black_dragon' => [
+        [
+            'name' => 'Black Dragon Helm',
+            'def' => '00000080-0007-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Dragon Armor',
+            'def' => '00000080-0008-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Dragon Pants',
+            'def' => '00000080-0009-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Dragon Gloves',
+            'def' => '00000080-000a-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Dragon Boots',
+            'def' => '00000080-000b-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_dark_phoenix' => [
+        [
+            'name' => 'Dark Phoenix Helm',
+            'def' => '00000080-0007-0011-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Phoenix Armor',
+            'def' => '00000080-0008-0011-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Phoenix Pants',
+            'def' => '00000080-0009-0011-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Phoenix Gloves',
+            'def' => '00000080-000a-0011-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Phoenix Boots',
+            'def' => '00000080-000b-0011-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_grand_soul' => [
+        [
+            'name' => 'Grand Soul Helm',
+            'def' => '00000080-0007-0012-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Grand Soul Armor',
+            'def' => '00000080-0008-0012-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Grand Soul Pants',
+            'def' => '00000080-0009-0012-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Grand Soul Gloves',
+            'def' => '00000080-000a-0012-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Grand Soul Boots',
+            'def' => '00000080-000b-0012-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_divine' => [
+        [
+            'name' => 'Divine Helm',
+            'def' => '00000080-0007-0013-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Divine Armor',
+            'def' => '00000080-0008-0013-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Divine Pants',
+            'def' => '00000080-0009-0013-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Divine Gloves',
+            'def' => '00000080-000a-0013-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Divine Boots',
+            'def' => '00000080-000b-0013-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_thunder_hawk' => [
+        [
+            'name' => 'Thunder Hawk Armor',
+            'def' => '00000080-0008-0014-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Thunder Hawk Pants',
+            'def' => '00000080-0009-0014-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Thunder Hawk Gloves',
+            'def' => '00000080-000a-0014-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Thunder Hawk Boots',
+            'def' => '00000080-000b-0014-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_great_dragon' => [
+        [
+            'name' => 'Great Dragon Helm',
+            'def' => '00000080-0007-0015-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Great Dragon Armor',
+            'def' => '00000080-0008-0015-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Great Dragon Pants',
+            'def' => '00000080-0009-0015-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Great Dragon Gloves',
+            'def' => '00000080-000a-0015-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Great Dragon Boots',
+            'def' => '00000080-000b-0015-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_dark_soul' => [
+        [
+            'name' => 'Dark Soul Helm',
+            'def' => '00000080-0007-0016-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Soul Armor',
+            'def' => '00000080-0008-0016-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Soul Pants',
+            'def' => '00000080-0009-0016-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Soul Gloves',
+            'def' => '00000080-000a-0016-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Soul Boots',
+            'def' => '00000080-000b-0016-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_hurricane' => [
+        [
+            'name' => 'Hurricane Armor',
+            'def' => '00000080-0008-0017-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Hurricane Pants',
+            'def' => '00000080-0009-0017-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Hurricane Gloves',
+            'def' => '00000080-000a-0017-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Hurricane Boots',
+            'def' => '00000080-000b-0017-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_red_spirit' => [
+        [
+            'name' => 'Red Spirit Helm',
+            'def' => '00000080-0007-0018-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Spirit Armor',
+            'def' => '00000080-0008-0018-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Spirit Pants',
+            'def' => '00000080-0009-0018-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Spirit Gloves',
+            'def' => '00000080-000a-0018-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Spirit Boots',
+            'def' => '00000080-000b-0018-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_light_plate' => [
+        [
+            'name' => 'Light Plate Helm',
+            'def' => '00000080-0007-0019-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Light Plate Armor',
+            'def' => '00000080-0008-0019-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Light Plate Pants',
+            'def' => '00000080-0009-0019-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Light Plate Gloves',
+            'def' => '00000080-000a-0019-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Light Plate Boots',
+            'def' => '00000080-000b-0019-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_adamantine' => [
+        [
+            'name' => 'Adamantine Helm',
+            'def' => '00000080-0007-001a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Adamantine Armor',
+            'def' => '00000080-0008-001a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Adamantine Pants',
+            'def' => '00000080-0009-001a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Adamantine Gloves',
+            'def' => '00000080-000a-001a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Adamantine Boots',
+            'def' => '00000080-000b-001a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_dark_steel' => [
+        [
+            'name' => 'Dark Steel Helm',
+            'def' => '00000080-0007-001b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Steel Armor',
+            'def' => '00000080-0008-001b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Steel Pants',
+            'def' => '00000080-0009-001b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Steel Gloves',
+            'def' => '00000080-000a-001b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Steel Boots',
+            'def' => '00000080-000b-001b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_dark_master' => [
+        [
+            'name' => 'Dark Master Helm',
+            'def' => '00000080-0007-001c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Master Armor',
+            'def' => '00000080-0008-001c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Master Pants',
+            'def' => '00000080-0009-001c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Master Gloves',
+            'def' => '00000080-000a-001c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dark Master Boots',
+            'def' => '00000080-000b-001c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_dragon_knight' => [
+        [
+            'name' => 'Dragon Knight Helm',
+            'def' => '00000080-0007-001d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Knight Armor',
+            'def' => '00000080-0008-001d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Knight Pants',
+            'def' => '00000080-0009-001d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Knight Gloves',
+            'def' => '00000080-000a-001d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Dragon Knight Boots',
+            'def' => '00000080-000b-001d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_venom_mist' => [
+        [
+            'name' => 'Venom Mist Helm',
+            'def' => '00000080-0007-001e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Venom Mist Armor',
+            'def' => '00000080-0008-001e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Venom Mist Pants',
+            'def' => '00000080-0009-001e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Venom Mist Gloves',
+            'def' => '00000080-000a-001e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Venom Mist Boots',
+            'def' => '00000080-000b-001e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_sylphid_ray' => [
+        [
+            'name' => 'Sylphid Ray Helm',
+            'def' => '00000080-0007-001f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sylphid Ray Armor',
+            'def' => '00000080-0008-001f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sylphid Ray Pants',
+            'def' => '00000080-0009-001f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sylphid Ray Gloves',
+            'def' => '00000080-000a-001f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sylphid Ray Boots',
+            'def' => '00000080-000b-001f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_volcano' => [
+        [
+            'name' => 'Volcano Armor',
+            'def' => '00000080-0008-0020-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Volcano Pants',
+            'def' => '00000080-0009-0020-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Volcano Gloves',
+            'def' => '00000080-000a-0020-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Volcano Boots',
+            'def' => '00000080-000b-0020-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_sunlight' => [
+        [
+            'name' => 'Sunlight Helm',
+            'def' => '00000080-0007-0021-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sunlight Armor',
+            'def' => '00000080-0008-0021-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sunlight Pants',
+            'def' => '00000080-0009-0021-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sunlight Gloves',
+            'def' => '00000080-000a-0021-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sunlight Boots',
+            'def' => '00000080-000b-0021-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_ashcrow' => [
+        [
+            'name' => 'Ashcrow Helm',
+            'def' => '00000080-0007-0022-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ashcrow Armor',
+            'def' => '00000080-0008-0022-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ashcrow Pants',
+            'def' => '00000080-0009-0022-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ashcrow Gloves',
+            'def' => '00000080-000a-0022-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ashcrow Boots',
+            'def' => '00000080-000b-0022-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_eclipse' => [
+        [
+            'name' => 'Eclipse Helm',
+            'def' => '00000080-0007-0023-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Eclipse Armor',
+            'def' => '00000080-0008-0023-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Eclipse Pants',
+            'def' => '00000080-0009-0023-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Eclipse Gloves',
+            'def' => '00000080-000a-0023-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Eclipse Boots',
+            'def' => '00000080-000b-0023-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_iris' => [
+        [
+            'name' => 'Iris Helm',
+            'def' => '00000080-0007-0024-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Iris Armor',
+            'def' => '00000080-0008-0024-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Iris Pants',
+            'def' => '00000080-0009-0024-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Iris Gloves',
+            'def' => '00000080-000a-0024-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Iris Boots',
+            'def' => '00000080-000b-0024-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_valiant' => [
+        [
+            'name' => 'Valiant Armor',
+            'def' => '00000080-0008-0025-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Valiant Pants',
+            'def' => '00000080-0009-0025-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Valiant Gloves',
+            'def' => '00000080-000a-0025-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Valiant Boots',
+            'def' => '00000080-000b-0025-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_glorious' => [
+        [
+            'name' => 'Glorious Helm',
+            'def' => '00000080-0007-0026-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Glorious Armor',
+            'def' => '00000080-0008-0026-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Glorious Pants',
+            'def' => '00000080-0009-0026-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Glorious Gloves',
+            'def' => '00000080-000a-0026-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Glorious Boots',
+            'def' => '00000080-000b-0026-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_mistery' => [
+        [
+            'name' => 'Mistery Helm',
+            'def' => '00000080-0007-0027-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Mistery Armor',
+            'def' => '00000080-0008-0027-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Mistery Pants',
+            'def' => '00000080-0009-0027-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Mistery Gloves',
+            'def' => '00000080-000a-0027-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Mistery Boots',
+            'def' => '00000080-000b-0027-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
     'set_red_wing' => [
-        ['name' => 'Red Wing Helm',   'def' => '00000080-0007-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Wing Armor',  'def' => '00000080-0008-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Wing Pants',  'def' => '00000080-0009-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Wing Gloves', 'def' => '00000080-000a-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Red Wing Boots',  'def' => '00000080-000b-0028-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        [
+            'name' => 'Red Wing Helm',
+            'def' => '00000080-0007-0028-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Wing Armor',
+            'def' => '00000080-0008-0028-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Wing Pants',
+            'def' => '00000080-0009-0028-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Wing Gloves',
+            'def' => '00000080-000a-0028-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Red Wing Boots',
+            'def' => '00000080-000b-0028-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_ancient' => [
+        [
+            'name' => 'Ancient Helm',
+            'def' => '00000080-0007-0029-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ancient Armor',
+            'def' => '00000080-0008-0029-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ancient Pants',
+            'def' => '00000080-0009-0029-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ancient Gloves',
+            'def' => '00000080-000a-0029-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Ancient Boots',
+            'def' => '00000080-000b-0029-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_black_rose' => [
+        [
+            'name' => 'Black Rose Helm',
+            'def' => '00000080-0007-002a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Rose Armor',
+            'def' => '00000080-0008-002a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Rose Pants',
+            'def' => '00000080-0009-002a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Rose Gloves',
+            'def' => '00000080-000a-002a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Black Rose Boots',
+            'def' => '00000080-000b-002a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_aura' => [
+        [
+            'name' => 'Aura Helm',
+            'def' => '00000080-0007-002b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Aura Armor',
+            'def' => '00000080-0008-002b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Aura Pants',
+            'def' => '00000080-0009-002b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Aura Gloves',
+            'def' => '00000080-000a-002b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Aura Boots',
+            'def' => '00000080-000b-002b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_lilium' => [
+        [
+            'name' => 'Lilium Helm',
+            'def' => '00000080-0007-002c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Lilium Armor',
+            'def' => '00000080-0008-002c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Lilium Pants',
+            'def' => '00000080-0009-002c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Lilium Gloves',
+            'def' => '00000080-000a-002c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Lilium Boots',
+            'def' => '00000080-000b-002c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_titan' => [
+        [
+            'name' => 'Titan Helm',
+            'def' => '00000080-0007-002d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Titan Armor',
+            'def' => '00000080-0008-002d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Titan Pants',
+            'def' => '00000080-0009-002d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Titan Gloves',
+            'def' => '00000080-000a-002d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Titan Boots',
+            'def' => '00000080-000b-002d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_brave' => [
+        [
+            'name' => 'Brave Helm',
+            'def' => '00000080-0007-002e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brave Armor',
+            'def' => '00000080-0008-002e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brave Pants',
+            'def' => '00000080-0009-002e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brave Gloves',
+            'def' => '00000080-000a-002e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Brave Boots',
+            'def' => '00000080-000b-002e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_destroy' => [
+        [
+            'name' => 'Destroy Armor',
+            'def' => '00000080-0008-002f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Destroy Pants',
+            'def' => '00000080-0009-002f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Destroy Gloves',
+            'def' => '00000080-000a-002f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Destroy Boots',
+            'def' => '00000080-000b-002f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_phantom' => [
+        [
+            'name' => 'Phantom Armor',
+            'def' => '00000080-0008-0030-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Phantom Pants',
+            'def' => '00000080-0009-0030-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Phantom Gloves',
+            'def' => '00000080-000a-0030-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Phantom Boots',
+            'def' => '00000080-000b-0030-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_seraphim' => [
+        [
+            'name' => 'Seraphim Helm',
+            'def' => '00000080-0007-0031-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Seraphim Armor',
+            'def' => '00000080-0008-0031-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Seraphim Pants',
+            'def' => '00000080-0009-0031-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Seraphim Gloves',
+            'def' => '00000080-000a-0031-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Seraphim Boots',
+            'def' => '00000080-000b-0031-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_faith' => [
+        [
+            'name' => 'Faith Helm',
+            'def' => '00000080-0007-0032-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Faith Armor',
+            'def' => '00000080-0008-0032-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Faith Pants',
+            'def' => '00000080-0009-0032-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Faith Gloves',
+            'def' => '00000080-000a-0032-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Faith Boots',
+            'def' => '00000080-000b-0032-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_paewang' => [
+        [
+            'name' => 'Paewang Helm',
+            'def' => '00000080-0007-0033-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Paewang Armor',
+            'def' => '00000080-0008-0033-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Paewang Pants',
+            'def' => '00000080-0009-0033-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Paewang Gloves',
+            'def' => '00000080-000a-0033-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Paewang Boots',
+            'def' => '00000080-000b-0033-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_hades' => [
+        [
+            'name' => 'Hades Helm',
+            'def' => '00000080-0007-0034-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Hades Armor',
+            'def' => '00000080-0008-0034-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Hades Pants',
+            'def' => '00000080-0009-0034-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Hades Gloves',
+            'def' => '00000080-000a-0034-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Hades Boots',
+            'def' => '00000080-000b-0034-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_sacred' => [
+        [
+            'name' => 'Sacred Helm',
+            'def' => '00000080-0007-003b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sacred Armor',
+            'def' => '00000080-0008-003b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sacred Pants',
+            'def' => '00000080-0009-003b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Sacred Boots',
+            'def' => '00000080-000b-003b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_storm_hard' => [
+        [
+            'name' => 'Storm Hard Helm',
+            'def' => '00000080-0007-003c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Storm Hard Armor',
+            'def' => '00000080-0008-003c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Storm Hard Pants',
+            'def' => '00000080-0009-003c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Storm Hard Boots',
+            'def' => '00000080-000b-003c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'set_piercing' => [
+        [
+            'name' => 'Piercing Helm',
+            'def' => '00000080-0007-003d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Piercing Armor',
+            'def' => '00000080-0008-003d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Piercing Pants',
+            'def' => '00000080-0009-003d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Piercing Boots',
+            'def' => '00000080-000b-003d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
     'set_phoenix_soul' => [
-        ['name' => 'Phoenix Soul Helmet', 'def' => '00000080-0007-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Phoenix Soul Armor',  'def' => '00000080-0008-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Phoenix Soul Pants',  'def' => '00000080-0009-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Phoenix Soul Boots',  'def' => '00000080-000b-0049-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
+        [
+            'name' => 'Phoenix Soul Helm',
+            'def' => '00000080-0007-0049-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Phoenix Soul Armor',
+            'def' => '00000080-0008-0049-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Phoenix Soul Pants',
+            'def' => '00000080-0009-0049-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ],
+        [
+            'name' => 'Phoenix Soul Boots',
+            'def' => '00000080-000b-0049-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
     ],
-
-    // --- ARMAS ARCHANGEL ---
-    'wpn_archangel_sword' => [
-        ['name' => 'Divine Sword of Archangel +13 Full', 'def' => '00000080-0000-0013-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_kris' => [
+        [
+            'name' => 'Kris',
+            'def' => '00000080-0000-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_archangel_staff' => [
-        ['name' => 'Divine Staff of Archangel +13 Full', 'def' => '00000080-0005-000a-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_short_sword' => [
+        [
+            'name' => 'Short Sword',
+            'def' => '00000080-0000-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_archangel_crossbow' => [
-        ['name' => 'Divine Crossbow of Archangel +13 Full', 'def' => '00000080-0004-0012-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 3, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_rapier' => [
+        [
+            'name' => 'Rapier',
+            'def' => '00000080-0000-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_archangel_scepter' => [
-        ['name' => 'Divine Scepter of Archangel +13 Full', 'def' => '00000080-0002-000d-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_sword_of_assassin' => [
+        [
+            'name' => 'Sword of Assassin',
+            'def' => '00000080-0000-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-
-    // --- ARMAS LENDÁRIAS ---
-    'wpn_kundun_staff' => [
-        ['name' => 'Staff of Kundun +13 Full', 'def' => '00000080-0005-000b-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_blade' => [
+        [
+            'name' => 'Blade',
+            'def' => '00000080-0000-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_gladius' => [
+        [
+            'name' => 'Gladius',
+            'def' => '00000080-0000-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_falchion' => [
+        [
+            'name' => 'Falchion',
+            'def' => '00000080-0000-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_serpent_sword' => [
+        [
+            'name' => 'Serpent Sword',
+            'def' => '00000080-0000-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_sword_of_salamander' => [
+        [
+            'name' => 'Sword of Salamander',
+            'def' => '00000080-0000-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_light_saber' => [
+        [
+            'name' => 'Light Saber',
+            'def' => '00000080-0000-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_legendary_sword' => [
+        [
+            'name' => 'Legendary Sword',
+            'def' => '00000080-0000-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_heliacal_sword' => [
+        [
+            'name' => 'Heliacal Sword',
+            'def' => '00000080-0000-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_double_blade' => [
+        [
+            'name' => 'Double Blade',
+            'def' => '00000080-0000-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_lighting_sword' => [
+        [
+            'name' => 'Lighting Sword',
+            'def' => '00000080-0000-000e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_giant_sword' => [
+        [
+            'name' => 'Giant Sword',
+            'def' => '00000080-0000-000f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_sword_of_destruction' => [
+        [
+            'name' => 'Sword of Destruction',
+            'def' => '00000080-0000-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_dark_breaker' => [
+        [
+            'name' => 'Dark Breaker',
+            'def' => '00000080-0000-0011-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_thunder_blade' => [
+        [
+            'name' => 'Thunder Blade',
+            'def' => '00000080-0000-0012-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_divine_sword_of_archangel' => [
+        [
+            'name' => 'Divine Sword of Archangel',
+            'def' => '00000080-0000-0013-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
     'wpn_knight_blade' => [
-        ['name' => 'Knight Blade +13 Full', 'def' => '00000080-0000-0014-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+        [
+            'name' => 'Knight Blade',
+            'def' => '00000080-0000-0014-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_daybreak' => [
-        ['name' => 'Daybreak +13 Full', 'def' => '00000080-0000-0018-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
-    ],
-    'wpn_rune_bastard' => [
-        ['name' => 'Rune Bastard Sword +13 Full', 'def' => '00000080-0000-001c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_dark_reign_blade' => [
+        [
+            'name' => 'Dark Reign Blade',
+            'def' => '00000080-0000-0015-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
     'wpn_bone_blade' => [
-        ['name' => 'Bone Blade +13 Full', 'def' => '00000080-0000-0016-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+        [
+            'name' => 'Bone Blade',
+            'def' => '00000080-0000-0016-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_imperial_sword' => [
-        ['name' => 'Imperial Sword +13 Full', 'def' => '00000080-0000-001c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_daybreak' => [
+        [
+            'name' => 'Daybreak',
+            'def' => '00000080-0000-0018-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_grand_viper' => [
-        ['name' => 'Grand Viper Staff +13 Full', 'def' => '00000080-0005-000c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_sword_dancer' => [
+        [
+            'name' => 'Sword Dancer',
+            'def' => '00000080-0000-0019-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_rune_blade' => [
+        [
+            'name' => 'Rune Blade',
+            'def' => '00000080-0000-001f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_crescent_axe' => [
+        [
+            'name' => 'Crescent Axe',
+            'def' => '00000080-0001-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_battle_scepter' => [
+        [
+            'name' => 'Battle Scepter',
+            'def' => '00000080-0002-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_great_lord_scepter' => [
+        [
+            'name' => 'Great Lord Scepter',
+            'def' => '00000080-0002-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_divine_scepter_of_archangel' => [
+        [
+            'name' => 'Divine Scepter of Archangel',
+            'def' => '00000080-0002-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_soleil_scepter' => [
+        [
+            'name' => 'Soleil Scepter',
+            'def' => '00000080-0002-000e-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
     'wpn_shining_scepter' => [
-        ['name' => 'Shining Scepter +13 Full', 'def' => '00000080-0002-000f-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+        [
+            'name' => 'Shining Scepter',
+            'def' => '00000080-0002-000f-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_albatross_bow' => [
-        ['name' => 'Albatross Bow +13 Full', 'def' => '00000080-0004-0016-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_battle_bow' => [
+        [
+            'name' => 'Battle Bow',
+            'def' => '00000080-0004-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'wpn_dark_reign' => [
-        ['name' => 'Dark Reign Blade +13 Full', 'def' => '00000080-0000-0015-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 4, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'wpn_tiger_bow' => [
+        [
+            'name' => 'Tiger Bow',
+            'def' => '00000080-0004-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-    'shield_dragon' => [
-        ['name' => 'Dragon Shield +13 Full', 'def' => '00000080-0006-000d-0000-000000000000', 'lvl' => 13, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true]
+    'wpn_silver_bow' => [
+        [
+            'name' => 'Silver Bow',
+            'def' => '00000080-0004-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
     ],
-
-    // --- MONTARIAS & PETS ---
+    'wpn_chaos_nature_bow' => [
+        [
+            'name' => 'Chaos Nature Bow',
+            'def' => '00000080-0004-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_bolt' => [
+        [
+            'name' => 'Bolt',
+            'def' => '00000080-0004-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_crossbow' => [
+        [
+            'name' => 'Crossbow',
+            'def' => '00000080-0004-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_golden_crossbow' => [
+        [
+            'name' => 'Golden Crossbow',
+            'def' => '00000080-0004-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_saint_crossbow' => [
+        [
+            'name' => 'Saint Crossbow',
+            'def' => '00000080-0004-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_divine_crossbow_of_archangel' => [
+        [
+            'name' => 'Divine Crossbow of Archangel',
+            'def' => '00000080-0004-0012-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_arrow_viper_bow' => [
+        [
+            'name' => 'Arrow Viper Bow',
+            'def' => '00000080-0004-0014-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_skull_staff' => [
+        [
+            'name' => 'Skull Staff',
+            'def' => '00000080-0005-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_angelic_staff' => [
+        [
+            'name' => 'Angelic Staff',
+            'def' => '00000080-0005-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_serpent_staff' => [
+        [
+            'name' => 'Serpent Staff',
+            'def' => '00000080-0005-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_thunder_staff' => [
+        [
+            'name' => 'Thunder Staff',
+            'def' => '00000080-0005-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_gorgon_staff' => [
+        [
+            'name' => 'Gorgon Staff',
+            'def' => '00000080-0005-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_legendary_staff' => [
+        [
+            'name' => 'Legendary Staff',
+            'def' => '00000080-0005-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_staff_of_resurrection' => [
+        [
+            'name' => 'Staff of Resurrection',
+            'def' => '00000080-0005-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_chaos_lightning_staff' => [
+        [
+            'name' => 'Chaos Lightning Staff',
+            'def' => '00000080-0005-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_staff_of_destruction' => [
+        [
+            'name' => 'Staff of Destruction',
+            'def' => '00000080-0005-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_dragon_soul_staff' => [
+        [
+            'name' => 'Dragon Soul Staff',
+            'def' => '00000080-0005-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_divine_staff_of_archangel' => [
+        [
+            'name' => 'Divine Staff of Archangel',
+            'def' => '00000080-0005-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_staff_of_kundun' => [
+        [
+            'name' => 'Staff of Kundun',
+            'def' => '00000080-0005-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_grand_viper_staff' => [
+        [
+            'name' => 'Grand Viper Staff',
+            'def' => '00000080-0005-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 4,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => false
+        ]
+    ],
+    'wpn_small_shield' => [
+        [
+            'name' => 'Small Shield',
+            'def' => '00000080-0006-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_horn_shield' => [
+        [
+            'name' => 'Horn Shield',
+            'def' => '00000080-0006-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_kite_shield' => [
+        [
+            'name' => 'Kite Shield',
+            'def' => '00000080-0006-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_elven_shield' => [
+        [
+            'name' => 'Elven Shield',
+            'def' => '00000080-0006-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_buckler' => [
+        [
+            'name' => 'Buckler',
+            'def' => '00000080-0006-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_dragon_slayer_shield' => [
+        [
+            'name' => 'Dragon Slayer Shield',
+            'def' => '00000080-0006-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_skull_shield' => [
+        [
+            'name' => 'Skull Shield',
+            'def' => '00000080-0006-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_spiked_shield' => [
+        [
+            'name' => 'Spiked Shield',
+            'def' => '00000080-0006-0007-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_tower_shield' => [
+        [
+            'name' => 'Tower Shield',
+            'def' => '00000080-0006-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_plate_shield' => [
+        [
+            'name' => 'Plate Shield',
+            'def' => '00000080-0006-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_big_round_shield' => [
+        [
+            'name' => 'Big Round Shield',
+            'def' => '00000080-0006-000a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_serpent_shield' => [
+        [
+            'name' => 'Serpent Shield',
+            'def' => '00000080-0006-000b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_bronze_shield' => [
+        [
+            'name' => 'Bronze Shield',
+            'def' => '00000080-0006-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_elemental_shield' => [
+        [
+            'name' => 'Elemental Shield',
+            'def' => '00000080-0006-0010-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wpn_crimson_glory' => [
+        [
+            'name' => 'Crimson Glory',
+            'def' => '00000080-0006-0011-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 2,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 7,
+            'opt_def' => true
+        ]
+    ],
+    'wing_wings_of_elf' => [
+        [
+            'name' => 'Wings of Elf',
+            'def' => '00000080-000c-0000-0000-000000000000',
+            'lvl' => 13,
+            'w' => 3,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_heaven' => [
+        [
+            'name' => 'Wings of Heaven',
+            'def' => '00000080-000c-0001-0000-000000000000',
+            'lvl' => 13,
+            'w' => 5,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_satan' => [
+        [
+            'name' => 'Wings of Satan',
+            'def' => '00000080-000c-0002-0000-000000000000',
+            'lvl' => 13,
+            'w' => 5,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_curse' => [
+        [
+            'name' => 'Wings of Curse',
+            'def' => '00000080-000c-0029-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_spirits' => [
+        [
+            'name' => 'Wings of Spirits',
+            'def' => '00000080-000c-0003-0000-000000000000',
+            'lvl' => 13,
+            'w' => 5,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_soul' => [
+        [
+            'name' => 'Wings of Soul',
+            'def' => '00000080-000c-0004-0000-000000000000',
+            'lvl' => 13,
+            'w' => 5,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_dragon' => [
+        [
+            'name' => 'Wings of Dragon',
+            'def' => '00000080-000c-0005-0000-000000000000',
+            'lvl' => 13,
+            'w' => 3,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_darkness' => [
+        [
+            'name' => 'Wings of Darkness',
+            'def' => '00000080-000c-0006-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 2,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wings_of_despair' => [
+        [
+            'name' => 'Wings of Despair',
+            'def' => '00000080-000c-002a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_cape_of_fighter' => [
+        [
+            'name' => 'Cape of Fighter',
+            'def' => '00000080-000c-0031-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wing_of_storm' => [
+        [
+            'name' => 'Wing of Storm',
+            'def' => '00000080-000c-0024-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wing_of_eternal' => [
+        [
+            'name' => 'Wing of Eternal',
+            'def' => '00000080-000c-0025-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wing_of_illusion' => [
+        [
+            'name' => 'Wing of Illusion',
+            'def' => '00000080-000c-0026-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wing_of_ruin' => [
+        [
+            'name' => 'Wing of Ruin',
+            'def' => '00000080-000c-0027-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_cape_of_emperor' => [
+        [
+            'name' => 'Cape of Emperor',
+            'def' => '00000080-000c-0028-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_wing_of_dimension' => [
+        [
+            'name' => 'Wing of Dimension',
+            'def' => '00000080-000c-002b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 4,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'wing_cape_of_overrule' => [
+        [
+            'name' => 'Cape of Overrule',
+            'def' => '00000080-000c-0032-0000-000000000000',
+            'lvl' => 13,
+            'w' => 2,
+            'h' => 3,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => true,
+            'opt' => 4,
+            'opt_def' => false
+        ]
+    ],
+    'acc_ring_of_ice' => [
+        [
+            'name' => 'Ring of Ice',
+            'def' => '00000080-000d-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_ring_of_poison' => [
+        [
+            'name' => 'Ring of Poison',
+            'def' => '00000080-000d-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_wizard_s_ring' => [
+        [
+            'name' => 'Wizard\'s Ring',
+            'def' => '00000080-000d-0014-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_ring_of_fire' => [
+        [
+            'name' => 'Ring of Fire',
+            'def' => '00000080-000d-0015-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_ring_of_earth' => [
+        [
+            'name' => 'Ring of Earth',
+            'def' => '00000080-000d-0016-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_ring_of_wind' => [
+        [
+            'name' => 'Ring of Wind',
+            'def' => '00000080-000d-0017-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_ring_of_magic' => [
+        [
+            'name' => 'Ring of Magic',
+            'def' => '00000080-000d-0018-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_pendant_of_lighting' => [
+        [
+            'name' => 'Pendant of Lighting',
+            'def' => '00000080-000d-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_pendant_of_fire' => [
+        [
+            'name' => 'Pendant of Fire',
+            'def' => '00000080-000d-000d-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_pendant_of_ice' => [
+        [
+            'name' => 'Pendant of Ice',
+            'def' => '00000080-000d-0019-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_pendant_of_wind' => [
+        [
+            'name' => 'Pendant of Wind',
+            'def' => '00000080-000d-001a-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_pendant_of_water' => [
+        [
+            'name' => 'Pendant of Water',
+            'def' => '00000080-000d-001b-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'acc_pendant_of_ability' => [
+        [
+            'name' => 'Pendant of Ability',
+            'def' => '00000080-000d-001c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'kit_ancient_rings' => [
+        [
+            'name' => 'Ring of Ice',
+            'def' => '00000080-000d-0008-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Ring of Poison',
+            'def' => '00000080-000d-0009-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pendant of Lighting',
+            'def' => '00000080-000d-000c-0000-000000000000',
+            'lvl' => 13,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
     'pet_fenrir_gold' => [
-        ['name' => 'Horn of Fenrir Gold', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+        [
+            'name' => 'Horn of Fenrir Gold (+Illusion)',
+            'def' => '00000080-000d-0025-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pet_fenrir_black' => [
-        ['name' => 'Horn of Fenrir Black', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+        [
+            'name' => 'Horn of Fenrir Black (+Destruction)',
+            'def' => '00000080-000d-0025-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pet_fenrir_blue' => [
-        ['name' => 'Horn of Fenrir Blue', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+        [
+            'name' => 'Horn of Fenrir Blue (+Protect)',
+            'def' => '00000080-000d-0025-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pet_fenrir_red' => [
-        ['name' => 'Horn of Fenrir Red', 'def' => '00000080-000d-0025-0000-000000000000', 'lvl' => 0, 'w' => 2, 'h' => 2, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+        [
+            'name' => 'Horn of Fenrir Red (Clássico)',
+            'def' => '00000080-000d-0025-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pet_dinorant' => [
-        ['name' => 'Horn of Dinorant +15', 'def' => '00000080-000d-0003-0000-000000000000', 'lvl' => 15, 'w' => 1, 'h' => 1, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+        [
+            'name' => 'Horn of Dinorant (Com Skill)',
+            'def' => '00000080-000d-0003-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pet_dark_horse' => [
-        ['name' => 'Dark Horse Lvl 50', 'def' => '00000080-000d-0004-0000-000000000000', 'lvl' => 50, 'w' => 1, 'h' => 1, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+        [
+            'name' => 'Dark Horse de Dark Lord (Lv 50)',
+            'def' => '00000080-000d-0004-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pet_dark_raven' => [
-        ['name' => 'Dark Raven Lvl 50', 'def' => '00000080-000d-0005-0000-000000000000', 'lvl' => 50, 'w' => 1, 'h' => 1, 'skill' => true, 'dur' => 255, 'luck' => true, 'opt' => 0]
+        [
+            'name' => 'Dark Raven de Dark Lord (Lv 50)',
+            'def' => '00000080-000d-0005-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
-
-    // --- ASAS & CAPAS ---
-    'wing_storm_lvl3' => [
-        ['name' => 'Wing of Storm Lvl 3', 'def' => '00000080-000c-0024-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'pet_panda' => [
+        [
+            'name' => 'Pet Panda Sagrado (30 Dias)',
+            'def' => '00000080-000d-0050-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
-    'wing_spacetime_lvl3' => [
-        ['name' => 'Wing of Eternal Lvl 3', 'def' => '00000080-000c-0025-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
+    'pet_demon' => [
+        [
+            'name' => 'Pet Demon (+40% Dano)',
+            'def' => '00000080-000d-0040-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
-    'wing_illusion_lvl3' => [
-        ['name' => 'Wing of Illusion Lvl 3', 'def' => '00000080-000c-0026-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
-    ],
-    'wing_ruin_lvl3' => [
-        ['name' => 'Wing of Ruin Lvl 3', 'def' => '00000080-000c-0027-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
-    ],
-    'cape_emperor_lvl3' => [
-        ['name' => 'Cape of Emperor Lvl 3', 'def' => '00000080-000c-0028-0000-000000000000', 'lvl' => 13, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false]
-    ],
-    'wing_dragon_lvl2' => [
-        ['name' => 'Dragon Wings Lvl 2', 'def' => '00000080-000c-0005-0000-000000000000', 'lvl' => 11, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 4, 'opt_def' => false]
-    ],
-    'wing_angel_lvl2' => [
-        ['name' => 'Soul Wings Lvl 2', 'def' => '00000080-000c-0004-0000-000000000000', 'lvl' => 11, 'w' => 3, 'h' => 3, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 4, 'opt_def' => false]
-    ],
-
-    // --- JÓIAS & ACESSÓRIOS ---
-    'kit_ancient_rings' => [
-        ['name' => 'Ring of Ice +13',        'def' => '00000080-000d-0008-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Ring of Poison +13',     'def' => '00000080-000d-0009-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => true],
-        ['name' => 'Pendant of Lighting +13','def' => '00000080-000d-000c-0000-000000000000', 'lvl' => 13, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 255, 'luck' => true, 'opt' => 7, 'opt_def' => false],
+    'pet_spirit_guardian' => [
+        [
+            'name' => 'Spirit of Guardian (+30% Defesa)',
+            'def' => '00000080-000d-0041-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => true,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pack_bless_30' => [
-        ['name' => 'Pack 30x Jewel of Bless', 'def' => '00000080-000c-001e-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Bless',
+            'def' => '00000080-000e-000d-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pack_soul_30' => [
-        ['name' => 'Pack 30x Jewel of Soul', 'def' => '00000080-000c-001f-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
-    ],
-    'pack_life_30' => [
-        ['name' => 'Pack 30x Jewel of Life', 'def' => '00000080-000c-0088-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Soul',
+            'def' => '00000080-000e-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pack_chaos_30' => [
-        ['name' => 'Pack 30x Jewel of Chaos', 'def' => '00000080-000c-008d-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Chaos',
+            'def' => '00000080-000c-000f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'pack_life_30' => [
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Life',
+            'def' => '00000080-000e-0010-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'pack_creation_30' => [
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Creation',
+            'def' => '00000080-000e-0016-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
     'pack_harmony_30' => [
-        ['name' => 'Pack 30x Jewel of Harmony', 'def' => '00000080-000c-008c-0000-000000000000', 'lvl' => 2, 'w' => 1, 'h' => 1, 'skill' => false, 'dur' => 1, 'luck' => false, 'opt' => 0]
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Harmony',
+            'def' => '00000080-000e-002a-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
     ],
+    'pack_guardian_30' => [
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 30x Jewel of Guardian',
+            'def' => '00000080-000e-001f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'box_kundun_1' => [
+        [
+            'name' => 'Pack 5x Box of Kundun +1',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 1,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +1',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 1,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +1',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 1,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +1',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 1,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +1',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 1,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'box_kundun_2' => [
+        [
+            'name' => 'Pack 5x Box of Kundun +2',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 2,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +2',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 2,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +2',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 2,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +2',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 2,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +2',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 2,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'box_kundun_3' => [
+        [
+            'name' => 'Pack 5x Box of Kundun +3',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 3,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +3',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 3,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +3',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 3,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +3',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 3,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +3',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 3,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'box_kundun_4' => [
+        [
+            'name' => 'Pack 5x Box of Kundun +4',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 4,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +4',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 4,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +4',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 4,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +4',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 4,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +4',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 4,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'box_kundun_5' => [
+        [
+            'name' => 'Pack 5x Box of Kundun +5',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 5,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +5',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 5,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +5',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 5,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +5',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 5,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ],
+        [
+            'name' => 'Pack 5x Box of Kundun +5',
+            'def' => '00000080-000e-000b-0000-000000000000',
+            'lvl' => 5,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'mat_feather_condor' => [
+        [
+            'name' => 'Feather of Condor (Pena Sagrada)',
+            'def' => '00000080-000d-0035-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'mat_flame_condor' => [
+        [
+            'name' => 'Flame of Condor (Chama Sagrada)',
+            'def' => '00000080-000d-0034-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'mat_lochs_feather' => [
+        [
+            'name' => 'Loch\'s Feather (Pena de Ícaro)',
+            'def' => '00000080-000d-000e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'seal_ascension_7d' => [
+        [
+            'name' => 'Seal of Ascension',
+            'def' => '00000080-000e-002e-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'seal_wealth_7d' => [
+        [
+            'name' => 'Seal of Wealth',
+            'def' => '00000080-000e-002f-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ],
+    'cherry_blossom_wine' => [
+        [
+            'name' => 'Cherry Blossom Wine',
+            'def' => '00000080-000e-0055-0000-000000000000',
+            'lvl' => 0,
+            'w' => 1,
+            'h' => 1,
+            'skill' => false,
+            'dur' => 255,
+            'luck' => false,
+            'opt' => 0,
+            'opt_def' => false
+        ]
+    ]
 ];
 
 // 3. Process Purchase POST
@@ -1263,6 +10776,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
     </div>
 </div>
 
+<!-- SEARCH BAR & QUICK FILTERS -->
+<div class="shop-nav-toolbar" style="margin-bottom: 25px;">
+    <!-- LIVE SEARCH INPUT -->
+    <div style="position: relative; max-width: 550px; margin-bottom: 18px;">
+        <i class="fa fa-search" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: rgba(212,175,55,0.7); font-size: 15px;"></i>
+        <input type="text" id="shopSearchInput" onkeyup="filterShopLive()" placeholder="🔍 Buscar por nome, set, arma, classe (ex: Great Dragon, Kundun, Fenrir, Asa)..." style="width: 100%; background: rgba(15,23,42,0.92); border: 1px solid rgba(212,175,55,0.45); border-radius: 25px; padding: 11px 40px 11px 45px; color: #fff; font-size: 13.5px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <button type="button" onclick="clearShopLiveSearch()" id="shopSearchClearBtn" style="display: none; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #94a3b8; font-size: 15px; cursor: pointer;"><i class="fa fa-times"></i></button>
+    </div>
+
+    <!-- CLASS FILTER PILLS (Visible when viewing Sets or All) -->
+    <div id="shopClassPills" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 15px; padding: 10px 14px; background: rgba(15,23,42,0.6); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px;">
+        <span style="font-size: 12px; font-weight: 700; color: #d4af37; margin-right: 4px;"><i class="fa fa-filter"></i> CLASSE:</span>
+        <button type="button" class="btn btn-xs btn-class-pill active" onclick="filterClass('all', this)" style="background: rgba(212,175,55,0.28); border: 1px solid #d4af37; color: #ffd700; font-weight: 700; padding: 5px 12px; border-radius: 4px;">TODAS</button>
+        <button type="button" class="btn btn-xs btn-class-pill" onclick="filterClass('bk', this)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 600; padding: 5px 12px; border-radius: 4px;">🗡️ BLADE KNIGHT</button>
+        <button type="button" class="btn btn-xs btn-class-pill" onclick="filterClass('sm', this)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 600; padding: 5px 12px; border-radius: 4px;">🔮 SOUL MASTER</button>
+        <button type="button" class="btn btn-xs btn-class-pill" onclick="filterClass('elf', this)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 600; padding: 5px 12px; border-radius: 4px;">🏹 MUSE ELF</button>
+        <button type="button" class="btn btn-xs btn-class-pill" onclick="filterClass('mg', this)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 600; padding: 5px 12px; border-radius: 4px;">⚔️ MAGIC GLAD.</button>
+        <button type="button" class="btn btn-xs btn-class-pill" onclick="filterClass('dl', this)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 600; padding: 5px 12px; border-radius: 4px;">👑 DARK LORD</button>
+        <button type="button" class="btn btn-xs btn-class-pill" onclick="filterClass('sum', this)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 600; padding: 5px 12px; border-radius: 4px;">🩸 SUMMONER</button>
+        <button type="button" class="btn btn-xs btn-class-pill" onclick="filterClass('rf', this)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; font-weight: 600; padding: 5px 12px; border-radius: 4px;">🥊 RAGE FIGHTER</button>
+    </div>
+</div>
+
 <!-- CATEGORY FILTER BUTTONS -->
 <div class="shop-filter-bar" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px;">
     <button type="button" class="btn btn-sm btn-shop-filter active" onclick="filterCategory('all', this)" style="background:rgba(212,175,55,0.25); border:1px solid rgba(212,175,55,0.7); color:#ffd700; font-weight:700; padding:8px 16px; border-radius:6px;">
@@ -1287,7 +10823,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
 
     <div class="row">
         <?php foreach ($cat['items'] as $item): ?>
-        <div class="col-md-4 col-sm-6" style="margin-bottom:25px;">
+        <div class="col-md-4 col-sm-6 shop-item-col" style="margin-bottom:25px;" data-cat="<?=$cat_key;?>" data-class="<?=$item['class_filter'] ?? 'all';?>" data-name="<?=htmlspecialchars(strtolower($item['name']));?>">
             <div class="shop-item-card">
                 <div>
                     <!-- 3D ITEM SHOWCASE STAGE -->
@@ -1367,30 +10903,85 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
 
 <!-- JAVASCRIPT CATEGORY FILTER -->
 <script>
+
+let currentCatFilter = 'all';
+let currentClassFilter = 'all';
+
+function filterShopLive() {
+    const q = (document.getElementById('shopSearchInput').value || '').toLowerCase().trim();
+    const clearBtn = document.getElementById('shopSearchClearBtn');
+    if (clearBtn) clearBtn.style.display = q.length > 0 ? 'block' : 'none';
+
+    const cols = document.querySelectorAll('.shop-item-col');
+    let visibleCount = 0;
+
+    cols.forEach(col => {
+        const itemCat = col.getAttribute('data-cat');
+        const itemClass = col.getAttribute('data-class');
+        const itemName = col.getAttribute('data-name');
+
+        const matchCat = (currentCatFilter === 'all' || itemCat === currentCatFilter);
+        const matchClass = (currentClassFilter === 'all' || itemClass === currentClassFilter || itemClass === 'all');
+        const matchSearch = (q === '' || itemName.includes(q));
+
+        if (matchCat && matchClass && matchSearch) {
+            col.style.display = 'block';
+            visibleCount++;
+        } else {
+            col.style.display = 'none';
+        }
+    });
+
+    // Toggle category sections if empty
+    document.querySelectorAll('.shop-category-section').forEach(sec => {
+        const hasVisible = sec.querySelectorAll('.shop-item-col[style*="display: block"]').length > 0;
+        sec.style.display = (visibleCount === 0 || hasVisible) ? 'block' : 'none';
+    });
+}
+
+function clearShopLiveSearch() {
+    document.getElementById('shopSearchInput').value = '';
+    filterShopLive();
+}
+
+function filterClass(cls, btn) {
+    currentClassFilter = cls;
+    document.querySelectorAll('.btn-class-pill').forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'rgba(15,23,42,0.8)';
+        b.style.borderColor = 'rgba(255,255,255,0.15)';
+        b.style.color = '#cbd5e1';
+    });
+    btn.classList.add('active');
+    btn.style.background = 'rgba(212,175,55,0.28)';
+    btn.style.borderColor = '#d4af37';
+    btn.style.color = '#ffd700';
+
+    filterShopLive();
+}
+
 function filterCategory(cat, btn) {
-    var buttons = document.querySelectorAll('.btn-shop-filter');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].style.background = 'rgba(15,23,42,0.8)';
-        buttons[i].style.borderColor = 'rgba(255,255,255,0.15)';
-        buttons[i].style.color = '#cbd5e1';
-    }
+    currentCatFilter = cat;
+    document.querySelectorAll('.btn-shop-filter').forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'rgba(15,23,42,0.8)';
+        b.style.borderColor = 'rgba(255,255,255,0.15)';
+        b.style.color = '#cbd5e1';
+    });
+    btn.classList.add('active');
     btn.style.background = 'rgba(212,175,55,0.25)';
     btn.style.borderColor = 'rgba(212,175,55,0.7)';
     btn.style.color = '#ffd700';
 
-    var sections = document.querySelectorAll('.shop-category-section');
-    for (var j = 0; j < sections.length; j++) {
-        if (cat === 'all') {
-            sections[j].style.display = 'block';
-        } else {
-            if (sections[j].id === 'section_' + cat) {
-                sections[j].style.display = 'block';
-            } else {
-                sections[j].style.display = 'none';
-            }
-        }
+    // Show/hide class pills bar based on category
+    const classPills = document.getElementById('shopClassPills');
+    if (classPills) {
+        classPills.style.display = (cat === 'all' || cat === 'sets') ? 'flex' : 'none';
     }
+
+    filterShopLive();
 }
+
 </script>
 
 <!-- MODAL DOAÇÃO PIX AUTOMÁTICO -->
