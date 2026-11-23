@@ -10637,48 +10637,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
 .item-3d-stage {
     position: relative;
     width: 100%;
-    height: 160px;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at 50% 65%, rgba(212,175,55,0.18) 0%, rgba(15,23,42,0.85) 65%, rgba(10,15,30,0.98) 100%);
-    border: 1px solid rgba(212,175,55,0.28);
+    background: linear-gradient(180deg, #0e1526 0%, #070b14 100%);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 8px;
     margin-bottom: 14px;
     overflow: hidden;
 }
 .item-3d-glow {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(212,175,55,0.28) 0%, transparent 70%);
-    filter: blur(14px);
-    animation: itemPulseGlow 3s ease-in-out infinite alternate;
+    display: none !important;
 }
 .item-3d-pedestal {
     position: absolute;
-    bottom: 10px;
-    width: 120px;
-    height: 28px;
+    bottom: 8px;
+    width: 140px;
+    height: 22px;
     border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(212,175,55,0.4) 0%, rgba(212,175,55,0.1) 60%, transparent 80%);
-    border: 1px solid rgba(212,175,55,0.55);
-    box-shadow: 0 0 16px rgba(212,175,55,0.4), inset 0 0 8px rgba(212,175,55,0.3);
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 50%, transparent 75%);
+    border: none;
+    box-shadow: none;
     transform: perspective(200px) rotateX(40deg);
+    pointer-events: none;
 }
 .item-3d-render {
-    max-height: 125px;
-    max-width: 145px;
+    max-height: 195px;
+    max-width: 88%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     z-index: 2;
-    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.9)) drop-shadow(0 0 10px rgba(212,175,55,0.38));
-    transition: transform 0.35s ease, filter 0.35s ease;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.85));
+    transition: transform 0.3s ease, filter 0.3s ease;
     animation: itemHoverFloat 3.5s ease-in-out infinite;
 }
 .shop-item-card:hover .item-3d-render {
-    transform: scale(1.1) translateY(-6px);
-    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.95)) drop-shadow(0 0 20px rgba(212,175,55,0.7));
+    transform: scale(1.08) translateY(-6px);
+    filter: drop-shadow(0 14px 24px rgba(0,0,0,0.95));
 }
 .item-3d-fallback {
     z-index: 2;
