@@ -1294,7 +1294,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy_item_id'])) {
                     <div class="item-3d-stage">
                         <div class="item-3d-glow"></div>
                         <div class="item-3d-pedestal"></div>
-                        <img src="img/items/<?=$item['id'];?>.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" class="item-3d-render" alt="<?=$item['name'];?>">
+                        <img src="img/items/<?=$item['id'];?>.png?v=<?=file_exists('img/items/'.$item['id'].'.png') ? filemtime('img/items/'.$item['id'].'.png') : 2;?>" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" class="item-3d-render" alt="<?=$item['name'];?>">
                         <div class="item-3d-fallback" style="display:none;">
                             <i class="fa <?=$item['icon_fa'];?>"></i>
                         </div>
